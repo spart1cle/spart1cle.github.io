@@ -1,5 +1,22 @@
 [
   {
+    "id": "1779583664084",
+    "type": "link",
+    "date": "2026-05-24",
+    "text": "Somebody at hugging face is working to recreate the venerable papers with code website",
+    "url": "https://paperswithcode.co/",
+    "tags": [
+      "research",
+      "paper"
+    ],
+    "preview": {
+      "title": "Papers with Code",
+      "description": "Trending AI research papers with code, datasets, methods, and evaluation leaderboards.",
+      "image": "https://paperswithcode.co/og-image.png?v=2",
+      "domain": "paperswithcode.co"
+    }
+  },
+  {
     "id": "1778677374925",
     "type": "link",
     "date": "2026-05-13",
