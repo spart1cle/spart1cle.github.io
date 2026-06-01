@@ -1,5 +1,22 @@
 [
   {
+    "id": "1780317872889",
+    "type": "link",
+    "date": "2026-06-01",
+    "text": "NVIDIA Cosmos 3 Released\n> The First Open Omni-model for Physical AI Reasoning and Action",
+    "url": "https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai",
+    "tags": [
+      "world models",
+      "robotics"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "huggingface.co"
+    }
+  },
+  {
     "id": "1779583664084",
     "type": "link",
     "date": "2026-05-24",
