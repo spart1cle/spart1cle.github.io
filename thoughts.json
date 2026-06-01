@@ -4,16 +4,16 @@
     "type": "link",
     "date": "2026-06-01",
     "text": "NVIDIA Cosmos 3 Released\n> The First Open Omni-model for Physical AI Reasoning and Action",
-    "url": "https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai",
+    "url": "https://developer.nvidia.com/blog/develop-physical-ai-reasoning-world-and-action-models-with-nvidia-cosmos-3?ncid=so-yout-9863",
     "tags": [
       "world models",
       "robotics"
     ],
     "preview": {
-      "title": "",
-      "description": "",
-      "image": null,
-      "domain": "huggingface.co"
+      "title": "Develop Physical AI Reasoning, World, and Action Models with NVIDIA Cosmos 3 | NVIDIA Technical Blog",
+      "description": "Physical AI systems must understand the real world before they can act within it. Robots, autonomous vehicles, and smart spaces need to understand what’s happening in their world…",
+      "image": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/05/Hammer-Robot-500x282.gif",
+      "domain": "developer.nvidia.com"
     }
   },
   {
