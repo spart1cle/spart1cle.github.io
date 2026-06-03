@@ -1,5 +1,22 @@
 [
   {
+    "id": "1780527827162",
+    "type": "link",
+    "date": "2026-06-03",
+    "text": "A Functional Taxonomy of World Models courtesy of World Labs",
+    "url": "https://drfeifei.substack.com/p/a-functional-taxonomy-of-world-models",
+    "tags": [
+      "world models",
+      "blog"
+    ],
+    "preview": {
+      "title": "A Functional Taxonomy of World Models",
+      "description": "Renderers, Simulators, Planners, and the Loop That Connects Them",
+      "image": "https://substackcdn.com/image/fetch/$s_!i95a!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa2a1bef9-6c83-4fd9-8a07-4c92402cd499_1766x989.png",
+      "domain": "drfeifei.substack.com"
+    }
+  },
+  {
     "id": "1780317872889",
     "type": "link",
     "date": "2026-06-01",
