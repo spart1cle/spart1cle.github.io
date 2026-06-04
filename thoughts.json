@@ -1,5 +1,24 @@
 [
   {
+    "id": "1780591389991",
+    "type": "link",
+    "date": "2026-06-04",
+    "text": "1x announces new world model lab to scale humanoid intelligence!",
+    "url": "https://www.1x.tech/discover/1x-world-model-lab",
+    "tags": [
+      "world models",
+      "startup",
+      "robotics",
+      "news"
+    ],
+    "preview": {
+      "title": "1X Launches World Model Lab to Scale Humanoid Intelligence",
+      "description": "1X launches the World Model Lab, a new embodied AI research organization led by Sam Sinha to accelerate autonomous humanoids through large-scale world model pretraining.",
+      "image": "https://cdn.sanity.io/images/qka6yvsc/production/6aca2147f23302f727455205c817c7a80fb196e7-1650x953.jpg?fit=max&auto=format",
+      "domain": "1x.tech"
+    }
+  },
+  {
     "id": "1780527827162",
     "type": "link",
     "date": "2026-06-03",
