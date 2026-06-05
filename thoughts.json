@@ -1,5 +1,24 @@
 [
   {
+    "id": "1780703613578",
+    "type": "link",
+    "date": "2026-06-05",
+    "text": "Mac Schwager and Marco Hutter are co authors on this position paper, \"Robots need more than VLAs and World Models\". They argue for mechanisms to convert the world's unstructured behavioral data into grounded robot supervision.\n\nPaper: https://paper.motoniq.ai\n\nPost: https://www.linkedin.com/posts/everybody-is-racing-to-build-larger-vlas-share-7468697488229675009-cX1l/",
+    "url": "https://paper.motoniq.ai",
+    "tags": [
+      "vla",
+      "world models",
+      "paper",
+      "robotics"
+    ],
+    "preview": {
+      "title": "Motoniq - Frontier AI for the Physical Economy",
+      "description": "Motoniq is building a new class of machine intelligence for real-world work. Built by world-class AI researchers, roboticists, engineers, and operators with deep industrial experience.",
+      "image": "https://paper.motoniq.ai/og.png",
+      "domain": "paper.motoniq.ai"
+    }
+  },
+  {
     "id": "1780591389991",
     "type": "link",
     "date": "2026-06-04",
