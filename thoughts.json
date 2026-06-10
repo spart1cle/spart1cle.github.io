@@ -1,5 +1,22 @@
 [
   {
+    "id": "1781086500946",
+    "type": "link",
+    "date": "2026-06-10",
+    "text": "Curious about the future of vision, robotics, and world models? Recordings from the \"Frontiers of Embodied Al\" talks are now available on YouTube!\n\n- Jitendra MALIK: \"Vision and Robotics for Embodied Al\"\n- Vladlen Koltun: \"On Spatial Cognition in Frontier Models\"\n- Yann LeCun: \"World Models: Enabling the next Al revolution\"\n- Shuran Song: \"Making Manipulation as Simple as Possible but Not Simpler\"",
+    "url": "https://m.youtube.com/playlist?list=PLfjJj_IgRo7DWoamlTwlK7-4bZhNNNFgM",
+    "tags": [
+      "video",
+      "robotics"
+    ],
+    "preview": {
+      "title": "Frontiers of Embodied AI",
+      "description": "Recordings of the distinguished lectures on embodied artificial intelligence delivered at ETH Zurich by Jitendra Malik, Vladlen Koltun, Yann LeCun, and Shura…",
+      "image": "https://i.ytimg.com/pl_c/PLfjJj_IgRo7DWoamlTwlK7-4bZhNNNFgM/studio_square_thumbnail.jpg?sqp=CNDQpNEG-oaymwEICKoDEPABSFqi85f_AwYIptuf0QY=&rs=AOn4CLD87nEMi8lv_qVYqmHg6CMiNcm-zQ&days_since_epoch=20614",
+      "domain": "m.youtube.com"
+    }
+  },
+  {
     "id": "1780703613578",
     "type": "link",
     "date": "2026-06-05",
