@@ -1,5 +1,23 @@
 [
   {
+    "id": "1781541070704",
+    "type": "link",
+    "date": "2026-06-15",
+    "text": "The rise of World Action Models (WAMs)",
+    "url": "https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/",
+    "tags": [
+      "world models",
+      "blog",
+      "robotics"
+    ],
+    "preview": {
+      "title": "Pretrained to Imagine, Fine-Tuned to Act: The Rise of World-Action Models | NVIDIA Technical Blog",
+      "description": "Quick glossary for readers new to VLA/WAM terminology VLA Vision-Language-Action model: a robot policy that starts from a pretrained VLM backbone and adapts it to generate actions from visual…",
+      "image": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/05/WAM_Blog_Post_Header.webp",
+      "domain": "developer.nvidia.com"
+    }
+  },
+  {
     "id": "1781086500946",
     "type": "link",
     "date": "2026-06-10",
