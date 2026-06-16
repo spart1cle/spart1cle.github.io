@@ -1,5 +1,22 @@
 [
   {
+    "id": "1781638164503",
+    "type": "link",
+    "date": "2026-06-16",
+    "text": "Codex agents control a fleet of robots to perform `AutoResearch` in the real world. Jim Fan strikes again 😃 \n\n> ENPIRE: Agentic Robot Policy\n> Self-Improvement in the Real World",
+    "url": "https://research.nvidia.com/labs/gear/enpire/",
+    "tags": [
+      "robotics",
+      "research"
+    ],
+    "preview": {
+      "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
+      "description": "Anonymous ENPIRE project website for agentic robot policy self-improvement in the real world.",
+      "image": "https://research.nvidia.com/labs/gear/enpire/images/logos/nvidia-logo.png",
+      "domain": "research.nvidia.com"
+    }
+  },
+  {
     "id": "1781622458199",
     "type": "link",
     "date": "2026-06-16",
