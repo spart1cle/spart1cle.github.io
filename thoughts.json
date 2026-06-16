@@ -1,5 +1,23 @@
 [
   {
+    "id": "1781621221748",
+    "type": "link",
+    "date": "2026-06-16",
+    "text": "Meet Eno, Genesis AI's new humanoid robot",
+    "url": "https://www.genesis.ai/press/meet-eno",
+    "tags": [
+      "robotics",
+      "startup",
+      "news"
+    ],
+    "preview": {
+      "title": "Meet Eno",
+      "description": "Our first general-purpose robot. Built to move, adapt, and learn continuously across the tasks and environments where people work.",
+      "image": "https://www.datocms-assets.com/199265/1781542957-genesis-eno-lab-alameda-ca-06082026-dropping.png?auto=format&fit=max&w=1200",
+      "domain": "genesis.ai"
+    }
+  },
+  {
     "id": "1781541070704",
     "type": "link",
     "date": "2026-06-15",
