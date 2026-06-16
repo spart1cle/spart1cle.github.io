@@ -1,5 +1,25 @@
 [
   {
+    "id": "1781622458199",
+    "type": "link",
+    "date": "2026-06-16",
+    "text": "Qwen-Robot Suite: A Foundation Model Suite for Physical World Intelligence",
+    "url": "https://qwen.ai/blog?id=qwen-robotsuite",
+    "tags": [
+      "robotics",
+      "world models",
+      "vla",
+      "news",
+      "blog"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "qwen.ai"
+    }
+  },
+  {
     "id": "1781621221748",
     "type": "link",
     "date": "2026-06-16",
