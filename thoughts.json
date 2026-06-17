@@ -1,5 +1,23 @@
 [
   {
+    "id": "1781714836362",
+    "type": "link",
+    "date": "2026-06-17",
+    "text": "MolmoMotion: Language-guided 3D motion forecasting",
+    "url": "https://allenai.org/blog/molmo-motion",
+    "tags": [
+      "blog",
+      "robotics",
+      "vision"
+    ],
+    "preview": {
+      "title": "MolmoMotion: Language-guided 3D motion forecasting | Ai2",
+      "description": "MolmoMotion is an open, language-guided 3D motion forecasting model that predicts how object points will move in the future, enabling stronger motion prediction for robotics, video generation, and other systems that need to reason about what happens next.",
+      "image": "https://www.datocms-assets.com/64837/1781624762-ai2-molmomotion-graphic-development-v14.png",
+      "domain": "allenai.org"
+    }
+  },
+  {
     "id": "1781638164503",
     "type": "link",
     "date": "2026-06-16",
