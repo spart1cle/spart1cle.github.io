@@ -1,5 +1,23 @@
 [
   {
+    "id": "1781811883193",
+    "type": "link",
+    "date": "2026-06-18",
+    "text": "Curr-0: A Loco-Dexterous Manipulation Model for Humanoids",
+    "url": "https://current-robotics.com/blog/curr-0",
+    "tags": [
+      "robotics",
+      "startup",
+      "blog"
+    ],
+    "preview": {
+      "title": "Current Robotics",
+      "description": "Current Robotics - Advancing robotics research and products for a better future.",
+      "image": "https://files.manuscdn.com/webdev_screenshots/2026/06/16/RKXWjo6FCpYEtgUb7fzqdc.png?x-oss-process=image/resize,w_1200/crop,h_630,x_0,y_0",
+      "domain": "current-robotics.com"
+    }
+  },
+  {
     "id": "1781714836362",
     "type": "link",
     "date": "2026-06-17",
