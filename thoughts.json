@@ -1,5 +1,21 @@
 [
   {
+    "id": "1781961306085",
+    "type": "link",
+    "date": "2026-06-20",
+    "text": "Really nice visual explainers of important ML papers",
+    "url": "https://intuitivepapers.ai/",
+    "tags": [
+      "paper"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "intuitivepapers.ai"
+    }
+  },
+  {
     "id": "1781811883193",
     "type": "link",
     "date": "2026-06-18",
