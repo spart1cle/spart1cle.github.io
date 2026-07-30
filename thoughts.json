@@ -1,5 +1,23 @@
 [
   {
+    "id": "1785424922142",
+    "type": "link",
+    "date": "2026-07-30",
+    "text": "🦾",
+    "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "tags": [
+      "blog",
+      "robotics",
+      "news"
+    ],
+    "preview": {
+      "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+      "description": "From feet to fingertips — we are teaching robots intelligent whole-body control, fine dexterity, and teamwork to complete a broad range of complex tasks.",
+      "image": "https://lh3.googleusercontent.com/VZ5KwQMxv9xBcQnYipsQB2EUj3oX1yvFYLktIamY8V2a76Y6ctEEuaLF59TuPdnaVn6OAMINDilqnuhju1O-AXc7QlOVmcogjskrWxS7xVQ1mc5S7g=w1200-h630-n-nu-rw",
+      "domain": "deepmind.google"
+    }
+  },
+  {
     "id": "1781961306085",
     "type": "link",
     "date": "2026-06-20",
