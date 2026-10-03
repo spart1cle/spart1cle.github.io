@@ -18,23 +18,23 @@
    ============================================ */
 
 :root {
-  /* Light Mode */
-  --color-bg: #fafafa;
-  --color-bg-elevated: #ffffff;
-  --color-surface: #ffffff;
-  --color-text: #1a1a2e;
-  --color-text-secondary: #4a4a65;
-  --color-text-muted: #7a7a95;
-  --color-accent: #0d9488;
-  --color-accent-hover: #0f766e;
-  --color-accent-subtle: rgba(13, 148, 136, 0.07);
-  --color-border: #e2e4e9;
-  --color-card-shadow: rgba(0, 0, 0, 0.06);
-  --color-card-shadow-hover: rgba(0, 0, 0, 0.12);
-  --color-nav-bg: #f0f2f5;
-  --color-tag-bg: #e6f7f5;
-  --color-tag-text: #0d9488;
-  --color-footer-bg: #f0f2f5;
+  /* Light Mode — warm paper */
+  --color-bg: #faf7f1;
+  --color-bg-elevated: #fffdf8;
+  --color-surface: #fffdf8;
+  --color-text: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #a8a29e;
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
+  --color-accent-subtle: rgba(194, 65, 12, 0.08);
+  --color-border: #e8e0d2;
+  --color-card-shadow: rgba(68, 45, 25, 0.06);
+  --color-card-shadow-hover: rgba(68, 45, 25, 0.10);
+  --color-nav-bg: #f4efe4;
+  --color-tag-bg: #f5efe3;
+  --color-tag-text: #9a3412;
+  --color-footer-bg: #f4efe4;
   --color-award-bg: #fef3c7;
   --color-award-text: #92400e;
   --color-tag-mix: black;
@@ -49,7 +49,8 @@
   --space-3xl: 4rem;
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-size-xs: 0.8125rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -62,7 +63,7 @@
   /* Layout */
   --max-width: 860px;
   --nav-height: 60px;
-  --border-radius: 10px;
+  --border-radius: 8px;
   --border-radius-sm: 6px;
   --radius-full: 999px;
 
@@ -73,22 +74,22 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #1a1a1a;
-  --color-bg-elevated: #242424;
-  --color-surface: #2a2a2a;
-  --color-text: #e8e4df;
-  --color-text-secondary: #b0aaa2;
-  --color-text-muted: #787068;
-  --color-accent: #2dd4bf;
-  --color-accent-hover: #5eead4;
-  --color-accent-subtle: rgba(45, 212, 191, 0.1);
-  --color-border: #333333;
+  --color-bg: #1c1917;
+  --color-bg-elevated: #26211d;
+  --color-surface: #2a2521;
+  --color-text: #f3ede2;
+  --color-text-secondary: #d6cfc0;
+  --color-text-muted: #8d8478;
+  --color-accent: #fb923c;
+  --color-accent-hover: #fdba74;
+  --color-accent-subtle: rgba(251, 146, 60, 0.10);
+  --color-border: #3b342c;
   --color-card-shadow: rgba(0, 0, 0, 0.3);
   --color-card-shadow-hover: rgba(0, 0, 0, 0.5);
-  --color-nav-bg: #141414;
-  --color-tag-bg: #142825;
-  --color-tag-text: #2dd4bf;
-  --color-footer-bg: #141414;
+  --color-nav-bg: #14110e;
+  --color-tag-bg: #2e2822;
+  --color-tag-text: #fdba74;
+  --color-footer-bg: #14110e;
   --color-award-bg: #2a2018;
   --color-award-text: #fbbf24;
   --color-tag-mix: white;
@@ -135,9 +136,9 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.7;
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
@@ -211,6 +212,7 @@ ul { list-style: none; }
 .nav-links a {
   color: var(--color-text-secondary);
   text-decoration: none;
+  font-family: var(--font-sans);
   font-size: var(--font-size-sm);
   font-weight: 500;
   transition: color var(--transition-fast);
@@ -311,6 +313,8 @@ ul { list-style: none; }
 
 .section h2 {
   font-size: var(--font-size-xl);
+  font-family: var(--font-sans);
+  letter-spacing: -0.015em;
   font-weight: 700;
   margin-bottom: var(--space-xl);
   color: var(--color-text);
@@ -321,10 +325,10 @@ ul { list-style: none; }
 .section h2::after {
   content: '';
   display: block;
-  width: 100%;
-  height: 3px;
+  width: 2.5rem;
+  height: 2px;
   background: var(--color-accent);
-  border-radius: 2px;
+  border-radius: 1px;
   margin-top: var(--space-xs);
 }
 
@@ -336,10 +340,7 @@ ul { list-style: none; }
 }
 
 #hero-canvas {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.7;
+  display: none;
 }
 
 .hero-content {
@@ -354,6 +355,8 @@ ul { list-style: none; }
 
 .hero-text h1 {
   font-size: var(--font-size-3xl);
+  font-family: var(--font-sans);
+  letter-spacing: -0.025em;
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: var(--space-sm);
@@ -362,32 +365,27 @@ ul { list-style: none; }
 
 .hero-title {
   font-size: var(--font-size-lg);
+  font-family: var(--font-sans);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-xs);
-  margin-left: calc(-1 * var(--space-md));
-  display: inline-block;
-  padding: var(--space-xs) var(--space-md);
-  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
-  border-radius: var(--radius-full);
-  transition: color var(--transition-slow),
-              background-color var(--transition-slow);
+  transition: color var(--transition-slow);
 }
 
 .hero-org {
   font-size: var(--font-size-lg);
-  color: var(--color-accent);
+  font-family: var(--font-sans);
   font-weight: 600;
   margin-bottom: var(--space-md);
-  margin-left: calc(-1 * var(--space-md));
   display: flex;
   width: fit-content;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-xs) var(--space-md);
-  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
-  border-radius: var(--radius-full);
-  transition: color var(--transition-slow),
-              background-color var(--transition-slow);
+  color: var(--color-text);
+  transition: color var(--transition-slow);
+}
+
+.hero-org a {
+  color: var(--color-accent);
 }
 
 .hero-org-logo {
@@ -402,15 +400,11 @@ ul { list-style: none; }
 
 .hero-focus {
   font-size: var(--font-size-sm);
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
   color: var(--color-text-muted);
   margin-bottom: var(--space-lg);
-  margin-left: calc(-1 * var(--space-md));
-  display: inline-block;
-  padding: var(--space-xs) var(--space-md);
-  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
-  border-radius: var(--radius-full);
-  transition: color var(--transition-slow),
-              background-color var(--transition-slow);
+  transition: color var(--transition-slow);
 }
 
 .hero-links {
@@ -429,6 +423,7 @@ ul { list-style: none; }
   background: color-mix(in srgb, var(--color-bg-elevated) 70%, transparent);
   color: var(--color-text-secondary);
   text-decoration: none;
+  font-family: var(--font-sans);
   font-size: var(--font-size-sm);
   font-weight: 500;
   transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
@@ -490,7 +485,6 @@ ul { list-style: none; }
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-accent);
   border-radius: var(--border-radius);
   padding: var(--space-xl);
   box-shadow: 0 1px 3px var(--color-card-shadow);
@@ -534,7 +528,6 @@ ul { list-style: none; }
   position: relative;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-accent);
   border-radius: var(--border-radius);
   margin-bottom: var(--space-lg);
   box-shadow: 0 1px 3px var(--color-card-shadow);
@@ -610,6 +603,8 @@ ul { list-style: none; }
 
 .pub-title {
   font-size: var(--font-size-base);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
   font-weight: 600;
   margin-bottom: var(--space-xs);
   color: var(--color-text);
@@ -660,6 +655,7 @@ ul { list-style: none; }
   color: var(--color-tag-text);
   padding: 1px 7px;
   border-radius: 4px;
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
   transition: background-color var(--transition-slow),
@@ -1130,6 +1126,8 @@ ul { list-style: none; }
 
 .timeline-company {
   font-size: var(--font-size-lg);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
   font-weight: 700;
   color: var(--color-text);
   transition: color var(--transition-slow);
@@ -1154,6 +1152,7 @@ ul { list-style: none; }
 
 .timeline-role {
   font-size: var(--font-size-base);
+  font-family: var(--font-sans);
   color: var(--color-accent);
   font-weight: 600;
   margin-bottom: var(--space-xs);
@@ -1509,20 +1508,20 @@ ul { list-style: none; }
 }
 
 .tag-filter-btn {
-  background: color-mix(in srgb, var(--tag-color, var(--color-accent)) 20%, transparent);
-  border-color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 40%, transparent);
-  color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 60%, var(--color-tag-mix));
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
 }
 
 .tag-filter-btn:hover {
-  background: color-mix(in srgb, var(--tag-color, var(--color-accent)) 35%, transparent);
-  border-color: var(--tag-color, var(--color-accent));
-  color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 70%, var(--color-tag-mix));
+  background: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .tag-filter-btn.active {
-  background: var(--tag-color, var(--color-accent));
-  border-color: var(--tag-color, var(--color-accent));
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   color: #fff;
 }
 
@@ -1670,24 +1669,26 @@ ul { list-style: none; }
 
 .reading-tag {
   font-size: 0.7rem;
-  padding: 0.15rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--tag-color, var(--color-accent)) 40%, transparent);
+  font-family: var(--font-sans);
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--tag-color, var(--color-accent)) 20%, transparent);
-  color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 60%, var(--color-tag-mix));
+  background: transparent;
+  color: var(--color-text-secondary);
   font-weight: 500;
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .reading-tag:hover {
-  background: color-mix(in srgb, var(--tag-color, var(--color-accent)) 35%, transparent);
-  border-color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 60%, transparent);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
 }
 
 .reading-tag.active {
-  background: var(--tag-color, var(--color-accent));
-  border-color: var(--tag-color, var(--color-accent));
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   color: #fff;
 }
 
