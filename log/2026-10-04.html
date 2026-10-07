@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunday, October 4, 2026 · Research Log · Brandon B. May</title>
+  <meta name="description" content="Gemini 4 Argon ships, Broadcom&#x27;s $42B Anthropic loan, and Trillium Labs for open post-training.">
+  <meta property="og:title" content="Sunday, October 4, 2026 · Research Log · Brandon B. May">
+  <meta property="og:description" content="Gemini 4 Argon ships, Broadcom&#x27;s $42B Anthropic loan, and Trillium Labs for open post-training.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-04.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-04.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sunday, October 4, 2026 · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="Gemini 4 Argon ships, Broadcom&#x27;s $42B Anthropic loan, and Trillium Labs for open post-training.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); }
+    .log-archive-card a { display: block; text-decoration: none; }
+    .log-archive-card a:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-date { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); display: block; margin-bottom: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Sunday, October 4, 2026</p>
+      <h2 class="section-title">AV + AI Research Notes</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Google shipped Gemini 4 Argon</strong>, opening the Gemini 4 generation with a model built for long-horizon software engineering, cyber defense, and enterprise knowledge work. Headline specs: 1M tokens of output per run, $2/$10 per million in/out introductory pricing, 77.9% on DeepSWE v1.1. Rollout is deliberately narrow, starting with vetted cyber defenders via the Fairwind Program. Note the pricing matches GPT-6.1 Sol and Claude Sonnet 5.5 exactly: three labs, three frontier releases, one price. <a href="https://bravenewcoin.com/insights/google-launches-gemini-4-argon-challenging-gpt-6-astra-with-1-million-token-output-window">BraveNewCoin</a></p>
+          <p><strong>Broadcom agreed to lend Anthropic up to $42B</strong> so the lab can lease chips Broadcom helped design, per Reuters reporting on Anthropic's IPO prospectus. The compute-financing stack keeps getting stranger: the chip vendor is now also the lender. <a href="https://www.rdworldonline.com/broadcom-lines-up-60-billion-as-suppliers-finance-the-frontier-labs-compute/">R&amp;D World</a></p>
+          <p><strong>Anthropic released Claude Opus 5.5</strong>: lower prices, faster, Fable-level performance, with a system card noting some sandbox-tampering attempts and expanded defender-focused cyber access. The defender-access expansion is the substantive bit. <a href="https://www.deeplearning.ai/the-batch/claude-opus-5-5-leaps-forward">DeepLearning.AI</a></p>
+          <p><strong>OpenAI launched GPT-6 Sol and Luna</strong> on the same day Anthropic launched Opus 5.5: cheaper tiers with fewer mistakes, in what reads as a straight price war between the frontier labs. <a href="https://gangstaai.org/news/openai-gpt-6-sol-luna-anthropic-claude-opus-5-5-same-day-price-war">Gangsta AI</a></p>
+          <p><strong>Trillium Labs launched</strong> as a nonprofit for open frontier AI science, starting with fully open post-training recipes. If it delivers real recipes rather than PDFs, it could matter a lot for the open-weights world. <a href="https://blog.trilliumlabs.org/p/introducing-trillium-labs">Trillium Labs</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>Stellantis and Wayve will demonstrate AI-powered hands-free driving</strong> at Wave by Vento in Turin (Oct 7-9), with supervised L2++ door-to-door driving in Fiat 500e and Maserati Grecale vehicles running STLA AutoDrive powered by Wayve. The thesis on display: one AI driving foundation spanning multiple vehicle platforms without redeveloping the driving intelligence per model. <a href="https://www.media.stellantis.com/em-en/corporate/press/stellantis-and-wayve-to-demonstrate-ai-powered-hands-free-driving-at-wave-by-vento-2026">Stellantis</a></p>
+          <p><strong><a href="https://arxiv.org/abs/2610.01741">ATI-VLA</a></strong> (NeurIPS 2026): an action-centric predictive VLA that aligns predictive-observation and action representations via a shared discrete codebook, reporting SOTA on sim and real manipulation. The framing of making predictive latents actually usable for action is directly relevant to world-model plus planning stacks.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2609.40285">PivotOPD</a></strong>: trains multi-turn agents both to avoid pivotal early mistakes and to recover from the bad states those mistakes create. The problem framing is better than most agent papers.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.21259">CogGym</a></strong> (MIT): 258 experiments from 100 cognitive-science papers turned into a trial-by-trial benchmark comparing human and machine judgments. A good eval-design reference.</p>
+          <p><strong><a href="https://wai-org.com/blog/clm/">Context Language Models</a></strong> (UW/WAI): rethinking KV-cache reuse around free context access instead of append-only prefixes. If it works, it changes inference architecture assumptions.</p>
+          <p>Safety and monitoring: <strong><a href="https://arxiv.org/abs/2609.38645">probe-guided fine-tuning</a></strong> with continuously updated probes (static probes are exploitable), and Hahn et al. on <strong><a href="https://arxiv.org/abs/2609.37312">hidden reasoning leaking</a></strong> beyond a complexity threshold while remaining unreadable to efficient chain-of-thought monitors. Both are genuinely useful for the monitoring conversation.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev"></span>
+<span class="next"><a href="2026-10-05.html">Next day</a> &rarr;</span>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>

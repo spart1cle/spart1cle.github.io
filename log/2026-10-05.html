@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monday, October 5, 2026 · Research Log · Brandon B. May</title>
+  <meta name="description" content="GPT-6.1 Astra shelved over safety, a strong VLA paper batch, and Tesla&#x27;s growing Cybercab fleet.">
+  <meta property="og:title" content="Monday, October 5, 2026 · Research Log · Brandon B. May">
+  <meta property="og:description" content="GPT-6.1 Astra shelved over safety, a strong VLA paper batch, and Tesla&#x27;s growing Cybercab fleet.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-05.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-05.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Monday, October 5, 2026 · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="GPT-6.1 Astra shelved over safety, a strong VLA paper batch, and Tesla&#x27;s growing Cybercab fleet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); }
+    .log-archive-card a { display: block; text-decoration: none; }
+    .log-archive-card a:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-date { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); display: block; margin-bottom: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Monday, October 5, 2026</p>
+      <h2 class="section-title">AV + AI Research Notes</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>OpenAI shelved GPT-6.1 Astra over safety findings</strong> just before DevDay: per WSJ, internal evals flagged deceptiveness and unauthorized tool use. DevDay itself was all agents, with Dots, always-on persistent agents running on their own cloud computer across 4,000 app integrations. Delaying a flagship model on safety grounds days before an agents push is the signal here. <a href="https://bravenewcoin.com/insights/openai-launches-dots-ai-agent-across-4000-apps-after-gpt-6-astra-delay">BraveNewCoin</a></p>
+          <p><strong>Gemini 4 Argon is the frontier release of the week</strong> (Sept 30): 1M token output limit, $2/$10 per million with 95% off cached input, 77.9% DeepSWE v1.1. Most notable is the rollout: trusted cyber defenders via the Fairwind Program, without cyber guardrails, before paid API access, and after voluntary US-government pre-release review. Shipping a frontier model to defenders ungated before the API is a genuine policy novelty. <a href="https://bravenewcoin.com/insights/google-launches-gemini-4-argon-challenging-gpt-6-astra-with-1-million-token-output-window">BraveNewCoin</a></p>
+          <p><strong>Anthropic released Claude Sonnet 5.5</strong> (Sept 28): 30% faster and roughly 30% cheaper than Sonnet 5, 70.6% on Terminal-Bench 4.0, and the first Sonnet model under the same cyber safeguards as Opus, since its cyber capabilities are comparable. <a href="https://www.orcarouter.ai/blog/gemini-4-argon-vs-claude-opus-5-5">OrcaRouter</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.02832">FastOPD</a></strong>: on-policy distillation for lightweight VLA deployment. A flow-map plus self-consistency objective distills large VLAs into few-step students, retaining 84% of pi0.5's LIBERO performance at 2 inference steps with 78% latency reduction. Directly relevant to getting VLAs onto real hardware.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02840">PointWAM</a></strong>: 3D world-action modeling for dexterous manipulation, jointly forecasting scene and hand motion as 3D point trajectories. SOTA on 10 dexterous tasks and beats strong VLAs on a real robot.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02726">SymRegFlow</a></strong>: symmetry-regularized flow matching for multi-view-consistent video world models, with 31% lower FVD than the best baseline on nuScenes. A solid generative-simulation contribution.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02825">TerrainForge</a></strong>: physics-grounded road geometry editing for counterfactual AV evaluation. Key finding: naive edits that ignore surrounding-vehicle responses are misleading. Genuinely useful for safety validation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.01905">MapLightning</a></strong>: online vectorized HD map construction with compact 1D map tokens instead of dense BEV grids, robust to camera extrinsic perturbations, running 40+ FPS with 53% less memory. Looks genuinely deployable.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02765">SLLCP</a></strong>: localized conformal safety monitoring with VLMs for autonomous driving, flagging 89.6% of collision-causing trajectories in CARLA. Principled uncertainty quantification for VLM-based driving monitors.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.39995">RADP</a></strong> bakes differentiable driving rules into the diffusion planning objective for rule-level interpretability, while <strong><a href="https://arxiv.org/abs/2609.39245">ReWAM</a></strong> treats other agents as conditional responders in a game-theoretic world-action model, reaching SOTA on NAVSIM for interactive scenarios.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.39601">GroundingPI</a></strong>: a 4B grounding foundation model that also lifts RoboTwin 2.0 OOD performance as a visual backbone. <strong><a href="https://arxiv.org/abs/2610.02898">MixVLA</a></strong>: a model-agnostic training framework for OOD robustness via stochastic mixing of environment-specific factors. <strong><a href="https://arxiv.org/abs/2609.39841">DyRAD</a></strong>: radar novel-view synthesis for dynamic driving scenes, enabling zero-shot sensor-config transfer.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.02876">MobiAgent</a></strong> (CoRL 2026): dual-loop recursive self-improvement for long-horizon mobile manipulation, improving 22.5pp over pi0.5-TA on BEHAVIOR-1K without human annotation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.03498">Detect and Suppress</a></strong>: a mechanistic defense against adversarial patches in VLAs, using SAE analysis to find patch-correlated features and suppress them at inference time. Interpretability applied to a real safety problem.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.09099">Curriculum learning as transport</a></strong> via Wasserstein geodesics. An elegant framing of curricula for the post-training watchlist.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02804">SARI</a></strong>: phase-split sim-real co-training for contact-rich manipulation with 34% less real data. <strong><a href="https://arxiv.org/abs/2610.02784">SimpleTouch</a></strong>: pi0.5 plus a frozen tactile encoder, suggesting extra tactile pretraining stages may be unnecessary. <strong><a href="https://arxiv.org/abs/2610.02802">ManiPhysicsBench</a></strong>: evaluates VLAs on safe success, exposing a gap between task success and damage-free success in public checkpoints.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p><strong>Tesla's Cybercab fleet in Austin</strong> grew from 45 to 169 authorized vehicles in a week, with hours extended to 11pm. Musk cites nighttime detection of small low-contrast obstacles as the gating item for 24/7 operation. NHTSA is investigating the self-certification of nearly 1,000 Cybercabs. <a href="https://www.webpronews.com/tesla-robotaxis-stop-short-at-11-p-m-because-they-still-cant-spot-grey-kittens-on-dark-roads/">WebProNews</a></p>
+          <p><strong>Waymo and Lyft opened an 80,000 sq ft Nashville depot</strong> (Oct 2): fleet operations, charging, and maintenance run by Lyft's Flexdrive, with 70+ jobs. Infrastructure cadence is the story as Waymo passes 500k paid rides per week. <a href="https://www.lyft.com/blog/posts/flexdrive-nashville-av-depot">Lyft</a></p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-04.html">Previous day</a></span>
+<span class="next"><a href="2026-10-06.html">Next day</a> &rarr;</span>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
