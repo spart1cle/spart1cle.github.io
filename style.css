@@ -74,23 +74,24 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #1c1917;
-  --color-bg-elevated: #26211d;
-  --color-surface: #2a2521;
-  --color-text: #f3ede2;
-  --color-text-secondary: #d6cfc0;
-  --color-text-muted: #8d8478;
+  /* Graphite — neutral charcoal, no warm tint */
+  --color-bg: #17171a;
+  --color-bg-elevated: #1e1e22;
+  --color-surface: #232327;
+  --color-text: #f4f4f5;
+  --color-text-secondary: #c9c9cf;
+  --color-text-muted: #8a8a93;
   --color-accent: #fb923c;
   --color-accent-hover: #fdba74;
-  --color-accent-subtle: rgba(251, 146, 60, 0.10);
-  --color-border: #3b342c;
-  --color-card-shadow: rgba(0, 0, 0, 0.3);
-  --color-card-shadow-hover: rgba(0, 0, 0, 0.5);
-  --color-nav-bg: #14110e;
-  --color-tag-bg: #2e2822;
+  --color-accent-subtle: rgba(251, 146, 60, 0.12);
+  --color-border: #2c2c31;
+  --color-card-shadow: rgba(0, 0, 0, 0.35);
+  --color-card-shadow-hover: rgba(0, 0, 0, 0.55);
+  --color-nav-bg: #101012;
+  --color-tag-bg: #26262c;
   --color-tag-text: #fdba74;
-  --color-footer-bg: #14110e;
-  --color-award-bg: #2a2018;
+  --color-footer-bg: #101012;
+  --color-award-bg: #26241f;
   --color-award-text: #fbbf24;
   --color-tag-mix: white;
 }
