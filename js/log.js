@@ -192,7 +192,12 @@
   }
   listEl.addEventListener('click', function (e) {
     var chip = e.target.closest ? e.target.closest('.reading-tag[data-tag]') : null;
-    if (chip) { toggleTag(chip.getAttribute('data-tag')); return; }
+    if (chip) {
+      // Stop the document-level handler in script.js from navigating to reading.html.
+      if (e.stopPropagation) e.stopPropagation();
+      toggleTag(chip.getAttribute('data-tag'));
+      return;
+    }
     var card = e.target.closest ? e.target.closest('.log-archive-card') : null;
     if (card && !e.target.closest('a')) {
       var url = cardEntryUrl(card);
