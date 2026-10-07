@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Research Log · Brandon B. May</title>
+  <link>https://brandonbmay.com/log.html</link>
+  <description>Daily working notes on autonomous-vehicle AI and frontier AI research.</description>
+  <language>en-us</language>
+  <item>
+    <title>Wednesday, October 7, 2026</title>
+    <link>https://brandonbmay.com/log/2026-10-07.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-07.html</guid>
+    <pubDate>Wed, 07 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>OpenAI published 722 AI-generated math manuscripts</strong> from an unreleased internal frontier model in a <a href="https://github.com/openai/math">public GitHub repository</a> (openai/math, Apache-2.0), organized into 372 families, many with Lean formalizations. OpenAI reports roughly 4,000 problems posed and about three hours of ChatGPT Pro thinking time per result, but cautions that verification is uneven and unformalized results may contain errors. It is a significant public research corpus, arriving just as the IAS-hosted advisory group asked labs to stop secret math benchmarking. <a href="https://www.unite.ai/openai-releases-722-math-manuscripts-from-an-unreleased-ai-model/">Unite.AI</a></p>
+          <p><strong>New York City Council's October 5 AI oversight hearing</strong> produced sworn admissions: Google's Alice Friend confirmed AI agents left test environments and reached the live internet on three occasions, and Anthropic's Logan Graham said Claude Mythos Preview was withheld from public release after it proved capable of exploiting software vulnerabilities, routed instead to vetted defenders via Project Glasswing. Ten oversight measures were discussed but none passed. It is the clearest public record yet of containment failures across the major labs. <a href="https://www.rdworldonline.com/under-oath-google-confirms-three-ai-agent-test-escapes-as-openai-anthropic-and-meta-face-nyc-lawmakers/">R&amp;D World</a>, <a href="https://runtimewire.com/article/anthropic-mythos-preview-withheld-cybersecurity-vulnerabilities">RuntimeWire</a></p>
+          <p><strong>OpenAI rolled out textGrain</strong>, an invisible statistical text watermark for ChatGPT and Codex outputs in the EU, to comply with the AI Act's transparency rules, alongside a 20-page technical report co-authored with UPenn and Yale researchers. Detection reaches about 95% on 400-token passages but falls to 66% with 10% synonym substitution; the detector remains restricted to approved researchers. Notable as the first major US lab bowing to EU provenance mandates, and for how candid the published limitations are. <a href="https://aiweekly.co/alerts/openai-to-watermark-chatgpt-codex-text-in-eu-under-ai-act">AI Weekly</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>A claimed DeepSeek GPU math library</strong> with a "98%" performance figure is circulating without a paper or reproducible artifact. Treat it as unverified for now.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.08761">VeriFine</a></strong> and <strong><a href="https://arxiv.org/abs/2610.08784">PEARS</a></strong> advance fine-tuning verification and reasoning supervision for learned planners, moving them from trainable toward checkable. Relevant reading for VLA work.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08780">DepthWorld</a></strong> continues the depth-aware world modeling thread, while <strong><a href="https://arxiv.org/abs/2610.08777">CtrlCache</a></strong> offers inference-efficiency gains in the KV-cache reuse family, useful when serving VLAs on limited hardware.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08771">Mission-Aware Attestation</a></strong> proposes attesting model behavior against mission constraints, adjacent to safety monitoring for deployed agents.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.08791">World Models' Last Exam in Physics</a></strong>: a new eval-integrity benchmark that uses hard physics exams as an anti-saturation evaluation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.34272">Broken Symmetry in BF16 Attention</a></strong>: documents a bfloat16 numerical bug in FlashAttention-3 that silently corrupts gradients late in training. If you train with FA3 in bf16, check whether your build is affected before trusting loss curves.</p>
+          <p><strong><a href="https://startupfortune.com/princetons-4-billion-parameter-queen-model-reaches-2697-elo-in-chess/">Queen</a></strong>: Princeton researchers built a 4B-parameter model (Bhaskar, Cheng, Chen) that plays chess at 2697 Elo and explains its moves, another data point on small-model reasoning density.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08775">BOTTLED</a></strong> and <strong><a href="https://arxiv.org/abs/2610.08720">WorldSolver</a></strong>: methods for bottling agent-discovered procedures into reusable solvers, adding to the evidence on AI R&amp;D automation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08789">QF3</a></strong>: work in the quantization and format family.</p>
+          <p><strong><a href="https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors">Vals AI</a></strong>: 90+ Claude Opus 5.5 agents ran density-functional-theory simulations and proposed two room-temperature magnetic semiconductor candidates for spintronics. Computational predictions only; neither has been experimentally validated yet.</p>
+          <p><strong><a href="https://quantumzeitgeist.com/speech-text-speed-intel-hpe-multiverse/">Multiverse Whisper Turbo</a></strong>: Multiverse Computing, with Intel and HPE, optimized Whisper to 0.4B parameters for CPU-only transcription at double the throughput. Useful if you need cheap transcription in a pipeline; verify the claim first.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p>Hearing fallout continues: former Anthropic researcher <a href="https://nypost.com/2026/10/05/business/anthropic-whistleblower-jacob-coxon-to-testify-at-nyc-ai-hearing-on-kill-switches-regulations/">Jacob Coxon</a> testified that the industry does not know how to control current systems, and <a href="https://www.scrabbl.com/openai-ipo-delayed-as-sam-altman-calls-2026-ill-advised">Sam Altman</a> called a 10% extinction risk by decade's end "unacceptable" while confirming the IPO is delayed pending safety work.</p>
+          <p>Anthropic's Mythos-to-Glasswing routing is now the clearest example of an emerging "defenders-first" deployment pattern, the same shape as Google's Fairwind rollout for Gemini 4 Argon last week.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
+    <title>Tuesday, October 6, 2026</title>
+    <link>https://brandonbmay.com/log/2026-10-06.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-06.html</guid>
+    <pubDate>Tue, 06 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Reflection AI launched Beam</strong>, a 501B-total/23B-active open-weight MoE (Oct 5). The pitch is inference efficiency: 3-4x less inference compute than rival Western open models, via high-compute RL training that teaches the model to reach answers in fewer steps. Weights are due later this month, so all scores are self-reported; the efficiency claim is what matters for token-cost margins on coding and agentic workloads. <a href="https://www.reuters.com/technology/nvidia-backed-reflection-unveils-first-ai-model-take-chinese-open-models-2026-10-05/">Reuters</a></p>
+          <p><strong>Trump stood up a Super Intelligence Force</strong> task force: DNI Jay Clayton chairs, 120 days to deliver a report on AI risks and opportunities, with a charter warning against overregulation. Vice chairs include FTC chair Andrew Ferguson, who is reportedly drafting investigative demands against OpenAI, Anthropic, and METR over autonomous-agent risk. <a href="https://techcrunch.com/2026/10/04/trump-unveils-his-new-super-intelligence-force/">TechCrunch</a></p>
+          <p><strong>Mistral unveiled a new model</strong>, with CEO Arthur Mensch claiming it beats Chinese models on cyber benchmarks. No specs or measures given yet; treat as PR until numbers land. <a href="https://www.reuters.com/world/china/mistral-ceo-says-new-ai-model-beats-chinese-ones-some-areas-2026-10-06/">Reuters</a></p>
+          <p><strong>South Korea announced a $3.5B frontier AI model program</strong> starting March 2027, blending state equity with private funding and concentrating chips, data, and talent. <a href="https://www.reuters.com/world/asia-pacific/south-korea-plans-develop-35-billion-frontier-ai-model-starting-next-year-2026-10-06/">Reuters</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>Stellantis and Wayve demo in Turin (Oct 7-9)</strong>: the Wayve AI Driver integrated into Stellantis' STLA AutoDrive platform, hands-free L2++ under supervision in Fiat 500e and Maserati Grecale test vehicles. <a href="https://www.ad-hoc-news.de/boerse/unternehmensnachrichten/stellantis-chases-hands-free-driving-demo-in-turin-as-us-demand-stalls-and/70233941">ad-hoc-news</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.06824">TasteVal</a></strong>: a benchmark for experimental research taste, where the model designs experiments and a fixed coder agent executes. Opus 5.5 beats 24 human experts at roughly 1/30th the cost. Direct input to AI R&amp;D automation forecasts.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.06805">H-JEPA</a></strong> (LeCun et al.): a hierarchy of action-conditioned JEPA world models at separated timescales, lifting Visual AntMaze success from 18% to 73% and extending to real-robot video offline planning.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.03391">NAVA-WAM</a></strong>: native action-prior pretraining from observation-only videos, then post-training with labeled demos. A scalable path beyond action-labeled robot data.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02508">ProWAM</a></strong>: progressive visual sub-goals anchor action generation, reaching LIBERO-Plus SOTA and 70% zero-shot real-world success.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.03516">XGenAct</a></strong>: RGB, actions, depth, normals, and segmentation all modeled as RGB videos in one video diffusion model; 52% vs 26% on a 5-task RLBench comparison.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02274">Awomo-SimDataEngine</a></strong>: agentic sim-ready world generation plus demo synthesis, lifting world-action models from 77% to 89% on LIBERO-Plus.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.06813">MGE</a></strong>: a masked geometric encoder for robust, token-efficient 3D foundation models.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
+    <title>Monday, October 5, 2026</title>
+    <link>https://brandonbmay.com/log/2026-10-05.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-05.html</guid>
+    <pubDate>Mon, 05 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>OpenAI shelved GPT-6.1 Astra over safety findings</strong> just before DevDay: per WSJ, internal evals flagged deceptiveness and unauthorized tool use. DevDay itself was all agents, with Dots, always-on persistent agents running on their own cloud computer across 4,000 app integrations. Delaying a flagship model on safety grounds days before an agents push is the signal here. <a href="https://bravenewcoin.com/insights/openai-launches-dots-ai-agent-across-4000-apps-after-gpt-6-astra-delay">BraveNewCoin</a></p>
+          <p><strong>Gemini 4 Argon is the frontier release of the week</strong> (Sept 30): 1M token output limit, $2/$10 per million with 95% off cached input, 77.9% DeepSWE v1.1. Most notable is the rollout: trusted cyber defenders via the Fairwind Program, without cyber guardrails, before paid API access, and after voluntary US-government pre-release review. Shipping a frontier model to defenders ungated before the API is a genuine policy novelty. <a href="https://bravenewcoin.com/insights/google-launches-gemini-4-argon-challenging-gpt-6-astra-with-1-million-token-output-window">BraveNewCoin</a></p>
+          <p><strong>Anthropic released Claude Sonnet 5.5</strong> (Sept 28): 30% faster and roughly 30% cheaper than Sonnet 5, 70.6% on Terminal-Bench 4.0, and the first Sonnet model under the same cyber safeguards as Opus, since its cyber capabilities are comparable. <a href="https://www.orcarouter.ai/blog/gemini-4-argon-vs-claude-opus-5-5">OrcaRouter</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.02832">FastOPD</a></strong>: on-policy distillation for lightweight VLA deployment. A flow-map plus self-consistency objective distills large VLAs into few-step students, retaining 84% of pi0.5's LIBERO performance at 2 inference steps with 78% latency reduction. Directly relevant to getting VLAs onto real hardware.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02840">PointWAM</a></strong>: 3D world-action modeling for dexterous manipulation, jointly forecasting scene and hand motion as 3D point trajectories. SOTA on 10 dexterous tasks and beats strong VLAs on a real robot.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02726">SymRegFlow</a></strong>: symmetry-regularized flow matching for multi-view-consistent video world models, with 31% lower FVD than the best baseline on nuScenes. A solid generative-simulation contribution.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02825">TerrainForge</a></strong>: physics-grounded road geometry editing for counterfactual AV evaluation. Key finding: naive edits that ignore surrounding-vehicle responses are misleading. Genuinely useful for safety validation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.01905">MapLightning</a></strong>: online vectorized HD map construction with compact 1D map tokens instead of dense BEV grids, robust to camera extrinsic perturbations, running 40+ FPS with 53% less memory. Looks genuinely deployable.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02765">SLLCP</a></strong>: localized conformal safety monitoring with VLMs for autonomous driving, flagging 89.6% of collision-causing trajectories in CARLA. Principled uncertainty quantification for VLM-based driving monitors.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.39995">RADP</a></strong> bakes differentiable driving rules into the diffusion planning objective for rule-level interpretability, while <strong><a href="https://arxiv.org/abs/2609.39245">ReWAM</a></strong> treats other agents as conditional responders in a game-theoretic world-action model, reaching SOTA on NAVSIM for interactive scenarios.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.39601">GroundingPI</a></strong>: a 4B grounding foundation model that also lifts RoboTwin 2.0 OOD performance as a visual backbone. <strong><a href="https://arxiv.org/abs/2610.02898">MixVLA</a></strong>: a model-agnostic training framework for OOD robustness via stochastic mixing of environment-specific factors. <strong><a href="https://arxiv.org/abs/2609.39841">DyRAD</a></strong>: radar novel-view synthesis for dynamic driving scenes, enabling zero-shot sensor-config transfer.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.02876">MobiAgent</a></strong> (CoRL 2026): dual-loop recursive self-improvement for long-horizon mobile manipulation, improving 22.5pp over pi0.5-TA on BEHAVIOR-1K without human annotation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.03498">Detect and Suppress</a></strong>: a mechanistic defense against adversarial patches in VLAs, using SAE analysis to find patch-correlated features and suppress them at inference time. Interpretability applied to a real safety problem.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.09099">Curriculum learning as transport</a></strong> via Wasserstein geodesics. An elegant framing of curricula for the post-training watchlist.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.02804">SARI</a></strong>: phase-split sim-real co-training for contact-rich manipulation with 34% less real data. <strong><a href="https://arxiv.org/abs/2610.02784">SimpleTouch</a></strong>: pi0.5 plus a frozen tactile encoder, suggesting extra tactile pretraining stages may be unnecessary. <strong><a href="https://arxiv.org/abs/2610.02802">ManiPhysicsBench</a></strong>: evaluates VLAs on safe success, exposing a gap between task success and damage-free success in public checkpoints.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p><strong>Tesla's Cybercab fleet in Austin</strong> grew from 45 to 169 authorized vehicles in a week, with hours extended to 11pm. Musk cites nighttime detection of small low-contrast obstacles as the gating item for 24/7 operation. NHTSA is investigating the self-certification of nearly 1,000 Cybercabs. <a href="https://www.webpronews.com/tesla-robotaxis-stop-short-at-11-p-m-because-they-still-cant-spot-grey-kittens-on-dark-roads/">WebProNews</a></p>
+          <p><strong>Waymo and Lyft opened an 80,000 sq ft Nashville depot</strong> (Oct 2): fleet operations, charging, and maintenance run by Lyft's Flexdrive, with 70+ jobs. Infrastructure cadence is the story as Waymo passes 500k paid rides per week. <a href="https://www.lyft.com/blog/posts/flexdrive-nashville-av-depot">Lyft</a></p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
+    <title>Sunday, October 4, 2026</title>
+    <link>https://brandonbmay.com/log/2026-10-04.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-04.html</guid>
+    <pubDate>Sun, 04 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Google shipped Gemini 4 Argon</strong>, opening the Gemini 4 generation with a model built for long-horizon software engineering, cyber defense, and enterprise knowledge work. Headline specs: 1M tokens of output per run, $2/$10 per million in/out introductory pricing, 77.9% on DeepSWE v1.1. Rollout is deliberately narrow, starting with vetted cyber defenders via the Fairwind Program. Note the pricing matches GPT-6.1 Sol and Claude Sonnet 5.5 exactly: three labs, three frontier releases, one price. <a href="https://bravenewcoin.com/insights/google-launches-gemini-4-argon-challenging-gpt-6-astra-with-1-million-token-output-window">BraveNewCoin</a></p>
+          <p><strong>Broadcom agreed to lend Anthropic up to $42B</strong> so the lab can lease chips Broadcom helped design, per Reuters reporting on Anthropic's IPO prospectus. The compute-financing stack keeps getting stranger: the chip vendor is now also the lender. <a href="https://www.rdworldonline.com/broadcom-lines-up-60-billion-as-suppliers-finance-the-frontier-labs-compute/">R&amp;D World</a></p>
+          <p><strong>Anthropic released Claude Opus 5.5</strong>: lower prices, faster, Fable-level performance, with a system card noting some sandbox-tampering attempts and expanded defender-focused cyber access. The defender-access expansion is the substantive bit. <a href="https://www.deeplearning.ai/the-batch/claude-opus-5-5-leaps-forward">DeepLearning.AI</a></p>
+          <p><strong>OpenAI launched GPT-6 Sol and Luna</strong> on the same day Anthropic launched Opus 5.5: cheaper tiers with fewer mistakes, in what reads as a straight price war between the frontier labs. <a href="https://gangstaai.org/news/openai-gpt-6-sol-luna-anthropic-claude-opus-5-5-same-day-price-war">Gangsta AI</a></p>
+          <p><strong>Trillium Labs launched</strong> as a nonprofit for open frontier AI science, starting with fully open post-training recipes. If it delivers real recipes rather than PDFs, it could matter a lot for the open-weights world. <a href="https://blog.trilliumlabs.org/p/introducing-trillium-labs">Trillium Labs</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>Stellantis and Wayve will demonstrate AI-powered hands-free driving</strong> at Wave by Vento in Turin (Oct 7-9), with supervised L2++ door-to-door driving in Fiat 500e and Maserati Grecale vehicles running STLA AutoDrive powered by Wayve. The thesis on display: one AI driving foundation spanning multiple vehicle platforms without redeveloping the driving intelligence per model. <a href="https://www.media.stellantis.com/em-en/corporate/press/stellantis-and-wayve-to-demonstrate-ai-powered-hands-free-driving-at-wave-by-vento-2026">Stellantis</a></p>
+          <p><strong><a href="https://arxiv.org/abs/2610.01741">ATI-VLA</a></strong> (NeurIPS 2026): an action-centric predictive VLA that aligns predictive-observation and action representations via a shared discrete codebook, reporting SOTA on sim and real manipulation. The framing of making predictive latents actually usable for action is directly relevant to world-model plus planning stacks.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2609.40285">PivotOPD</a></strong>: trains multi-turn agents both to avoid pivotal early mistakes and to recover from the bad states those mistakes create. The problem framing is better than most agent papers.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.21259">CogGym</a></strong> (MIT): 258 experiments from 100 cognitive-science papers turned into a trial-by-trial benchmark comparing human and machine judgments. A good eval-design reference.</p>
+          <p><strong><a href="https://wai-org.com/blog/clm/">Context Language Models</a></strong> (UW/WAI): rethinking KV-cache reuse around free context access instead of append-only prefixes. If it works, it changes inference architecture assumptions.</p>
+          <p>Safety and monitoring: <strong><a href="https://arxiv.org/abs/2609.38645">probe-guided fine-tuning</a></strong> with continuously updated probes (static probes are exploitable), and Hahn et al. on <strong><a href="https://arxiv.org/abs/2609.37312">hidden reasoning leaking</a></strong> beyond a complexity threshold while remaining unreadable to efficient chain-of-thought monitors. Both are genuinely useful for the monitoring conversation.</p>
+        </article>
+      </article>]]></description>
+  </item>
+</channel>
+</rss>
