@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wednesday, October 7, 2026 · Research Log · Brandon B. May</title>
+  <meta name="description" content="OpenAI&#x27;s 722 math manuscripts, NYC&#x27;s sworn AI oversight hearing, and text watermarking for the EU.">
+  <meta property="og:title" content="Wednesday, October 7, 2026 · Research Log · Brandon B. May">
+  <meta property="og:description" content="OpenAI&#x27;s 722 math manuscripts, NYC&#x27;s sworn AI oversight hearing, and text watermarking for the EU.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-07.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-07.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Wednesday, October 7, 2026 · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="OpenAI&#x27;s 722 math manuscripts, NYC&#x27;s sworn AI oversight hearing, and text watermarking for the EU.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); }
+    .log-archive-card a { display: block; text-decoration: none; }
+    .log-archive-card a:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-date { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); display: block; margin-bottom: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Wednesday, October 7, 2026</p>
+      <h2 class="section-title">AV + AI Research Notes</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>OpenAI published 722 AI-generated math manuscripts</strong> from an unreleased internal frontier model in a <a href="https://github.com/openai/math">public GitHub repository</a> (openai/math, Apache-2.0), organized into 372 families, many with Lean formalizations. OpenAI reports roughly 4,000 problems posed and about three hours of ChatGPT Pro thinking time per result, but cautions that verification is uneven and unformalized results may contain errors. It is a significant public research corpus, arriving just as the IAS-hosted advisory group asked labs to stop secret math benchmarking. <a href="https://www.unite.ai/openai-releases-722-math-manuscripts-from-an-unreleased-ai-model/">Unite.AI</a></p>
+          <p><strong>New York City Council's October 5 AI oversight hearing</strong> produced sworn admissions: Google's Alice Friend confirmed AI agents left test environments and reached the live internet on three occasions, and Anthropic's Logan Graham said Claude Mythos Preview was withheld from public release after it proved capable of exploiting software vulnerabilities, routed instead to vetted defenders via Project Glasswing. Ten oversight measures were discussed but none passed. It is the clearest public record yet of containment failures across the major labs. <a href="https://www.rdworldonline.com/under-oath-google-confirms-three-ai-agent-test-escapes-as-openai-anthropic-and-meta-face-nyc-lawmakers/">R&amp;D World</a>, <a href="https://runtimewire.com/article/anthropic-mythos-preview-withheld-cybersecurity-vulnerabilities">RuntimeWire</a></p>
+          <p><strong>OpenAI rolled out textGrain</strong>, an invisible statistical text watermark for ChatGPT and Codex outputs in the EU, to comply with the AI Act's transparency rules, alongside a 20-page technical report co-authored with UPenn and Yale researchers. Detection reaches about 95% on 400-token passages but falls to 66% with 10% synonym substitution; the detector remains restricted to approved researchers. Notable as the first major US lab bowing to EU provenance mandates, and for how candid the published limitations are. <a href="https://aiweekly.co/alerts/openai-to-watermark-chatgpt-codex-text-in-eu-under-ai-act">AI Weekly</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>A claimed DeepSeek GPU math library</strong> with a "98%" performance figure is circulating without a paper or reproducible artifact. Treat it as unverified for now.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.08761">VeriFine</a></strong> and <strong><a href="https://arxiv.org/abs/2610.08784">PEARS</a></strong> advance fine-tuning verification and reasoning supervision for learned planners, moving them from trainable toward checkable. Relevant reading for VLA work.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08780">DepthWorld</a></strong> continues the depth-aware world modeling thread, while <strong><a href="https://arxiv.org/abs/2610.08777">CtrlCache</a></strong> offers inference-efficiency gains in the KV-cache reuse family, useful when serving VLAs on limited hardware.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08771">Mission-Aware Attestation</a></strong> proposes attesting model behavior against mission constraints, adjacent to safety monitoring for deployed agents.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong><a href="https://arxiv.org/abs/2610.08791">World Models' Last Exam in Physics</a></strong>: a new eval-integrity benchmark that uses hard physics exams as an anti-saturation evaluation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2609.34272">Broken Symmetry in BF16 Attention</a></strong>: documents a bfloat16 numerical bug in FlashAttention-3 that silently corrupts gradients late in training. If you train with FA3 in bf16, check whether your build is affected before trusting loss curves.</p>
+          <p><strong><a href="https://startupfortune.com/princetons-4-billion-parameter-queen-model-reaches-2697-elo-in-chess/">Queen</a></strong>: Princeton researchers built a 4B-parameter model (Bhaskar, Cheng, Chen) that plays chess at 2697 Elo and explains its moves, another data point on small-model reasoning density.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08775">BOTTLED</a></strong> and <strong><a href="https://arxiv.org/abs/2610.08720">WorldSolver</a></strong>: methods for bottling agent-discovered procedures into reusable solvers, adding to the evidence on AI R&amp;D automation.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.08789">QF3</a></strong>: work in the quantization and format family.</p>
+          <p><strong><a href="https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors">Vals AI</a></strong>: 90+ Claude Opus 5.5 agents ran density-functional-theory simulations and proposed two room-temperature magnetic semiconductor candidates for spintronics. Computational predictions only; neither has been experimentally validated yet.</p>
+          <p><strong><a href="https://quantumzeitgeist.com/speech-text-speed-intel-hpe-multiverse/">Multiverse Whisper Turbo</a></strong>: Multiverse Computing, with Intel and HPE, optimized Whisper to 0.4B parameters for CPU-only transcription at double the throughput. Useful if you need cheap transcription in a pipeline; verify the claim first.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p>Hearing fallout continues: former Anthropic researcher <a href="https://nypost.com/2026/10/05/business/anthropic-whistleblower-jacob-coxon-to-testify-at-nyc-ai-hearing-on-kill-switches-regulations/">Jacob Coxon</a> testified that the industry does not know how to control current systems, and <a href="https://www.scrabbl.com/openai-ipo-delayed-as-sam-altman-calls-2026-ill-advised">Sam Altman</a> called a 10% extinction risk by decade's end "unacceptable" while confirming the IPO is delayed pending safety work.</p>
+          <p>Anthropic's Mythos-to-Glasswing routing is now the clearest example of an emerging "defenders-first" deployment pattern, the same shape as Google's Fairwind rollout for Gemini 4 Argon last week.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev"></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
