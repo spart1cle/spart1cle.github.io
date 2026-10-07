@@ -85,39 +85,63 @@
       <h2 class="section-title">Research Log</h2>
       <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
       <p class="rss-subscribe"><a href="feed.xml">Subscribe via RSS</a></p>
-      <div class="log-archive">
-                <article class="thought-card log-archive-card">
+      <div class="reading-layout">
+        <aside class="reading-sidebar" id="log-sidebar">
+          <span class="reading-filter-label">Tags</span>
+          <div class="reading-tag-list" id="log-tag-filters"></div>
+          <button class="reading-clear-btn log-clear" id="log-clear-tags" style="display:none">Clear tags</button>
+          <div class="archive-widget" id="log-archive">
+            <span class="reading-filter-label">Archive</span>
+            <div id="log-archive-years"></div>
+          </div>
+          <button class="reading-clear-btn log-clear" id="log-clear-month" style="display:none">Clear month</button>
+        </aside>
+        <div class="reading-main">
+          <p class="reading-count" id="log-count"></p>
+          <div id="log-archive-list">
+        <article class="thought-card log-archive-card" data-date="2026-10-07" data-tags="embodied ai,frontier models,news,open weights,papers,policy,reasoning,world models">
           <a href="log/2026-10-07.html">
             <span class="log-archive-date">Wednesday, October 7, 2026</span>
             <span class="log-archive-title">AV + AI Research Notes</span>
             <p class="log-archive-summary">OpenAI&#x27;s 722 math manuscripts, NYC&#x27;s sworn AI oversight hearing, and text watermarking for the EU.</p>
           </a>
+          <div class="thought-card-tags"><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="frontier models">frontier models</span><span class="reading-tag" data-tag="news">news</span><span class="reading-tag" data-tag="open weights">open weights</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="policy">policy</span><span class="reading-tag" data-tag="reasoning">reasoning</span><span class="reading-tag" data-tag="world models">world models</span></div>
         </article>
-                <article class="thought-card log-archive-card">
-          <a href="log/2026-10-04.html">
-            <span class="log-archive-date">Sunday, October 4, 2026</span>
-            <span class="log-archive-title">AV + AI Research Notes</span>
-            <p class="log-archive-summary">Gemini 4 Argon ships, Broadcom&#x27;s $42B Anthropic loan, and Trillium Labs for open post-training.</p>
-          </a>
-        </article>
-                <article class="thought-card log-archive-card">
-          <a href="log/2026-10-05.html">
-            <span class="log-archive-date">Monday, October 5, 2026</span>
-            <span class="log-archive-title">AV + AI Research Notes</span>
-            <p class="log-archive-summary">GPT-6.1 Astra shelved over safety, a strong VLA paper batch, and Tesla&#x27;s growing Cybercab fleet.</p>
-          </a>
-        </article>
-                <article class="thought-card log-archive-card">
+
+        <article class="thought-card log-archive-card" data-date="2026-10-06" data-tags="embodied ai,open weights,papers,policy,robotics,world models">
           <a href="log/2026-10-06.html">
             <span class="log-archive-date">Tuesday, October 6, 2026</span>
             <span class="log-archive-title">AV + AI Research Notes</span>
             <p class="log-archive-summary">Reflection&#x27;s Beam, the Super Intelligence Force, and a world-model paper batch.</p>
           </a>
+          <div class="thought-card-tags"><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="open weights">open weights</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="policy">policy</span><span class="reading-tag" data-tag="robotics">robotics</span><span class="reading-tag" data-tag="world models">world models</span></div>
         </article>
-        <!-- LOG-ENTRIES -->
+
+        <article class="thought-card log-archive-card" data-date="2026-10-05" data-tags="agents,embodied ai,frontier models,news,papers,robotaxi,vla,world models">
+          <a href="log/2026-10-05.html">
+            <span class="log-archive-date">Monday, October 5, 2026</span>
+            <span class="log-archive-title">AV + AI Research Notes</span>
+            <p class="log-archive-summary">GPT-6.1 Astra shelved over safety, a strong VLA paper batch, and Tesla&#x27;s growing Cybercab fleet.</p>
+          </a>
+          <div class="thought-card-tags"><span class="reading-tag" data-tag="agents">agents</span><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="frontier models">frontier models</span><span class="reading-tag" data-tag="news">news</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="robotaxi">robotaxi</span><span class="reading-tag" data-tag="vla">vla</span><span class="reading-tag" data-tag="world models">world models</span></div>
+        </article>
+
+        <article class="thought-card log-archive-card" data-date="2026-10-04" data-tags="embodied ai,frontier models,open weights,papers,safety,vla,world models">
+          <a href="log/2026-10-04.html">
+            <span class="log-archive-date">Sunday, October 4, 2026</span>
+            <span class="log-archive-title">AV + AI Research Notes</span>
+            <p class="log-archive-summary">Gemini 4 Argon ships, Broadcom&#x27;s $42B Anthropic loan, and Trillium Labs for open post-training.</p>
+          </a>
+          <div class="thought-card-tags"><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="frontier models">frontier models</span><span class="reading-tag" data-tag="open weights">open weights</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="safety">safety</span><span class="reading-tag" data-tag="vla">vla</span><span class="reading-tag" data-tag="world models">world models</span></div>
+        </article>
+
+            <!-- LOG-ENTRIES -->
+          </div>
+        </div>
       </div>
     </section>
   </main>
+  <script src="js/log.js" defer></script>
 
   <footer class="site-footer">
     <p>&copy; 2026 Brandon B. May</p>
