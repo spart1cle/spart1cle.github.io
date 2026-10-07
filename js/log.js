@@ -132,6 +132,31 @@
     applyFilters();
   }
 
+  function monthLabel(ym) {
+    var p = ym.split('-');
+    return new Date(+p[0], +p[1] - 1, 1).toLocaleDateString('en-US', {
+      month: 'long', year: 'numeric'
+    });
+  }
+
+  function renderGroupHeadings() {
+    listEl.querySelectorAll('.thought-date-group').forEach(function (h) {
+      h.remove();
+    });
+    var lastMonth = '';
+    cards.forEach(function (card) {
+      if (card.style.display === 'none') return;
+      var m = cardMonth(card);
+      if (m && m !== lastMonth) {
+        var h3 = document.createElement('h3');
+        h3.className = 'thought-date-group';
+        h3.textContent = monthLabel(m);
+        listEl.insertBefore(h3, card);
+        lastMonth = m;
+      }
+    });
+  }
+
   function applyFilters() {
     var shown = 0;
     cards.forEach(function (card) {
@@ -156,6 +181,7 @@
     listEl.querySelectorAll('.reading-tag').forEach(function (chip) {
       chip.classList.toggle('active', !!activeTags[chip.getAttribute('data-tag')]);
     });
+    renderGroupHeadings();
   }
 
   // Tag chips on cards toggle the matching sidebar filter.

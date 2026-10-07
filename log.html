@@ -40,10 +40,9 @@
     .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
     .log-prevnext .next { margin-left: auto; text-align: right; }
     .log-archive-card { margin-bottom: var(--space-md); }
-    .log-archive-card a { display: block; text-decoration: none; }
-    .log-archive-card a:hover .log-archive-title { text-decoration: underline; }
-    .log-archive-date { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); display: block; margin-bottom: 2px; }
-    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); color: var(--color-text); }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card .log-archive-body:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
     .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
     .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
     .rss-subscribe a { color: var(--color-accent); }
@@ -100,36 +99,44 @@
           <p class="reading-count" id="log-count"></p>
           <div id="log-archive-list">
         <article class="thought-card log-archive-card" data-date="2026-10-07" data-tags="embodied ai,frontier models,news,open weights,papers,policy,reasoning,world models">
-          <a href="log/2026-10-07.html">
-            <span class="log-archive-date">Wednesday, October 7, 2026</span>
-            <span class="log-archive-title">AV + AI Research Notes</span>
+          <div class="thought-card-meta">
+            <a href="log/2026-10-07.html" class="reading-date">Wednesday, October 7, 2026</a>
+          </div>
+          <a href="log/2026-10-07.html" class="log-archive-body">
+            <span class="log-archive-title">722 math manuscripts, a sworn AI hearing, EU watermarking</span>
             <p class="log-archive-summary">OpenAI&#x27;s 722 math manuscripts, NYC&#x27;s sworn AI oversight hearing, and text watermarking for the EU.</p>
           </a>
           <div class="thought-card-tags"><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="frontier models">frontier models</span><span class="reading-tag" data-tag="news">news</span><span class="reading-tag" data-tag="open weights">open weights</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="policy">policy</span><span class="reading-tag" data-tag="reasoning">reasoning</span><span class="reading-tag" data-tag="world models">world models</span></div>
         </article>
 
         <article class="thought-card log-archive-card" data-date="2026-10-06" data-tags="embodied ai,open weights,papers,policy,robotics,world models">
-          <a href="log/2026-10-06.html">
-            <span class="log-archive-date">Tuesday, October 6, 2026</span>
-            <span class="log-archive-title">AV + AI Research Notes</span>
+          <div class="thought-card-meta">
+            <a href="log/2026-10-06.html" class="reading-date">Tuesday, October 6, 2026</a>
+          </div>
+          <a href="log/2026-10-06.html" class="log-archive-body">
+            <span class="log-archive-title">Reflection&#x27;s Beam, the Super Intelligence Force, world models</span>
             <p class="log-archive-summary">Reflection&#x27;s Beam, the Super Intelligence Force, and a world-model paper batch.</p>
           </a>
           <div class="thought-card-tags"><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="open weights">open weights</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="policy">policy</span><span class="reading-tag" data-tag="robotics">robotics</span><span class="reading-tag" data-tag="world models">world models</span></div>
         </article>
 
         <article class="thought-card log-archive-card" data-date="2026-10-05" data-tags="agents,embodied ai,frontier models,news,papers,robotaxi,vla,world models">
-          <a href="log/2026-10-05.html">
-            <span class="log-archive-date">Monday, October 5, 2026</span>
-            <span class="log-archive-title">AV + AI Research Notes</span>
+          <div class="thought-card-meta">
+            <a href="log/2026-10-05.html" class="reading-date">Monday, October 5, 2026</a>
+          </div>
+          <a href="log/2026-10-05.html" class="log-archive-body">
+            <span class="log-archive-title">Astra shelved over safety, VLA distillation, Cybercab growth</span>
             <p class="log-archive-summary">GPT-6.1 Astra shelved over safety, a strong VLA paper batch, and Tesla&#x27;s growing Cybercab fleet.</p>
           </a>
           <div class="thought-card-tags"><span class="reading-tag" data-tag="agents">agents</span><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="frontier models">frontier models</span><span class="reading-tag" data-tag="news">news</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="robotaxi">robotaxi</span><span class="reading-tag" data-tag="vla">vla</span><span class="reading-tag" data-tag="world models">world models</span></div>
         </article>
 
         <article class="thought-card log-archive-card" data-date="2026-10-04" data-tags="embodied ai,frontier models,open weights,papers,safety,vla,world models">
-          <a href="log/2026-10-04.html">
-            <span class="log-archive-date">Sunday, October 4, 2026</span>
-            <span class="log-archive-title">AV + AI Research Notes</span>
+          <div class="thought-card-meta">
+            <a href="log/2026-10-04.html" class="reading-date">Sunday, October 4, 2026</a>
+          </div>
+          <a href="log/2026-10-04.html" class="log-archive-body">
+            <span class="log-archive-title">Gemini 4 Argon, Broadcom&#x27;s $42B loan, and Trillium Labs</span>
             <p class="log-archive-summary">Gemini 4 Argon ships, Broadcom&#x27;s $42B Anthropic loan, and Trillium Labs for open post-training.</p>
           </a>
           <div class="thought-card-tags"><span class="reading-tag" data-tag="embodied ai">embodied ai</span><span class="reading-tag" data-tag="frontier models">frontier models</span><span class="reading-tag" data-tag="open weights">open weights</span><span class="reading-tag" data-tag="papers">papers</span><span class="reading-tag" data-tag="safety">safety</span><span class="reading-tag" data-tag="vla">vla</span><span class="reading-tag" data-tag="world models">world models</span></div>
