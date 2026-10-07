@@ -184,11 +184,31 @@
     renderGroupHeadings();
   }
 
-  // Tag chips on cards toggle the matching sidebar filter.
+  // Tag chips on cards toggle the matching sidebar filter; clicking
+  // anywhere else on a card opens that day's entry.
+  function cardEntryUrl(card) {
+    var link = card.querySelector('.log-archive-body');
+    return link ? link.getAttribute('href') : null;
+  }
   listEl.addEventListener('click', function (e) {
     var chip = e.target.closest ? e.target.closest('.reading-tag[data-tag]') : null;
-    if (chip) toggleTag(chip.getAttribute('data-tag'));
+    if (chip) { toggleTag(chip.getAttribute('data-tag')); return; }
+    var card = e.target.closest ? e.target.closest('.log-archive-card') : null;
+    if (card && !e.target.closest('a')) {
+      var url = cardEntryUrl(card);
+      if (url) window.location.href = url;
+    }
   });
+  listEl.addEventListener('keydown', function (e) {
+    var card = e.target && e.target.classList &&
+      e.target.classList.contains('log-archive-card') ? e.target : null;
+    if (card && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      var url = cardEntryUrl(card);
+      if (url) window.location.href = url;
+    }
+  });
+  cards.forEach(function (card) { card.setAttribute('tabindex', '0'); });
 
   if (clearTagsBtn) {
     clearTagsBtn.addEventListener('click', function () {
