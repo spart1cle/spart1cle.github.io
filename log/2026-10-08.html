@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The trillion-parameter open-weights launch, weights pending · Research Log · Brandon B. May</title>
+  <meta name="description" content="Anthropic cuts Haiku pricing by three quarters while OpenAI publishes hundreds of frontier-model math manuscripts with Lean formalizations, and Waymo and Volvo-Waabi each climb another rung of the deployment ladder.">
+  <meta property="og:title" content="The trillion-parameter open-weights launch, weights pending · Research Log · Brandon B. May">
+  <meta property="og:description" content="Anthropic cuts Haiku pricing by three quarters while OpenAI publishes hundreds of frontier-model math manuscripts with Lean formalizations, and Waymo and Volvo-Waabi each climb another rung of the deployment ladder.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-08.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-08.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The trillion-parameter open-weights launch, weights pending · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="Anthropic cuts Haiku pricing by three quarters while OpenAI publishes hundreds of frontier-model math manuscripts with Lean formalizations, and Waymo and Volvo-Waabi each climb another rung of the deployment ladder.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Thursday, October 8, 2026</p>
+      <h2 class="section-title">The trillion-parameter open-weights launch, weights pending</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Mistral Large 4 ("Le Chonk") enters API preview, open weights promised by end of October.</strong> A 1T-parameter natively multimodal MoE with 49B active parameters, trained from scratch on 3,800 Grace Blackwell GPUs. Mistral reports 93% on Cybench, visual grounding above GPT-6 Astra (Dense 200: 42%), 160+ languages, priced at $1.36/$4.18 per M tokens, roughly 7x under Astra. The honest caveat is that the weights are not out yet, and cofounder Guillaume Lample says the RL run is still in flight, so treat the open-weights framing as a commitment, not a fact. <a href="https://techcrunch.com/2026/10/06/mistrals-new-1t-model-aims-to-leapfrog-closed-and-open-rivals/">TechCrunch</a></p>
+          <p><strong>Claude Haiku 5.5 is 75% cheaper than 4.5.</strong> $0.10/$0.50 per M tokens with an adjustable effort setting, and Anthropic claims it beats GPT-6 Luna on FrontierCode and OSWorld (72.4% vs 48.9%). It is also the first Haiku with cyber safeguards. Reuters corroborated the launch. The small-model price war is becoming the main competitive axis, which is good news for agent cost curves. <a href="https://www.reuters.com/business/anthropic-launches-third-claude-55-model-expanding-ai-lineup-before-planned-ipo-2026-10-07/">Reuters</a></p>
+          <p><strong>OpenAI published 722 math manuscripts in 372 families.</strong> The <a href="https://github.com/openai/math/">github.com/openai/math</a> repository carries Lean formalizations, with about 3 Pro-hours of compute per result. These are outputs of an unreleased frontier model on open research problems, genuinely useful as a new eval and training corpus for math reasoning, and the Lean formalizations make the results verifiable rather than vibes-based.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier labs</h3>
+          <p><strong>Grok Bot now routes per-query across models, including Opus 5.5.</strong> Per Elon Musk's X post, xAI will use "the best back end model for any given task". Interesting as a routing and data play more than a capability story, and the post reads as stated direction rather than verified shipped behavior. <a href="https://gizmodo.com/grok-bot-is-now-a-model-router-as-spacex-continues-to-pivot-further-toward-ai-infrastructure-2000823057">Gizmodo</a></p>
+          <p><strong>OpenAI's textGrain watermarking is rolling out in the EU.</strong> An AI Act compliance move: invisible watermarks for ChatGPT and Codex output, with an opt-in API setting globally. Technically interesting if the detector holds up at low false-positive rates, and politically it is the template other regions will copy. <a href="https://techstrong.ai/ai-governance/openai-launches-invisible-text-watermarking-in-eu-to-comply-with-ai-act-rules/">Techstrong.ai</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><strong>Waymo began specialist-free operations in Detroit.</strong> Fully autonomous employee rides started Oct 6 across downtown, Corktown, Midtown, Hamtramck and Indian Village. Another market moving up the autonomy ladder, and the specialist-free milestone is the one that actually matters for unit economics. <a href="https://www.freep.com/story/money/cars/2026/10/06/waymo-detroit-autonomous-drives/92122630007/">Detroit Free Press</a></p>
+          <p><strong>Volvo and Waabi kicked off autonomous freight in Texas.</strong> First customer operation hauling Warp freight on the Dallas-Houston corridor with the Volvo VNL Autonomous running the Waabi Driver. A production-truck partnership doing real freight, not demos. <a href="https://www.morningstar.com/news/pr-newswire/20261005hs63688/volvo-and-waabi-kick-off-customer-operations-in-texas-starting-with-warp">PR Newswire</a></p>
+          <p><strong>GeoCoTDrive</strong> (<a href="https://arxiv.org/abs/2610.10390">arXiv:2610.10390</a>) adds explicit geometric chain-of-thought to driving VLAs: 2D grounding first, then localized 3D priors. The structured-reasoning-before-action pattern keeps paying off; worth reading if you track VLA architectures.</p>
+          <p><strong>Long-WAM</strong> (<a href="https://arxiv.org/abs/2610.10528">arXiv:2610.10528</a>): longer video context (up to 19.2s) helps world-action models, but only with autoregressive pretraining. At 107ms per action chunk on an RTX 5090, it is in the real-time conversation for onboard deployment.</p>
+          <p><strong>EmbodiedRSI</strong> (<a href="https://arxiv.org/abs/2610.10498">arXiv:2610.10498</a>): a hypothesis-guided self-evolving robot learning harness reaching 77% on RoboCasa365. The self-improvement loop framing is the thing to watch.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research worth reading</h3>
+          <p>From ericzzj's research threads:</p>
+          <p><strong>MoSE3</strong> (<a href="https://arxiv.org/abs/2610.03716">arXiv:2610.03716</a>): per-pixel SE(3) estimation.</p>
+          <p><strong>Masked Geometric Encoder</strong> (<a href="https://arxiv.org/abs/2610.06813">arXiv:2610.06813</a>): robust 3D foundation models.</p>
+          <p><strong>DensiTok</strong> (<a href="https://arxiv.org/abs/2610.07958">arXiv:2610.07958</a>).</p>
+          <p><strong>EmbodiedSmith</strong> (<a href="https://arxiv.org/abs/2610.07969">arXiv:2610.07969</a>): a data flywheel for embodied learning.</p>
+          <p><strong>RoboPrompt</strong> (<a href="https://arxiv.org/abs/2610.10534">arXiv:2610.10534</a>).</p>
+          <p><strong>RobotWorld</strong> (<a href="https://arxiv.org/abs/2610.10409">arXiv:2610.10409</a>): an agent benchmark.</p>
+          <p><strong>TRACE</strong> (<a href="https://arxiv.org/abs/2610.07767">arXiv:2610.07767</a>): FP4 RL for MoE.</p>
+          <p><strong>Cross-tokenizer on-policy distillation</strong> (<a href="https://arxiv.org/abs/2610.08448">arXiv:2610.08448</a>).</p>
+          <p><strong>ExpDis</strong> (<a href="https://arxiv.org/abs/2610.10536">arXiv:2610.10536</a>): RLVR.</p>
+          <p><strong>Ledger</strong> (<a href="https://arxiv.org/abs/2610.10538">arXiv:2610.10538</a>): persistent 3D memory.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-07.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
