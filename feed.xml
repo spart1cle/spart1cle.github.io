@@ -6,6 +6,38 @@
   <description>Daily working notes on autonomous-vehicle AI and frontier AI research.</description>
   <language>en-us</language>
   <item>
+    <title>ChatGPT stops being a chat window</title>
+    <link>https://brandonbmay.com/log/2026-10-09.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-09.html</guid>
+    <pubDate>Fri, 09 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>GPT-6 lands in ChatGPT with "Intelligent UI."</strong> Interactive charts, buttons, and calculators built directly in chat; GPT-6 Sol for paid tiers, Luna for Free and Go. OpenAI is pushing ChatGPT past text toward a post-text product surface. Whether the interactivity proves genuinely useful or stays demo gloss is worth testing firsthand. <a href="https://www.ghacks.net/2026/10/08/openai-brings-gpt-6-to-all-chatgpt-users-adding-intelligent-ui-with-interactive-answers/">gHacks</a></p>
+          <p><strong>The small-model price war continues.</strong> Anthropic followed Haiku 5.5 by halving Sonnet 5.5 cache-read pricing to $0.10 per million tokens and adding monthly API credits, making the $0.10/M tier the contested ground. For anyone running agents at scale, this is the line item to re-benchmark. <a href="https://the-decoder.com/claude-haiku-5-5-arrives-with-massive-price-cuts-proving-the-ai-pricing-arms-race-is-far-from-over/">The Decoder</a></p>
+          <p><strong>Google rolls out a Workspace-wide Gemini agent.</strong> One agent across Gmail, Drive, Docs, Sheets, and Calendar, with MCP support. The technically interesting part is MCP support, which makes the agent extensible rather than a closed demo; the agentic-workspace race against whatever OpenAI ships next is now on. <a href="https://www.reuters.com/business/google-cloud-introduces-gemini-agent-work-ai-race-heats-up-2026-10-08/">Reuters</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier labs</h3>
+          <p><strong>Gemini 4 Argon takes #1 on APEX-Agents.</strong> It leads the overall leaderboard at roughly 82.4% Pass@1 and is the first model above 90% on any single domain (management consulting, 90.3%). The narrowing gap between frontier labs says more about benchmark saturation than a decisive lead. <a href="https://benchlm.ai/benchmarks/mercorapexagents11">APEX-Agents</a></p>
+          <p><strong>Anthropic launches a Cyber Mission and Critical Infrastructure Defense Program, plus a free open-source scanner.</strong> The program brings frontier models, on-site engineers, and threat research to OT defenders with 11 founding partners; the free OSS scanner could see real adoption. Positioning as much as product, but the scanner is concrete. <a href="https://www.anthropic.com/news/anthropic-cyber-mission">Anthropic</a></p>
+          <p><strong>Liquid AI ships its first open-weight on-device decision models.</strong> d1-3B runs at 8ms on an RTX 4090, outputting probability distributions in a single forward pass with zero generated tokens. Decision models, not chat models, as open weights for edge deployment is a genuinely new category, and one to watch for on-vehicle inference budgets. <a href="https://www.liquid.ai/blog/d1-open">Liquid AI</a></p>
+          <p><strong>Perplexity releases MIT-licensed multimodal retrievers (pplx-embed-v2-late).</strong> Two ColBERT-style late-interaction retrievers that handle text, images, and rendered PDF pages without OCR. A permissively licensed multimodal embedding model is genuinely useful for RAG pipelines. <a href="https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector">Perplexity</a></p>
+          <p><strong>Nous Research raises $90M at a $1.5B valuation.</strong> The Series B was led by Robot Ventures with Nvidia and Samsung participating, and Hermes is reportedly at roughly 2.5% of global tokens. More funding signal than technical signal, but that token share is striking for an open-weights lab. <a href="https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/">TechCrunch</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><strong>A streaming reconstruction cluster.</strong> <a href="https://arxiv.org/abs/2610.08978">S2Tok</a> uses persistent latent spatial tokens for streaming 3D Gaussian reconstruction; <a href="https://arxiv.org/abs/2610.09720">DynStream</a> does online 4D Gaussians from unposed video; <a href="https://arxiv.org/abs/2610.09853">DeltaSplat</a> does iterative Gaussian refinement for pose-free feed-forward splatting. The throughline: online neural reconstruction primitives are maturing fast, and they are directly relevant to vehicle perception stacks.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.10270">Video Prediction Policy 2</a> claims zero-shot generalization in video prediction and action generation for world-action models.</strong> "Predict better, act better": if the zero-shot claim holds, it is a step toward generalist world models. Verify against the evals before getting excited.</p>
+          <p><strong>Sensor security: perspective-shift attacks.</strong> TUM researchers demonstrated an optical film that shifts camera and LiDAR fields of view by 20 degrees, leaving lanes visible but displaced by over a meter; the work won Best Paper at VehicleSec 26. A companion SoK on image-processing pipeline security and a reported ACM Asia CCS 26 paper could not be matched to citable sources, so treat those as unconfirmed. <a href="https://www.tum.de/en/news-and-events/all-news/press-releases/details/protecting-autonomous-vehicles-against-cyberattacks">TUM</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research worth reading</h3>
+          <p><a href="https://arxiv.org/abs/2610.10270">Video Prediction Policy 2</a>, <a href="https://arxiv.org/abs/2610.08978">S2Tok</a>, <a href="https://arxiv.org/abs/2610.09720">DynStream</a>, <a href="https://arxiv.org/abs/2610.09853">DeltaSplat</a>, and <a href="https://arxiv.org/abs/2610.07967">DecepEval</a>, a benchmark for deception in LLM agents.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
     <title>The trillion-parameter open-weights launch, weights pending</title>
     <link>https://brandonbmay.com/log/2026-10-08.html</link>
     <guid>https://brandonbmay.com/log/2026-10-08.html</guid>

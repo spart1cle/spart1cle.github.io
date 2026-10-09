@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT stops being a chat window · Research Log · Brandon B. May</title>
+  <meta name="description" content="OpenAI pushes ChatGPT past text into interactive in-chat apps while Anthropic and Google answer with cheaper inference and an agentic Workspace, and the research front keeps moving on streaming 3D reconstruction and world-action models.">
+  <meta property="og:title" content="ChatGPT stops being a chat window · Research Log · Brandon B. May">
+  <meta property="og:description" content="OpenAI pushes ChatGPT past text into interactive in-chat apps while Anthropic and Google answer with cheaper inference and an agentic Workspace, and the research front keeps moving on streaming 3D reconstruction and world-action models.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-09.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-09.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ChatGPT stops being a chat window · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="OpenAI pushes ChatGPT past text into interactive in-chat apps while Anthropic and Google answer with cheaper inference and an agentic Workspace, and the research front keeps moving on streaming 3D reconstruction and world-action models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Friday, October 9, 2026</p>
+      <h2 class="section-title">ChatGPT stops being a chat window</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>GPT-6 lands in ChatGPT with "Intelligent UI."</strong> Interactive charts, buttons, and calculators built directly in chat; GPT-6 Sol for paid tiers, Luna for Free and Go. OpenAI is pushing ChatGPT past text toward a post-text product surface. Whether the interactivity proves genuinely useful or stays demo gloss is worth testing firsthand. <a href="https://www.ghacks.net/2026/10/08/openai-brings-gpt-6-to-all-chatgpt-users-adding-intelligent-ui-with-interactive-answers/">gHacks</a></p>
+          <p><strong>The small-model price war continues.</strong> Anthropic followed Haiku 5.5 by halving Sonnet 5.5 cache-read pricing to $0.10 per million tokens and adding monthly API credits, making the $0.10/M tier the contested ground. For anyone running agents at scale, this is the line item to re-benchmark. <a href="https://the-decoder.com/claude-haiku-5-5-arrives-with-massive-price-cuts-proving-the-ai-pricing-arms-race-is-far-from-over/">The Decoder</a></p>
+          <p><strong>Google rolls out a Workspace-wide Gemini agent.</strong> One agent across Gmail, Drive, Docs, Sheets, and Calendar, with MCP support. The technically interesting part is MCP support, which makes the agent extensible rather than a closed demo; the agentic-workspace race against whatever OpenAI ships next is now on. <a href="https://www.reuters.com/business/google-cloud-introduces-gemini-agent-work-ai-race-heats-up-2026-10-08/">Reuters</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier labs</h3>
+          <p><strong>Gemini 4 Argon takes #1 on APEX-Agents.</strong> It leads the overall leaderboard at roughly 82.4% Pass@1 and is the first model above 90% on any single domain (management consulting, 90.3%). The narrowing gap between frontier labs says more about benchmark saturation than a decisive lead. <a href="https://benchlm.ai/benchmarks/mercorapexagents11">APEX-Agents</a></p>
+          <p><strong>Anthropic launches a Cyber Mission and Critical Infrastructure Defense Program, plus a free open-source scanner.</strong> The program brings frontier models, on-site engineers, and threat research to OT defenders with 11 founding partners; the free OSS scanner could see real adoption. Positioning as much as product, but the scanner is concrete. <a href="https://www.anthropic.com/news/anthropic-cyber-mission">Anthropic</a></p>
+          <p><strong>Liquid AI ships its first open-weight on-device decision models.</strong> d1-3B runs at 8ms on an RTX 4090, outputting probability distributions in a single forward pass with zero generated tokens. Decision models, not chat models, as open weights for edge deployment is a genuinely new category, and one to watch for on-vehicle inference budgets. <a href="https://www.liquid.ai/blog/d1-open">Liquid AI</a></p>
+          <p><strong>Perplexity releases MIT-licensed multimodal retrievers (pplx-embed-v2-late).</strong> Two ColBERT-style late-interaction retrievers that handle text, images, and rendered PDF pages without OCR. A permissively licensed multimodal embedding model is genuinely useful for RAG pipelines. <a href="https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector">Perplexity</a></p>
+          <p><strong>Nous Research raises $90M at a $1.5B valuation.</strong> The Series B was led by Robot Ventures with Nvidia and Samsung participating, and Hermes is reportedly at roughly 2.5% of global tokens. More funding signal than technical signal, but that token share is striking for an open-weights lab. <a href="https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/">TechCrunch</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><strong>A streaming reconstruction cluster.</strong> <a href="https://arxiv.org/abs/2610.08978">S2Tok</a> uses persistent latent spatial tokens for streaming 3D Gaussian reconstruction; <a href="https://arxiv.org/abs/2610.09720">DynStream</a> does online 4D Gaussians from unposed video; <a href="https://arxiv.org/abs/2610.09853">DeltaSplat</a> does iterative Gaussian refinement for pose-free feed-forward splatting. The throughline: online neural reconstruction primitives are maturing fast, and they are directly relevant to vehicle perception stacks.</p>
+          <p><strong><a href="https://arxiv.org/abs/2610.10270">Video Prediction Policy 2</a> claims zero-shot generalization in video prediction and action generation for world-action models.</strong> "Predict better, act better": if the zero-shot claim holds, it is a step toward generalist world models. Verify against the evals before getting excited.</p>
+          <p><strong>Sensor security: perspective-shift attacks.</strong> TUM researchers demonstrated an optical film that shifts camera and LiDAR fields of view by 20 degrees, leaving lanes visible but displaced by over a meter; the work won Best Paper at VehicleSec 26. A companion SoK on image-processing pipeline security and a reported ACM Asia CCS 26 paper could not be matched to citable sources, so treat those as unconfirmed. <a href="https://www.tum.de/en/news-and-events/all-news/press-releases/details/protecting-autonomous-vehicles-against-cyberattacks">TUM</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research worth reading</h3>
+          <p><a href="https://arxiv.org/abs/2610.10270">Video Prediction Policy 2</a>, <a href="https://arxiv.org/abs/2610.08978">S2Tok</a>, <a href="https://arxiv.org/abs/2610.09720">DynStream</a>, <a href="https://arxiv.org/abs/2610.09853">DeltaSplat</a>, and <a href="https://arxiv.org/abs/2610.07967">DecepEval</a>, a benchmark for deception in LLM agents.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-08.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
