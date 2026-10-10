@@ -6,6 +6,41 @@
   <description>Daily working notes on autonomous-vehicle AI and frontier AI research.</description>
   <language>en-us</language>
   <item>
+    <title>The judge becomes a product</title>
+    <link>https://brandonbmay.com/log/2026-10-10.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-10.html</guid>
+    <pubDate>Sat, 10 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p>OpenAI opened a public beta of its <a href="https://developers.openai.com/api/docs/guides/decisions">Decisions API</a>: typed structured answers (predicates, choices, scores) via POST /v1/decisions, at $0.10 per million input tokens with free output tokens, plus HIPAA and zero-data-retention support. The company claims 10x the speed of GPT-6 Luna. This productizes the 'LLM as judge' pattern that has been duct-taped together in eval pipelines for two years; if the latency claim holds, it obsoletes a category of eval infrastructure.</p>
+          <p>Anthropic unlocked Claude for offensive penetration testing through a three-tier <a href="https://www.reuters.com/legal/litigation/anthropic-opens-its-most-powerful-ai-models-more-security-teams-2026-10-06/">Cyber Verification Program</a> for verified security professionals. Claude Opus 5.5 completed 34 of 50 offensive tasks in Anthropic's own testing. Gating offensive capability behind verification is the responsible way to release this, and 34/50 is a real marker for how far automated red-teaming has come.</p>
+          <p>Anthropic also shipped <a href="https://www.reuters.com/technology/anthropic-launches-dashboard-animation-tools-claude-2026-10-08/">Claude Dashboards and Motion</a>: live charts generated from BigQuery, Snowflake, and Salesforce, plus code-based editable animations with MP4 export. Dashboards is the enterprise wedge; Motion is a genuinely new artifact type. Both point the same direction: Claude as a working surface, not a chat window.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p>OpenAI released <a href="https://www.bitsminds.com/news/gpt-6-1-sol-launch-price-benchmarks">GPT-6.1 Sol</a> and halved Sol and Luna API prices. The frontier price war is now the industry's main competitive axis; the Pro 200 plan was reworked with lower limits, which reads as margin defense while API prices race down.</p>
+          <p>Google's Gemini 4 Argon debuted at number one on <a href="https://saudishopper.com.sa/en/gemini-4-argon-apex-agents-benchmark/">APEX-Agents</a> at 82.2% Pass@1. The agentic benchmark crown keeps rotating between labs, which says more about benchmark saturation than about a durable lead.</p>
+          <p>Samsung Labs released <a href="https://github.com/SamsungLabs/LittleBit">LittleBit-2</a>, pushing LLM compression to 0.1 to 1.0 bits per weight. If near-1-bit models stay usable, the on-device story changes completely; read the quality numbers before believing the headline.</p>
+          <p>OpenAI's Lean-verified Navier-Stokes proof is being challenged: <a href="https://www.newscientist.com/article/2592824-openai-mistranslated-mathematics-into-code-for-its-navier-stokes-proof/">researchers show</a> the formalization proves a weaker statement than the English manuscript. Formal does not mean faithful, and this is a useful stress test for what 'verified' claims actually cover.</p>
+          <p>TokenRouter (<a href="https://arxiv.org/abs/2610.12242">arXiv 2610.12242</a>) proposes token-level LLM routing as a serving system. Fine-grained routing is where the remaining cost and latency wins live.</p>
+          <p>A quantized GLM now runs at 71.8 tokens per second on two desktop DGX Sparks (<a href="https://huggingface.co/autotrust/GLM5.3-Flash-E224-DGX-Spark">model card</a>). Frontier-class inference on consumer hardware keeps getting closer.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p>DreamTrue (<a href="https://arxiv.org/abs/2610.12468">arXiv 2610.12468</a>) introduces action-faithful multi-view robot world models with counterfactual post-training, taking rank 1 in the AgiBot World Challenge 2026 world-model track. Action-faithfulness is the right objective for world models used in planning; this one deserves a full read.</p>
+          <p>VersaCamVLA (<a href="https://arxiv.org/abs/2610.12451">arXiv 2610.12451</a>), accepted to NeurIPS 2026, maps arbitrary posed RGB views to fixed latent scene tokens for camera-configurable VLA policies. Camera-agnostic policies would remove a large chunk of per-vehicle integration work.</p>
+          <p>SDPAD (<a href="https://arxiv.org/abs/2610.11583">arXiv 2610.11583</a>) is the first fully spike-driven end-to-end driving planner: 0.40m L2 error and 86.3 PDMS on NAVSIM at under 2% of the energy of ANN baselines. Spiking networks for driving are still exotic, but that energy figure matters for onboard compute budgets.</p>
+          <p>WOVEN (<a href="https://arxiv.org/abs/2610.12417">arXiv 2610.12417</a>) proposes visual transition reasoning as a training primitive and finds frontier multimodal models systematically deficient at it. 'Your model cannot do this basic thing' papers are the useful kind.</p>
+          <p>BridgeGuard adds safety-constrained diffusion planning with a learned distance field (+2.9 driving score on Bench2Drive), and PlanWAM shapes future representations with planning objectives (93.8 PDMS on NAVSIM). Both point the same way: shaping world-model latents with planning and safety objectives beats pure prediction.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p>Also worth your time: VGGTWorld-VLA (intent-conditioned 3D world evolution for driving), CoCam4D (Bayesian cooperative camera-only 4D perception with 35-byte object primitives for vehicle-to-everything communication), GLIO2 (GPU-parallelized LiDAR-inertial-GNSS at 25 Hz on a Jetson Orin NX), LiteNWM (latent navigation world model with 128x end-to-end speedup), PLaW-VLA (<a href="https://arxiv.org/abs/2610.12285">2610.12285</a>), Caught in the Act (<a href="https://arxiv.org/abs/2610.12445">2610.12445</a>, deception probes at 98.8% AUC with a released FIBS dataset), LVSPM (<a href="https://arxiv.org/abs/2610.10960">2610.10960</a>) and Slot3R (<a href="https://arxiv.org/abs/2610.12282">2610.12282</a>) via Bluesky.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
     <title>ChatGPT stops being a chat window</title>
     <link>https://brandonbmay.com/log/2026-10-09.html</link>
     <guid>https://brandonbmay.com/log/2026-10-09.html</guid>
