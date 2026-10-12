@@ -6,6 +6,56 @@
   <description>Daily working notes on autonomous-vehicle AI and frontier AI research.</description>
   <language>en-us</language>
   <item>
+    <title>The harness is becoming the learnable object</title>
+    <link>https://brandonbmay.com/log/2026-10-12.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-12.html</guid>
+    <pubDate>Mon, 12 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>SimVTA breaks the logs-only supervision bottleneck for driving world models.</strong> The OpenDriveLab method post-trains driving world-action models with GRPO and flow-matching on simulation-rendered trajectory supervision in 3D Gaussian splatting scenes, lifting NAVSIM v1 PDMS from 86.2 to 91.3 (<a href="https://arxiv.org/abs/2610.13781">arXiv 2610.13781</a>). Simulated trajectory supervision as a post-training recipe is the data-engine idea worth studying here.</p>
+          <p><strong>Four independent groups converged on training the harness, not the weights.</strong> CMU's Harness Learning applies RL to harness code and reports a 4B proposer beating a 35B teacher (<a href="https://arxiv.org/abs/2609.35738">paper</a>); NVIDIA's VERA co-evolves model and harness across 9,000+ verifiable environments (<a href="https://arxiv.org/abs/2610.05923v1">paper</a>); HERMES uses resident LLM Dev-Primitives to lift migration success from 6.5% to 31.0% (<a href="https://arxiv.org/abs/2610.07832">paper</a>); and Sakana AI's MASS runs multi-agent self-supervision with no external verifier (<a href="https://pub.sakana.ai/mass/">paper</a>). When four labs land on the same idea independently, the leverage has moved: the harness, not the model weights, is where the gains are right now.</p>
+          <p><strong>Meta's Sharpening Tax warns that RL post-training shrinks solution coverage.</strong> Base models solve at large K what post-trained versions never solve again (<a href="https://arxiv.org/abs/2610.01509">paper</a>), a direct caution for anyone leaning on best-of-N or verification strategies; PTGS is the proposed mitigation. Read this before your next post-training run.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier labs</h3>
+          <p><strong>GPT-6 Sol and Luna shipped with generated UI; the safety regressions matter more.</strong> Responses now generate UI components on the fly (<a href="https://openai.com/index/gpt-6-for-everyone/">announcement</a>), but the more important signal is in the <a href="https://cdn.openai.com/pdf/gpt-6-october.pdf">system card</a>: OpenAI admitted statistically significant regressions versus GPT-5.6 on self-harm evals, plus gore and sexual-content evals for Luna. Capability up, safety down, stated plainly.</p>
+          <p><strong>The US restored UK AISI pre-release model access after a 17-day pause.</strong> During the gap, Anthropic shipped Claude Mythos 5.1 US-only (<a href="https://particle.news/story/us-restores-uk-access-to-pre-release-frontier-ai-models">report</a>). Voluntary cross-border eval access looks fragile: labs will re-geofence releases the moment politics intrudes.</p>
+          <p><strong>OpenAI's Decisions API entered public beta, confirming the decision-model category.</strong> Structured verdicts instead of prose at $0.10 per 1M tokens (<a href="https://aiweekly.co/alerts/openai-launches-decisions-api-public-beta-on-gpt-6-luna">announcement</a>), the second launch in a week after Cloudflare's Clef-omni. This category is now a trend, not an experiment.</p>
+          <p><strong>DeepMind's EmbeddingGemma 2 is an open embedding model worth noting.</strong> A 740M-parameter open-weight multimodal embedder under Apache 2.0, 768 dimensions with Matryoshka truncation (<a href="https://www.unite.ai/deepmind-debuts-embeddinggemma-2-mapping-five-modalities-into-one-space/">announcement</a>), belatedly captured from its October 6 launch.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><strong>SplitJEPA takes the theory-first route to world models.</strong> A latent world model with invariant and variant subspaces and no reconstruction decoder, with formal identifiability under Gaussian predictive dynamics (<a href="https://arxiv.org/abs/2610.12349">arXiv 2610.12349</a>). The theory-first world model papers keep getting stronger.</p>
+          <p><strong>Splat2Act is the consumer phone-to-policy pipeline.</strong> A phone scan becomes a 3D Gaussian splatting twin, which yields 68k sim-oracle demos, which train a personalized pi0.5 policy, going from 0% zero-shot to 62.5% pickup (<a href="https://arxiv.org/abs/2610.13945">arXiv 2610.13945</a>). The consumer version of the data-engine story.</p>
+          <p><strong>Chronos Policy bakes physical time into robot policies.</strong> Explicit time-aware rotary position embeddings tolerate async sensors and variable latency (<a href="https://arxiv.org/abs/2610.13929">arXiv 2610.13929</a>). Deployment-relevant: real robots have messy timing.</p>
+          <p><strong>Noise Space Learning makes frozen VLAs cheap to adapt.</strong> Frozen flow-matching vision-language-action models are adapted by learning the noise distribution instead of the weights (<a href="https://arxiv.org/abs/2610.13943">arXiv 2610.13943</a>). Cheap adaptation of big VLAs is a practical win.</p>
+          <p><strong>Snow makes LiDAR detection easier, says a new IROS 2026 result.</strong> Snow accumulation boosts point counts, so weather-severity bins mislead without object-level accounting (<a href="https://arxiv.org/abs/2610.13891">arXiv 2610.13891</a>). An evaluation-hygiene result that should change how people bin their weather evals.</p>
+          <p><strong>Waymo went to the bond market and into Detroit.</strong> Its first debt financing, a <a href="https://www.inc.com/kevin-haynes/waymo-secures-5-billion-loan-its-first-to-fuel-expansion-plans/91417899">$5 billion term loan</a> led by PIMCO, Blackstone, and Sixth Street, coincides with the start of fully driverless operations in Detroit. NVIDIA's Ali Kani <a href="https://www.freep.com/story/money/cars/2026/10/08/nvidia-tesla-waymo-selfdriving-cars-apa/92142486007/">publicly gave Waymo the lead over Tesla</a>, a notable shot from a key supplier. Bond-market money at this scale says the unit-economics story is credible.</p>
+          <p><strong>TomTom and DeepRoute.ai signed an MoU for L2+ map priors.</strong> <a href="https://www.globenewswire.com/news-release/2026/10/12/3378564/0/en/tomtom-and-deeproute-ai-partner-to-advance-ai-based-automated-driving.html">Report</a></p>
+          <p><strong>At AutoSens, OEMs are rethinking monolithic end-to-end driving over chip and memory costs.</strong> <a href="https://www.eetimes.com/rising-costs-compute-demand-push-adas-toward-modular-ai/">Report</a> The architecture pendulum keeps swinging.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools / models</h3>
+          <p><strong>CorpusMap makes agentic retrieval cheaper and better, a rare combination.</strong> Entity-graph navigation for agentic retrieval improves quality by 6.4 to 11.7 points while cutting tokens 34 to 57%, with no LLM build cost (<a href="https://arxiv.org/abs/2609.37226">paper</a>).</p>
+          <p><strong>VeriHarness has the model's own generator verify its rollouts.</strong> With disagreement resolution and a consensus challenger, and about 26K rollouts released (<a href="https://arxiv.org/abs/2610.00972">paper</a>). Self-verification harnesses are converging with the harness-learning trend above.</p>
+          <p><strong>Agent Plasticity measured test-time learning in dollars.</strong> The gains-per-dollar metric for test-time learning puts paid GPT-6 Sol as the most efficient learner (<a href="https://arxiv.org/abs/2610.08902">paper</a>), a useful efficiency lens on the just-run-it-longer instinct.</p>
+          <p><strong>MIMESIS is a 9B user simulator that transfers.</strong> RL against it generalizes across unseen user simulators (<a href="https://arxiv.org/abs/2610.09484">paper</a>). Transferable simulators are the bottleneck for agent training.</p>
+          <p><strong>Sakana's Continuous Memory Machines put dual matrix-valued memories on continuous-time models.</strong> Beating LSTM, DNC, RMC, and CTM baselines (<a href="https://arxiv.org/abs/2610.07907">paper</a>). Memory architectures are quietly having a moment.</p>
+          <p><strong>NVIDIA's cross-model KV cache transfer cuts handoff cost 25x.</strong> Plus Cache-2-Cache (<a href="https://dataconomy.com/2026/08/24/nvidia-cuts-ai-model-handoff-costs/">report</a>). Concrete prefill savings for multi-model agent stacks, and the kind of infrastructure win that compounds.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable</h3>
+          <p><strong>Anthropic's usage policy now forbids sustained and needless abusive or cruel behavior toward the model.</strong> <a href="https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/">TechCrunch</a> reports the change alongside new election-interference language. Model-welfare norms are going mainstream in legal text: a cultural marker worth noting.</p>
+          <p><strong>Claude Haiku 5.5 joined the GitHub Copilot model picker.</strong> <a href="https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot/">Report</a> A distribution win for Anthropic's small model.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research worth reading</h3>
+          <p>SimVTA (<a href="https://arxiv.org/abs/2610.13781">2610.13781</a>), SplitJEPA (<a href="https://arxiv.org/abs/2610.12349">2610.12349</a>), Splat2Act (<a href="https://arxiv.org/abs/2610.13945">2610.13945</a>), Chronos Policy (<a href="https://arxiv.org/abs/2610.13929">2610.13929</a>), Noise Space Learning (<a href="https://arxiv.org/abs/2610.13943">2610.13943</a>), RSI-Anything (<a href="https://arxiv.org/abs/2610.13912">2610.13912</a>), Beyond the Snowflakes (<a href="https://arxiv.org/abs/2610.13891">2610.13891</a>), Gym-Anything (<a href="https://arxiv.org/abs/2604.06126">2604.06126</a>).</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
     <title>An agent&#x27;s fabricated tipline tip became federal policy</title>
     <link>https://brandonbmay.com/log/2026-10-11.html</link>
     <guid>https://brandonbmay.com/log/2026-10-11.html</guid>
