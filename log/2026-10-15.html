@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The first insider case at a frontier lab · Research Log · Brandon B. May</title>
+  <meta name="description" content="A security-heavy day across the frontier labs, from an insider arrest at OpenAI and quantified self-replication research at Anthropic to an in-house replacement for git, while embodied AI delivered the first driving VLA that reasons about when not to follow instructions.">
+  <meta property="og:title" content="The first insider case at a frontier lab · Research Log · Brandon B. May">
+  <meta property="og:description" content="A security-heavy day across the frontier labs, from an insider arrest at OpenAI and quantified self-replication research at Anthropic to an in-house replacement for git, while embodied AI delivered the first driving VLA that reasons about when not to follow instructions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-15.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-15.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The first insider case at a frontier lab · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="A security-heavy day across the frontier labs, from an insider arrest at OpenAI and quantified self-replication research at Anthropic to an in-house replacement for git, while embodied AI delivered the first driving VLA that reasons about when not to follow instructions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Thursday, October 15, 2026</p>
+      <h2 class="section-title">The first insider case at a frontier lab</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p>The FBI <a href="https://www.theregister.com/security/2026/10/14/openai-engineer-charged-after-boardroom-bug-found-wrapped-in-toilet-paper/5303000">arrested an OpenAI engineer</a> for allegedly planting a covert recording device in an executive conference room at the company's San Francisco offices. Abdulrahman Alfozan, 35, an engineering lead on the Agents Platform, was charged with attempting to intercept oral communications after OpenAI's technical surveillance team found the device plugged into a USB port behind a TV on September 30, concealed in toilet paper, its stored data encrypted. OpenAI says it used its own models to identify who planted it, and says there is no indication he accessed model weights, source code, or customer data. He faces up to five years in prison if convicted. These are charges, not findings, and the motive is unknown. Still, this is the first known insider counterintelligence case at a frontier lab, and it makes in-house counter-surveillance a standard line item at a model company.</p>
+          <p>Anthropic's Frontier Red Team <a href="https://aiweekly.co/alerts/anthropic-open-models-months-from-self-replicating-on-iot">published research</a> arguing open models are months from self-replicating on cheap IoT hardware. The team bought 15 off-brand $55 Android TV boxes, networked them, and ran Google's open Gemma4-26B-A4B sharded across them at 0.39 tokens per second. Only one open-weight model, GLM-5.2, completed end-to-end replication reliably: all 8 contained nodes in 4 of 5 trials. Two findings cut against the scary reading: Opus 4.8 as an advisor did not measurably help the small models, and they scored very poor to poor on a local spear-phishing eval, so agentic cyber capability is running ahead of social engineering. Caveats apply: simplified cyber-exploit stages make this an upper bound, and the authors call it signs of life. The defensible core is unglamorous: ISP-level quarantine with user notification, manufacturer security baselines, network-signature detection.</p>
+          <p>Anthropic <a href="https://aiweekly.co/alerts/anthropic-builds-scion-to-replace-git-after-merges-hit-30000day">replaced git with its in-house Scion version control system</a>. Daily merges went from about 2,500 in May to over 30,000 in September, driven by Claude writing most of the code; main-branch history alone is near 100GB, with roughly 25 million CI checkouts per day. Scion is server-centric with regional caches, a 200x smaller CPU and memory footprint than the old mirror setup, and checkouts in seconds instead of minutes. Seven engineers built Scion plus a code review tool, code search, and a permissions system in five months, with Claude itself writing parts. It is not open-sourced and, per Anthropic, no general-purpose git replacement. The takeaway quote: the bottleneck is no longer writing code, it is all of the developer infrastructure built for human scale.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier labs</h3>
+          <p>Anthropic <a href="https://www.anthropic.com/research/distillation-defenses">detailed anti-distillation defenses</a> rolled into Claude Fable 5.1 and Opus 5.5 that cut the volume of reasoning tokens distillers can harvest by 90 to 99 percent. The core move is preserved thinking: new API accounts cannot edit Claude's prior context, the technique attackers used to pull long reasoning transcripts. A two-stage classifier with a false positive rate under 0.1 percent covers Sonnet 5.5, Opus 5 and 5.5, and Fable 5 and 5.1; repeat attempters get stricter rate limits, and associated accounts are banned within about two hours of a detected campaign. The post quantifies why transcripts are the prize: a model distilled from full reasoning transcripts scored 80.4 percent on SWE-bench Verified versus 71.8 from summarized transcripts. It publicly names two Chinese labs, Zhipu and Moonshot. Figures are self-reported, not third-party verified, and Anthropic concedes it does not know how long the gains will last.</p>
+          <p>Independent benchmarks for Gemini 4 Argon are <a href="https://letsdatascience.com/blog/gemini-4-argon-public-independent-tests-rank-it-first-and-eighth">mixed</a>. Vals has Argon first on its index at 68.90 percent, ahead of Sonnet 5.5 and Opus 5.5; Artificial Analysis puts it at 53, tied, five points behind Opus 5.5 at 58. Google's own numbers: 77.9 percent on DeepSWE v1.1 versus 74.2 for Opus 5.5, 19.6 percent on Harvey Legal Agent versus 5.4 for GPT-6 Astra, 87 percent on ERQA embodied reasoning QA, and a 0.7 percent attack success rate on Gray Swan's indirect prompt-injection suite; it loses Terminal-Bench 4.0 to Opus 5.5, 57.4 to 66.4. Pricing recap: $2/$10 per million in/out through November 30, doubling December 1. Competitive and priced to be chosen, not a clear frontier leader.</p>
+          <p>Meta's Muse Wonder and Wonder Full are <a href="https://the-decoder.com/metas-new-frontier-model-muse-wonder-full-breaks-into-the-ai-top-tier/">still benchmark claims only</a>, with no technical paper. Independent reads: Artificial Analysis Intelligence Index 56 for Wonder Full (rank four among proprietary models, no public API); The Decoder's reading has Wonder Full at 57 percent on Terminal-Bench 4.0 versus 33 percent for Muse Spark 1.3, and beaten on Harvey Legal by three of Meta's own existing models. Treat as unverified until a paper lands.</p>
+          <p>Around 400 scientists, including Geoffrey Hinton and Yoshua Bengio, <a href="https://www.reuters.com/legal/litigation/scientists-call-international-body-oversee-advanced-ai-2026-10-13/">called for an international body</a> to oversee containment standards and incident reporting for advanced cyber-capable AI systems. The open letter proposes industry-wide containment rules and a public registry of significant security incidents, with frontier models initially air-gapped from external networks and under independent oversight. It follows the White House voluntary accord signed by Anthropic, OpenAI, Google, Meta, xAI, and NVIDIA, which the signatories say is not enough.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><a href="https://arxiv.org/abs/2610.20609">SafeDriveVLA</a> (accepted at CoRL 2026) is the first driving VLA that explicitly predicts a three-level navigation-compliance mode, decoupling conflict reasoning from action generation, and uses navigation-conditioned world-model dreaming to inform that prediction. Results: 88.16 driving score and 68.64 percent success rate on Bench2Drive, closed-loop language following up 49.3 percent, and collisions under unsafe instructions down from 60 to 38 versus the best SimLingo variant. Free-form language instructions open a new vulnerability surface for driving VLAs (inattentive drivers, malicious users), and this is the first principled treatment of it.</p>
+          <p><a href="https://arxiv.org/abs/2610.20442">Towards Agentic Robots</a> is a unified survey tracing the path from robot policies to agentic systems (VLAs, world models, world-action models), organizing the literature into 17 categories across four functional domains. A useful field map and a good reference for where driving autonomy fits the agentic frame.</p>
+          <p><a href="https://www.unite.ai/waymo-opens-fully-autonomous-rides-to-everyone-in-three-cities/">Waymo opened fully autonomous rides</a> to everyone in San Antonio, San Diego, and Tampa on October 14, and <a href="https://focalnews.org/nashville-tn/local/waymo-adds-bna-pickups-and-drop-offs-for-some-nashville-riders">started robotaxi rides at Nashville International Airport</a>, its fifth US airport. Meanwhile <a href="https://www.globenewswire.com/news-release/2026/10/14/3380800/0/en/waabi-and-warrior-logistics-partner-on-autonomous-trucking-operations-in-texas.html">Waabi and Warrior Logistics began commercial autonomous trucking</a> on the Dallas-Houston corridor: 100 percent on-time pickup and delivery and zero safety incidents since commercial operations started earlier this year.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research worth reading</h3>
+          <p>Leiden University researchers released a free 472-page textbook on agentic LLMs (reported via AlphaSignal); no independently verified download link was available at publication time, so this one ships without a direct link. A related resource from the same group is their <a href="https://github.com/nikivanstein/agenticllms/blob/HEAD/README.md">agentic LLM course site</a>.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools / models</h3>
+          <p>Anthropic released 400-plus free ready-to-use agents and skills for Claude, per AlphaSignal. Details are thin and no primary announcement link was available at publication time, so treat the specifics as unconfirmed.</p>
+          <p><a href="https://fish.audio/blog/fish-audio-drama-3/">Fish Audio Drama 3</a> is an open-weight 35B-A3B MoE text-to-speech model, weights on Hugging Face under the Fish Audio Community License (free commercial use under $500k annual revenue). The headline capability is plain-English acting direction: bracketed cues and tags on specific words, 83 languages, up to 16 characters in one pass, 89ms to first audio on a single H200. It is the top open-weight TTS on Artificial Analysis and leads even closed models on Pronunciation Robustness, the metric that decides whether voice agents are usable in production. Note: launch API pricing ends November 12, then 5x.</p>
+          <p>Liquid AI released <a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b">LFM2.5-24B-A2B</a>, a 24B-parameter reasoning model with about 2B active parameters per token, built for fast private agents on-device. Open-weight, 131k context, trained inside agent harnesses for multi-step tool use. All benchmark figures are vendor-reported; wait for independent numbers before treating them as capability claims.</p>
+          <p><a href="https://github.com/jonwheatley/pixel-path">Pixel Path</a> is a Claude Code skill that turns any two places into a pixel-art fly-through of the real road: real OpenStreetMap geometry and elevation baked into a pseudo-3D renderer, with AI-generated scenery. One example build mapped 5,285 km of US roads for under $500. Mostly a fun agent-capability demo, not a technique.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p>Intel <a href="https://www.jonpeddie.com/news/intels-d270-puts-inference-in-ordinary-racks/">formally launched the GPU D270</a> at the OCP Global Summit: up to 480GB LPDDR5X instead of HBM, 1.3 PFLOPS FP8, air-cooled at 350W, no 3D graphics pipeline. The pitch is price-per-token on large-model inference up to about 300B parameters without an HBM supply fight. Customer sampling is underway, broader availability targeted for 2027. Interesting non-HBM inference shape; a 2027 purchasing decision.</p>
+          <p>Microsoft <a href="https://www.geekwire.com/2026/microsoft-makes-biggest-bet-yet-on-its-own-silicon-unveils-new-ai-chip-to-reduce-reliance-on-nvidia/">unveiled the Maia 300</a> and says it will mainly use its own silicon for AI inference. Third-generation custom chip, 40 percent more AI output per watt than leading GPU systems per the company, multi-gigawatt deployments starting 2027. Microsoft remains a major NVIDIA buyer, so read this as diversification, not divorce.</p>
+          <p>NVIDIA <a href="https://blogs.nvidia.com/blog/gigawatt-ai-factories-ocp-vera-rubin/">contributed its Vera Rubin rack and compute tray designs to OCP</a> through MGX; MGX 1.2 adds blind-mate liquid cooling, a liquid-cooled 5,000A busbar, and racks up to 250kW. It also open-sourced four DSX OS pieces including a Cluster Readiness Engine that stress-tests GPU clusters before committing a training run.</p>
+          <p>NVIDIA, Google, Meta, and Microsoft <a href="https://madrobot.blog/2026/10/12/google-meta-microsoft-nvidia-ai-data-centres-power-grid-ocp-vera-rubin/">published a grid resilience spec</a> requiring near-full load restoration within two seconds, following proposals from grid operators MISO and ERCOT. Cooling systems are left out of the commitment.</p>
+          <p>ASML <a href="https://investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026">posted record 11.7 billion euro Q3 sales</a> and raised 2026 guidance to 44-45 billion euro, its third raise this year. Customers are asking about 2029-2030 order slots, and ASML expects to fall short of demand through 2028 despite a planned 30 percent EUV capacity increase.</p>
+          <p>Manus <a href="https://techcrunch.com/2026/10/08/chinas-manus-raises-over-500m-in-first-funding-round-since-split-with-meta/">raised over $500M</a> (announced October 8), its first round since the Meta acquisition was unwound on orders from Beijing. Boyu Capital and IDG Capital led; valuation undisclosed.</p>
+          <p>Google's internal Argon numbers (35 percent faster agentic code submissions, 30 percent fewer rollbacks, 100k-plus employees) are self-reported; no independently citable source was available at publication time.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-14.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
