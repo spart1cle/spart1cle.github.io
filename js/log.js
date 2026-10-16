@@ -9,6 +9,7 @@
   var listEl = document.getElementById('log-archive-list');
   if (!listEl) return;
   var tagFiltersEl = document.getElementById('log-tag-filters');
+  var sidebarEl = document.getElementById('log-sidebar');
   var archiveEl = document.getElementById('log-archive-years');
   var countEl = document.getElementById('log-count');
   var clearTagsBtn = document.getElementById('log-clear-tags');
@@ -60,6 +61,9 @@
         toggleTag(btn.getAttribute('data-tag'));
       });
     });
+    if (window.SiteUtils && SiteUtils.collapseTags) {
+      SiteUtils.collapseTags(tagFiltersEl, sidebarEl);
+    }
   }
 
   function renderArchive() {
