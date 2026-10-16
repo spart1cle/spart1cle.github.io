@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The evaluator moves inside the lab · Research Log · Brandon B. May</title>
+  <meta name="description" content="Anthropic granting METR employee-level access is the first real test of embedded external evaluation, landing on a day when an agent delivery benchmark and a dense batch of embodied-AI papers quietly kept raising the bar on what robots and planners can actually do.">
+  <meta property="og:title" content="The evaluator moves inside the lab · Research Log · Brandon B. May">
+  <meta property="og:description" content="Anthropic granting METR employee-level access is the first real test of embedded external evaluation, landing on a day when an agent delivery benchmark and a dense batch of embodied-AI papers quietly kept raising the bar on what robots and planners can actually do.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-16.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-16.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The evaluator moves inside the lab · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="Anthropic granting METR employee-level access is the first real test of embedded external evaluation, landing on a day when an agent delivery benchmark and a dense batch of embodied-AI papers quietly kept raising the bar on what robots and planners can actually do.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Friday, October 16, 2026</p>
+      <h2 class="section-title">The evaluator moves inside the lab</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p>Anthropic is <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/">granting METR employee-level access to evaluate its models</a>, the top tier of a new three-level external-evaluator system. The bottom tier runs narrow reviews and needs Anthropic's approval to publish; the middle tier publishes without approval; the top tier adds access to training pipelines and safeguards, with METR free to publicly characterize any redactions. The move follows through on Amodei's September essay proposing embedded external evaluators, and OpenAI has pledged the same, while Anthropic, OpenAI, Google, Meta, Nvidia and xAI have signed a White House accord committing to independent review. This is the first concrete instance of a frontier lab opening its actual systems, not just API outputs, to sustained outside evaluation. The proof will be what METR publishes: genuinely significant as an institutional move, not a capability claim.</p>
+          <p>Google's Gemini 4 Argon wave <a href="https://arxiv.org/abs/2610.22319">continues</a> with mixed independent reads and one genuinely interesting datapoint. Google's own production numbers: 35 percent more AI-agent-written code submitted, 30 percent fewer bad commits past review, a 1M-token output ceiling (up from 64K), and $2/$10 per million in/out API pricing that doubles after November 30. Independent takes are split: one hands-on test found it slow with weak design output, while the earlier benchmark split (Vals first, Artificial Analysis tied, Harvey Legal strong, Terminal-Bench 4.0 lost) stands. The standout datapoint is new: a paper (Faldor, Singh, Raileanu, Oct 15) ran four Gemini 4 Argon agents in Minecraft with only Mineflayer and in-game chat, and they autonomously completed the game, 2,783 self-written programs over 27 hours to defeat the Ender Dragon, claimed as the first end-to-end autonomous Minecraft completion. Competitive and priced to be chosen, but not a clear frontier leader; the Minecraft run is a real long-horizon multi-agent coordination datapoint rather than a benchmark number.</p>
+          <p><a href="https://arxiv.org/abs/2610.22350">FDE-Gym</a> exposes how far agents are from doing real forward-deployed engineer work. The benchmark adapts 95 end-to-end delivery tasks from real delivery projects across 20 customer scenarios and 18 sectors, grading on the customer's own success metric with penalties for stakeholder interaction. The best of 13 model configurations scores a mean of 0.56 and fully resolves only 14 of 95 tasks. Discovering unstated constraints is the primary bottleneck, but information discovery alone does not explain the gap: on the 23 tasks where the best config extracts every key fact, it reaches strong business uplift on only 10. A rare eval that measures delivery rather than well-specified tasks, and it is worth reading for the eval design alone.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p>Google's story is the Gemini 4 Argon wave above; nothing else new in the window. Independent benchmark numbers were covered in detail in yesterday's entry.</p>
+          <p>OpenAI is <a href="https://www.stockmoguls.com/2026/10/01/openai-picked-30-billion-over-an-ipo-anthropic-went-public-first/">reportedly raising at least $30B</a> in a pre-IPO round at roughly $1.4T post-money, per Bloomberg. Sam Altman has ruled out a 2026 IPO on safety grounds, and the FT cites an internal projection of $278B in cumulative negative free cash flow from 2026 through 2030 against a reported annualized revenue run rate approaching $70B. Capital-structure signal only, but the scale of the compute capex hunger is material to the competitive landscape.</p>
+          <p>Anthropic's news is the METR access above; nothing new on models today.</p>
+          <p>xAI shipped Grok Bot 0.70.2 (Figma, Notion and Canva open as live cards in chat, X search without connecting an account, confirmation before irreversible actions) and Grok Voice 3.0, which tops speech-to-speech rankings while handling roughly 20,000 Starlink support calls per day. No primary announcement link was available at publication time, so treat the specifics as newsletter-reported; the Starlink call volume is a real production voice-agent datapoint.</p>
+          <p>Quiet otherwise: nothing new from Meta, Mistral, Cohere, DeepSeek, or Moonshot in the window.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied research</h3>
+          <p><a href="https://arxiv.org/abs/2610.20866">SHRED</a> is demonstration-free heterogeneous self-play for traffic simulation: vehicles, pedestrians and cyclists trained jointly from random initialization via large-scale self-play, with type-specific dynamics, procedural scenario generation and per-agent randomization, no demonstrations and no logged-trajectory replay. It beats the closest demo-free self-play baselines on the Waymo Open Sim Agents Challenge while jointly controlling all three road-user types; policies trained only on nuPlan map geometry retain realism zero-shot on Waymo; and it beats all compared planners on the interaction-heavy InterPlan benchmark. The strongest evidence yet that scalable procedural self-play, not more logged data, can produce realistic interactive traffic and better planners: a data-engine story worth tracking.</p>
+          <p><a href="https://arxiv.org/abs/2610.22215">FutureLift</a> (accepted at WACV 2027) is a backbone-agnostic motion-forecasting refiner. It represents each multimodal trajectory proposal as a heterogeneous future graph with bidirectional temporal edges so later evidence revises earlier segments in one pass, predicting residual coordinate and confidence corrections. It needs only proposals, scores and scene context, and ranks first in minADE (0.5049m) and minFDE (0.9942m) among standard-input methods on the Waymo Open Motion Dataset leaderboard, with no LiDAR and no ensembling. A drop-in refinement interface that improves any frozen forecaster: practical, not just a leaderboard entry.</p>
+          <p><a href="https://arxiv.org/abs/2610.21984">GRID-Planner</a> brings graph-structured relational reward shaping to diffusion planning: graph-aware importance weighting, a time-indexed relational reward surrogate, and an advantage-weighted diffusion objective with on-policy self-distillation. On nuPlan and interPlan: collision rate down 35.8 percent, lane deviation down 60.8 percent, jerk down 27.4 percent versus the diffusion-only baseline, planning score up 3.4 percent. Relational structure used for credit assignment, not just representation: a method worth stealing for diffusion planners.</p>
+          <p><a href="https://arxiv.org/abs/2610.22143">FALCON</a> (WACV 2027) is a latency-certifiable camera occupancy net on FPGA: an AMD Kria KR260 (4.3W idle, 6.6W under inference) with layered latency guarantees, analytically cycle-bounded compute, a measured envelope over 100k-frame traces, and a watchdog that publishes the previous output flagged stale when a frame is late. The tail comparison is stark: the KR260 stays within 1.5x median over 100k frames where Jetson Orin hits 4.4x and the worst datacenter GPU hits 23.6x. It reaches 92.8 percent of the FP32 baseline mIoU on Occ3D-nuScenes, with HLS sources and timing traces released. Caveat: the full six-camera pipeline composes to about 1.3 seconds per frame, so this is not yet a 10 Hz system. Worst-case latency, not mean, is the deployment question for braking decisions, and this is the most honest treatment of it I have seen.</p>
+          <p><a href="https://arxiv.org/abs/2610.22368">Value as Memory</a> proposes online value-guided post-training for general robot policies. Two ideas: value caching, conditioning actions on recent value predictions as task-progress memory under partial observability, and online real-world RL combining offline demos, off-policy interventions and on-policy rollouts. Mean success-rate gains of 29.4 percentage points absolute from value caching and 32.8 from online autonomous learning over matched offline training, with 8x the policy iterations at the same gradient-step budget. A practical recipe for real-world RL post-training of generalist policies, and the post-training direction this log keeps watching.</p>
+          <p><a href="https://arxiv.org/abs/2610.22340">Dexterity from Supervised Play</a> builds an elegant data flywheel: a robot learns a play policy from minutes of human play via behavior cloning, deploys it autonomously to collect hours of contact-rich interaction data, trains a world model on that data, then at inference the play policy proposes candidate action sequences for MPC under the learned world model, finally distilling a closed-loop goal-conditioned policy via self-play inside the world model. Real-world: 69.6 percent better success than hindsight behavior cloning on underactuated pushing and in-hand reorientation, matching RL with 490x less interaction data. No task-specific demos, no sim-to-real transfer. Play as the data engine, world model as the planner, distillation as the deployable.</p>
+          <p><a href="https://arxiv.org/abs/2610.22323">Mem4Act</a> is learned fixed-size latent memory for long-horizon manipulation: multi-granularity temporal aggregation, QA supervision plus key-frame DINO feature reconstruction, and memory-first two-stage training so the policy actually relies on the memory. State of the art on memory-dependent control: 49.88 percent (RoboMME), 61.0 percent (RMBench), 81.5 percent (four real-world tasks). Memory architecture is the bottleneck for long-horizon policies; a fixed-size learned interface beats raw-history or token-compression approaches.</p>
+          <p><a href="https://arxiv.org/abs/2610.21207">SpaceCache</a> is training-free feature reuse for point-cloud stream segmentation: intermediate transformer features for previously observed regions skip blocks via a lightweight cache with age and confidence eviction. Up to 1.65x speedup with under 1 point of mIoU drop on nuScenes, Waymo and ScanNet. A cheap streaming win worth knowing for onboard perception budgets.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools / models</h3>
+          <p>Claude Code's desktop app now runs multiple coding sessions side by side in tabs, with live to-do per session, recap cards, saved multi-folder, SSH and cloud environments, /btw side questions without interrupting the main session, and one-click follow-ups from Claude's own suggestions. No primary announcement link was available at publication time. Orchestration, not model smarts, is the week's theme.</p>
+          <p>Fork-and-flush, the simple trick of parallel agent copies with wiped memory, beats single-agent runs by escaping idea ruts, with a reported 66 percent improvement for research agents. A tactic worth trying before reaching for a bigger model; no citable primary source at publication time.</p>
+          <p><a href="https://arxiv.org/abs/2610.22280">LEASH</a> is training-free uncertainty-aware weak-to-strong escalation for computer-use agents: the weak agent acts by default, escalating to a strong model on latent-uncertainty signals, plus a shadow observer overseeing the strong black-box agent post-handoff. On OSWorld it gains 6.55 to 11.94 points over standalone weak agents at matched escalation rates; with Qwen3.5-35B-A3B it reaches 73.66 percent success at $0.41 per task, matching always-on Claude Opus 5.5 while cutting inference cost 19.2 percent. Efficiency-shaped agent design: the cost curve matters as much as the capability curve.</p>
+          <p><a href="https://github.com/ARahim3/DigUp">DigUp</a> is a free open-source macOS menu bar app for semantic search across photos, audio, video and code, running EmbeddingGemma 2 fully locally (865MB one-time download, Apple Silicon). Type "dog near water" to find the photo, "where they talk about sleep" to jump to the podcast minute. Genuinely useful local tool.</p>
+          <p><a href="https://arxiv.org/abs/2610.22347">Speculative Forcing</a> speeds up autoregressive video generation by treating intermediate clean estimates as drafts and freezing tokens predicted to match their full-step outputs early. It matches the 4-step generator with about 1.7 denoising steps per token (1.5x faster, 41.7 fps). World-model-adjacent efficiency; the verifier design transfers to other diffusion pipelines.</p>
+          <p>Smaller signals, all newsletter-reported with no citable public links at publication time: a new Jev with multimodal inputs and longer context; an open-source text-generation model 31x faster than diffusion LMs; a 1M-parameter OCR model 11x faster than PaddleOCR on CPU; and someone running a 27B model on a jailbroken PS5 GPU at 20 tokens per second, fun and a data point on consumer-hardware inference.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p>The institutional backdrop to the METR story: Anthropic, OpenAI, Google, Meta, Nvidia and xAI have all signed a White House accord committing to independent review of their AI systems, per the <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/">TechCrunch reporting</a> above.</p>
+          <p><a href="https://newsletter.artofsaience.com/p/merge-conflict-managing-ai-agents">Merge Conflict</a> (Art of Saience, Oct 15) is an opinion essay arguing that managing AI agents quietly erodes engineers' craft: the skill of spotting a bad merge loses acuity the more the agent writes and the human merely checks. Opinion, not research; skimmable.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-15.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
