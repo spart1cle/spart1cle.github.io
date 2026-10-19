@@ -6,6 +6,33 @@
   <description>Daily working notes on autonomous-vehicle AI and frontier AI research.</description>
   <language>en-us</language>
   <item>
+    <title>Coarse-to-fine generation takes aim at autoregression</title>
+    <link>https://brandonbmay.com/log/2026-10-19.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-19.html</guid>
+    <pubDate>Mon, 19 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Stanford's Next-Concept Modeling rethinks text generation.</strong> <a href="https://arxiv.org/abs/2610.14162v1">Next-Concept Modeling (NCM)</a> is a non-autoregressive, coarse-to-fine framework that encodes text into a multiscale hierarchy of discrete codes with a VQ-VAE, then generates one level at a time, predicting all codes within a level in parallel. At matched parameter scales the authors report 21x faster inference than the strongest diffusion language model baseline on LM1B, 10x on OpenWebText, and 31x on XSum summarization. The compelling part is verifiability: the code is MIT-licensed at <a href="https://github.com/HazyResearch/ncm">github.com/HazyResearch/ncm</a>. Non-autoregressive generation at competitive quality has been a long-running goal, and this one can be checked directly rather than debated.</p>
+          <p><strong>Anthropic's &quot;Claude Mythos&quot; leak deserves skepticism, not silence.</strong> <a href="https://www.beri.net/article/anthropic-claude-mythos-data-leak-cybersecurity-2026">Reports describe</a> a step-change frontier model in early-access testing, framed around &quot;unprecedented cybersecurity risks,&quot; alongside details of an invite-only CEO summit in Europe. We have no model, no evals, and no official framing, so treat the capability claims as unverified. What is worth noting is the framing itself: if Anthropic is pre-briefing CEOs on cyber risk, it is either managing the narrative around a genuinely concerning capability or building the case for the regulatory posture it wants. Either way, watch for the official announcement.</p>
+          <p><strong>DeepSeek's Search and Fetch APIs are infrastructure pricing, not a model release.</strong> <a href="https://api-docs.deepseek.com/news/news261017">Announced October 17</a>, the two endpoints cost $0.75 per 1,000 successful calls, with server-side calls through the DeepSeek Harness, Claude Code, or Codex free until November 1. Search queries a 128-character limit against what DeepSeek says is an in-house engine, and Fetch returns pages as Markdown. Cheap, standardized retrieval lowers the cost of building retrieval-augmented agents, and the free window looks designed to seed adoption before billing begins.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><strong>Expand-and-Prune hits SOTA on LangAuto.</strong> <a href="https://arxiv.org/abs/2610.23262v1">The paper</a> describes test-time trajectory-candidate adaptation for language-conditioned driving, pushing LangAuto driving scores from 68.2 to 75.9. Language-conditioned autonomous driving keeps improving, and test-time adaptation rather than a bigger backbone is a direction worth watching.</p>
+          <p><strong>World Action Critic reaches 93.4 PDMS on NAVSIM-v1.</strong> <a href="https://arxiv.org/abs/2610.22825v1">The paper</a> uses critic-guided world models, and PDMS in the 93+ range is competitive with the best published results. The value-based guidance angle fits the post-training direction this log has been tracking.</p>
+          <p><strong>A productive week for geometric vision.</strong> The SLAM and mapping cluster includes <a href="https://arxiv.org/abs/2610.14513">TartanMatch</a> (cross-modal correspondence, reported -61.9% error), <a href="https://arxiv.org/abs/2610.14951">FoundationVIO</a> (metric-scale foundation-model visual-inertial odometry), <a href="https://arxiv.org/abs/2610.16272">Graph3R</a>, <a href="https://arxiv.org/abs/2610.16143">All-St3R</a> (dynamic SLAM), <a href="https://arxiv.org/abs/2610.15157">RootSLAM</a> (embedded), <a href="https://arxiv.org/abs/2610.22108v1">CF-Splat</a> (closed-form triangle splatting over a known mesh, 27-378x less compute than 3DGS), and <a href="https://arxiv.org/abs/2610.17260v1">Physical SLAM</a> (physics-aware 4D Gaussians of deformable objects). Anyone tracking mapping should plan a survey pass over this batch.</p>
+          <p><strong>Cautionary evals outshine leaderboard-toppers.</strong> <a href="https://arxiv.org/abs/2610.22795v1">STRIDE</a> is a spatiotemporal VLM evaluation where the best model manages only 43.4% on safety-critical judgments, a useful map of where models actually fail. <a href="https://arxiv.org/abs/2610.21741v1">Comfortably Stuck</a> warns that Bench2Drive's comfort metric correlates at r=0.97 with standing still, which changes how to read that leaderboard entirely. Metric critiques are essential reading before trusting any benchmark number.</p>
+          <p><strong>PanoBench and CoreDNA round out the batch.</strong> <a href="https://arxiv.org/abs/2610.23537v1">PanoBench</a> is the first instance-aware panoptic occupancy benchmark across CARLA, nuScenes, and KITTI-360. <a href="https://arxiv.org/abs/2610.23642v1">CoreDNA</a> does label-free coreset curation for driving data, a practical angle on the data problem underneath the models.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable</h3>
+          <p><strong>DriveWorld3D stays on the ideas shelf.</strong> No citable source could be found for this one, and its claims remain unvalidated, so treat it as a concept paper rather than a result.</p>
+          <p><strong>Not repeated today:</strong> Waymo Toronto, DeepSeek V4.1-Flash, Muse Wonder/Spark Open, FALCON, FutureLift, GRID-Planner, SHRED, LEASH, all covered in recent entries.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
     <title>Frontier models go open while agents go rogue</title>
     <link>https://brandonbmay.com/log/2026-10-18.html</link>
     <guid>https://brandonbmay.com/log/2026-10-18.html</guid>
