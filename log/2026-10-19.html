@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coarse-to-fine generation takes aim at autoregression · Research Log · Brandon B. May</title>
+  <meta name="description" content="Stanford&#x27;s Next-Concept Modeling pairs a striking speedup claim with verifiable open code, while a busy SLAM and eval batch reminds us that the day&#x27;s real story may be the infrastructure of research itself.">
+  <meta property="og:title" content="Coarse-to-fine generation takes aim at autoregression · Research Log · Brandon B. May">
+  <meta property="og:description" content="Stanford&#x27;s Next-Concept Modeling pairs a striking speedup claim with verifiable open code, while a busy SLAM and eval batch reminds us that the day&#x27;s real story may be the infrastructure of research itself.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-19.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-19.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Coarse-to-fine generation takes aim at autoregression · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="Stanford&#x27;s Next-Concept Modeling pairs a striking speedup claim with verifiable open code, while a busy SLAM and eval batch reminds us that the day&#x27;s real story may be the infrastructure of research itself.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Monday, October 19, 2026</p>
+      <h2 class="section-title">Coarse-to-fine generation takes aim at autoregression</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Stanford's Next-Concept Modeling rethinks text generation.</strong> <a href="https://arxiv.org/abs/2610.14162v1">Next-Concept Modeling (NCM)</a> is a non-autoregressive, coarse-to-fine framework that encodes text into a multiscale hierarchy of discrete codes with a VQ-VAE, then generates one level at a time, predicting all codes within a level in parallel. At matched parameter scales the authors report 21x faster inference than the strongest diffusion language model baseline on LM1B, 10x on OpenWebText, and 31x on XSum summarization. The compelling part is verifiability: the code is MIT-licensed at <a href="https://github.com/HazyResearch/ncm">github.com/HazyResearch/ncm</a>. Non-autoregressive generation at competitive quality has been a long-running goal, and this one can be checked directly rather than debated.</p>
+          <p><strong>Anthropic's &quot;Claude Mythos&quot; leak deserves skepticism, not silence.</strong> <a href="https://www.beri.net/article/anthropic-claude-mythos-data-leak-cybersecurity-2026">Reports describe</a> a step-change frontier model in early-access testing, framed around &quot;unprecedented cybersecurity risks,&quot; alongside details of an invite-only CEO summit in Europe. We have no model, no evals, and no official framing, so treat the capability claims as unverified. What is worth noting is the framing itself: if Anthropic is pre-briefing CEOs on cyber risk, it is either managing the narrative around a genuinely concerning capability or building the case for the regulatory posture it wants. Either way, watch for the official announcement.</p>
+          <p><strong>DeepSeek's Search and Fetch APIs are infrastructure pricing, not a model release.</strong> <a href="https://api-docs.deepseek.com/news/news261017">Announced October 17</a>, the two endpoints cost $0.75 per 1,000 successful calls, with server-side calls through the DeepSeek Harness, Claude Code, or Codex free until November 1. Search queries a 128-character limit against what DeepSeek says is an in-house engine, and Fetch returns pages as Markdown. Cheap, standardized retrieval lowers the cost of building retrieval-augmented agents, and the free window looks designed to seed adoption before billing begins.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied</h3>
+          <p><strong>Expand-and-Prune hits SOTA on LangAuto.</strong> <a href="https://arxiv.org/abs/2610.23262v1">The paper</a> describes test-time trajectory-candidate adaptation for language-conditioned driving, pushing LangAuto driving scores from 68.2 to 75.9. Language-conditioned autonomous driving keeps improving, and test-time adaptation rather than a bigger backbone is a direction worth watching.</p>
+          <p><strong>World Action Critic reaches 93.4 PDMS on NAVSIM-v1.</strong> <a href="https://arxiv.org/abs/2610.22825v1">The paper</a> uses critic-guided world models, and PDMS in the 93+ range is competitive with the best published results. The value-based guidance angle fits the post-training direction this log has been tracking.</p>
+          <p><strong>A productive week for geometric vision.</strong> The SLAM and mapping cluster includes <a href="https://arxiv.org/abs/2610.14513">TartanMatch</a> (cross-modal correspondence, reported -61.9% error), <a href="https://arxiv.org/abs/2610.14951">FoundationVIO</a> (metric-scale foundation-model visual-inertial odometry), <a href="https://arxiv.org/abs/2610.16272">Graph3R</a>, <a href="https://arxiv.org/abs/2610.16143">All-St3R</a> (dynamic SLAM), <a href="https://arxiv.org/abs/2610.15157">RootSLAM</a> (embedded), <a href="https://arxiv.org/abs/2610.22108v1">CF-Splat</a> (closed-form triangle splatting over a known mesh, 27-378x less compute than 3DGS), and <a href="https://arxiv.org/abs/2610.17260v1">Physical SLAM</a> (physics-aware 4D Gaussians of deformable objects). Anyone tracking mapping should plan a survey pass over this batch.</p>
+          <p><strong>Cautionary evals outshine leaderboard-toppers.</strong> <a href="https://arxiv.org/abs/2610.22795v1">STRIDE</a> is a spatiotemporal VLM evaluation where the best model manages only 43.4% on safety-critical judgments, a useful map of where models actually fail. <a href="https://arxiv.org/abs/2610.21741v1">Comfortably Stuck</a> warns that Bench2Drive's comfort metric correlates at r=0.97 with standing still, which changes how to read that leaderboard entirely. Metric critiques are essential reading before trusting any benchmark number.</p>
+          <p><strong>PanoBench and CoreDNA round out the batch.</strong> <a href="https://arxiv.org/abs/2610.23537v1">PanoBench</a> is the first instance-aware panoptic occupancy benchmark across CARLA, nuScenes, and KITTI-360. <a href="https://arxiv.org/abs/2610.23642v1">CoreDNA</a> does label-free coreset curation for driving data, a practical angle on the data problem underneath the models.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable</h3>
+          <p><strong>DriveWorld3D stays on the ideas shelf.</strong> No citable source could be found for this one, and its claims remain unvalidated, so treat it as a concept paper rather than a result.</p>
+          <p><strong>Not repeated today:</strong> Waymo Toronto, DeepSeek V4.1-Flash, Muse Wonder/Spark Open, FALCON, FutureLift, GRID-Planner, SHRED, LEASH, all covered in recent entries.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-18.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
