@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Duet makes the proactive-agent race three-sided · Research Log · Brandon B. May</title>
+  <meta name="description" content="Anthropic turned ambient assistance into the industry&#x27;s main product contest with a proactive agent app, NVIDIA answered with the full autonomous driving stack from silicon to safety evidence, and two agentic science results moved the claim that agents do real research from demo to data.">
+  <meta property="og:title" content="Claude Duet makes the proactive-agent race three-sided · Research Log · Brandon B. May">
+  <meta property="og:description" content="Anthropic turned ambient assistance into the industry&#x27;s main product contest with a proactive agent app, NVIDIA answered with the full autonomous driving stack from silicon to safety evidence, and two agentic science results moved the claim that agents do real research from demo to data.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-22.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-22.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Duet makes the proactive-agent race three-sided · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="Anthropic turned ambient assistance into the industry&#x27;s main product contest with a proactive agent app, NVIDIA answered with the full autonomous driving stack from silicon to safety evidence, and two agentic science results moved the claim that agents do real research from demo to data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Thursday, October 22, 2026</p>
+      <h2 class="section-title">Claude Duet makes the proactive-agent race three-sided</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p>Anthropic <a href="https://www.reuters.com/technology/anthropic-unveils-claude-duet-ai-agent-app-2026-10-21/">unveiled Claude Duet</a>, a standalone proactive agent app built on Opus 5.5 that sends a morning brief, monitors connected apps, and surfaces what needs attention rather than waiting for prompts. It is a waitlisted research preview for US Pro and Max subscribers, plugs into 6,000+ connectors (and can buy things via Stripe Link and Shop Pay virtual cards), and checks before sensitive actions; Anthropic is candid that it can misjudge urgency and is weaker at personal tasks like booking tickets. The proactive-agent race is now three-sided: OpenAI's always-on "dots", Meta's Muse, and now Duet. This is the week's most significant agent-product launch, and judgment quality at scale is the thing to watch, not the feature list.</p>
+          <p>NVIDIA <a href="https://blockchain.news/news/nvidia-hyperion-europe-robotaxi-autonomy">dropped a full AV stack blitz</a> at GTC Berlin. The headline item is Halos SAFE (Safety Assurance Framework for Evaluation): a simulation-to-fleet traceability framework generating measurable safety evidence, built with dSPACE, IVEX, and TUV Rheinland, with JLR, Mercedes-Benz, Volvo Cars, 51Sim, aiMotive, AVL, Deepen AI, Foretellix, and Synopsys in the ecosystem. On the model side: Alpamayo 2 Edge (2B-parameter reasoning model on the Cosmos 3 Edge Nemotron foundation, optimized for DRIVE AGX Thor, 10Hz scene understanding and motion planning), AlpaJudge (human-calibrated eval/reward model that scores driving explanations and filters weak annotations), new Cosmos 3 Nano variants (synchronized multiview camera and lidar generation for synthetic data and closed-loop sim), Foundation4D (lidar-free multicamera labeling), the Cosmos Data Factory blueprint, and the Alpamayo Agentic Factory open blueprint (early 2027). Commercially: <a href="https://selfdrivenews.com/bolt-nvidia-alpamayo-european-lucid-robotaxi-program/">Bolt is using Alpamayo for a European Lucid robotaxi program</a> (targeting at least 25,000 L4-capable vehicles, data collection in Madrid in 2027), Einride is testing the Alpamayo VLA in shadow mode, and Aptiv, Valeo, and Schaeffler are building Hyperion-based L4 compute platforms. This is NVIDIA cementing the full-stack play: compute, foundation models, data factory, and now a safety-evidence standard. Watch whether Halos SAFE becomes a de facto certification input for European L4 deployments.</p>
+          <p>Demis Hassabis <a href="https://www.wsj.com/tech/ai/demis-hassabis-ai-deepmind-google-isomorphic-2b4e3153">pulled his AGI timeline forward to 2-3 years</a> (WSJ), down from 3-5 earlier this year. His stated test: a model trained only on pre-1901 knowledge reproducing Einstein's 1905 papers. The claim itself is soft: lab-founder timelines are marketing-adjacent. But the direction of travel across lab leaders is now unanimous and compressing, so treat it as signal of internal confidence, not evidence.</p>
+          <p>Claude <a href="https://www.anthropic.com/research/claude-scorpion-toxin-binder-design">autonomously designed 318,484 candidate proteins</a> for scorpion antivenom. From one prompt plus four follow-ups, Claude picked toxin targets, set scoring thresholds, ran 12 design tools, and sent 180 designs to two labs: 17 met strict binding criteria, strongest at single-digit nanomolar on the Mexican Cn2 toxin. Nothing yet shown to neutralize venom in animals, and Anthropic is careful not to call it an antivenom, but two independent labs confirmed the binding and all 211 tested designs plus data are public. Alongside the NIST ECDSA work and the OSS Scanner, this is more evidence that agentic science loops are producing real, verifiable artifacts: the pattern to watch.</p>
+          <p>Thousands of OpenAI GPT-Rosalind agents <a href="https://openai.com/index/scaling-ai-research-for-complex-biological-data">read a whole-brain atlas in 32 minutes</a> (OpenAI, PerturbAI, Scripps Research; bioRxiv). A CRISPR atlas covering millions of mouse brain cells was split across agents, each investigating one gene disruption, analyzing cellular response, searching literature, and proposing a mechanism; the combined reasoning atlas links genes, cellular effects, papers, and candidate mechanisms. Estimated months-to-a-year of equivalent human analysis, and the agents' novelty judgments matched blinded human experts. Agentic science scaling on a second axis in the same week: the "agents as parallel literature-scale scientists" thesis is getting real data.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p>OpenAI, Anthropic, and Google DeepMind <a href="https://bitrss.com/openai-anthropic-and-google-deepmind-confirm-weeks-of-safety-coordination-252531">confirmed weeks of joint safety coordination on cybersecurity</a> (reported Oct 21). Shared safeguards for cyber-focused capabilities, letting each lab show responsibility to regulators without exposing training IP. Real cross-lab cooperation is rare enough to note; cyber is the least competitively sensitive domain, so read it as a template others may copy rather than a broad safety convergence.</p>
+          <p>Anthropic expanded its free agents, skills, and plugins library for Claude across its <a href="https://github.com/anthropics/knowledge-work-plugins">knowledge-work-plugins</a>, claude-plugins-official, and claude-quickstarts repositories, installable via the Claude plugin marketplace. All markdown and JSON, no build steps. This is Anthropic's answer to the agent-harness fragmentation problem: the interesting bit is the skills standard, which third-party marketplaces are likely to clone.</p>
+          <p><a href="https://alignment.anthropic.com/2026/graft/">GRAFT: a new training trick for reward hacking.</a> Gradient Routing Adapter Fine Tuning steers learning from monitor-flagged examples into a disposable adapter that is deleted after training, rather than punishing the hack (which teaches evasion). Worked with imperfect monitors on constructed tasks up to 8B params plus a 32B SFT experiment; limits are real (single seeds, constructed tasks, can fail to remove the hack). Still one of the more honest approaches to the problem: quarantine instead of suppression.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied AI research</h3>
+          <p>The two most technically interesting pieces of NVIDIA's release (see Top developments): AlpaJudge, a human-calibrated reward model for driving explanations (the annotation bottleneck is the field's biggest cost center), and the <a href="https://blockchain.news/news/nvidia-hyperion-europe-robotaxi-autonomy">Alpamayo Agentic Factory blueprint</a>, which wires data curation, post-training, and sim eval end to end with agents. Halos SAFE's partner list reads like a roll call of the European safety-validation industry, which suggests NVIDIA is positioning the framework as a certification input, not just a marketing badge.</p>
+          <p><a href="https://blockchain.news/news/nvidia-hyperion-europe-robotaxi-autonomy">Einride will adapt and distill Alpamayo on its freight-ops data</a> in shadow mode first: a real-world test of whether a general VLA driving model transfers to trucking with post-training. Live road eval is targeted for H2 2027.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research worth reading</h3>
+          <p><strong>AW-0</strong> (<a href="https://arxiv.org/abs/2610.30136">2610.30136</a>): jointly models code, future video, and robot actions in a unified mixture-of-transformers, where code structures multi-step prediction as reusable skill programs; beats VLA and WAM baselines on RoboTwin 2.0 and physical bimanual manipulation. The code-as-skill-program framing is a genuinely new compositional angle on world action models.</p>
+          <p><strong>CADRE</strong> (<a href="https://arxiv.org/abs/2610.30129">2610.30129</a>): open family of causal diffusion-representation autoencoders across spatio-temporal compressions, mapping the latency-quality frontier for world models used as interactive simulators. Autoencoder choice is an under-discussed lever in world-model quality; this makes it legible.</p>
+          <p><strong>AtomicRL</strong> (<a href="https://arxiv.org/abs/2610.30097">2610.30097</a>): RL post-training for VLA policies with atomic task structure; +9.5% full-task on CALVIN ABC-D over PPO, +21.3% real-world via Real2Sim2Real. RL post-training for VLAs is the right problem right now; this is a credible entry.</p>
+          <p><strong>PhysiCalWorld</strong> (<a href="https://arxiv.org/abs/2610.30125">2610.30125</a>): calibrating action-conditioned world models to instance physics by extracting an in-context physics-descriptor token (mass, damping, friction) from an exploratory interaction clip; no fine-tuning, better rollouts and visual planning. A cheap way to close the sim-to-instance gap.</p>
+          <p><strong>ALPS</strong> (<a href="https://arxiv.org/abs/2610.30120">2610.30120</a>): ViT-B/16 encoder unifying physical-state info, language alignment, and pixel reconstruction in one set of patch tokens; lowest aggregate LIBERO state-probe error among ViT-B models, 85.5% mean policy success. Encoder design for world models is quietly becoming a subfield.</p>
+          <p><strong>CW-WAM</strong> (<a href="https://arxiv.org/abs/2610.30117">2610.30117</a>): contact-wrench world action model for force-sensitive manipulation, jointly predicting video, motion, and contact wrench feeding a 20Hz admittance controller; 1mm-clearance peg insertion went from 25% to 70%. Force-aware world models are rare; worth reading if you work on contact-rich tasks.</p>
+          <p><strong>FaultGene</strong> (<a href="https://arxiv.org/abs/2610.29969">2610.29969</a>): LLM-generated fault-augmented test scenarios for HIL validation. A data-engine angle for safety validation.</p>
+          <p><strong>RangeNav</strong> (<a href="https://arxiv.org/abs/2610.29845">2610.29845</a>): 183k-parameter LiDAR range-image encoder pretrained entirely on synthetic data; zero-shot deployment on a Unitree B2-W quadruped in crowds, low light, and construction. Synthetic-only pretraining for LiDAR encoders working zero-shot is notable for cheap perception.</p>
+          <p><strong>VoxProg</strong> (<a href="https://arxiv.org/abs/2610.30127">2610.30127</a>): LLM writes evidence and pose programs over local voxel views to compute SE(3) object-placement poses, with a new 71-task VoxProg-Bench. Programmatic 3D reasoning instead of regression.</p>
+          <p><strong>PAPAV</strong> (<a href="https://arxiv.org/abs/2610.30105">2610.30105</a>): audits 64 benchmarks under Perceive-Anticipate-Plan-Act-Verify; finds Anticipate and Verify are rarely explicitly evaluated. Useful framing for anyone building embodied-agent evals.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p><strong>Causal explanations for autonomous systems</strong> (<a href="https://arxiv.org/abs/2610.29724">2610.29724</a>): adds necessary causal explanations alongside sufficient ones, targeting failure avoidance rather than just reproduction; a more useful framing for safety analysis than post-hoc "why did it fail" attributions.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-21.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
