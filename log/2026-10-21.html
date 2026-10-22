@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSeek open-sources its engine while the AI stack splits in two · Research Log · Brandon B. May</title>
+  <meta name="description" content="DeepSeek&#x27;s production inference engine is now open for anyone to run, a genuine gift to developers that doubles as a geopolitical signal: the same week Washington ordered DeepSeek technology out of federal systems, its stack shipped first-class support for Huawei silicon, and the rest of the industry keeps racing to own the layers underneath the models.">
+  <meta property="og:title" content="DeepSeek open-sources its engine while the AI stack splits in two · Research Log · Brandon B. May">
+  <meta property="og:description" content="DeepSeek&#x27;s production inference engine is now open for anyone to run, a genuine gift to developers that doubles as a geopolitical signal: the same week Washington ordered DeepSeek technology out of federal systems, its stack shipped first-class support for Huawei silicon, and the rest of the industry keeps racing to own the layers underneath the models.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-21.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-21.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DeepSeek open-sources its engine while the AI stack splits in two · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="DeepSeek&#x27;s production inference engine is now open for anyone to run, a genuine gift to developers that doubles as a geopolitical signal: the same week Washington ordered DeepSeek technology out of federal systems, its stack shipped first-class support for Huawei silicon, and the rest of the industry keeps racing to own the layers underneath the models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Wednesday, October 21, 2026</p>
+      <h2 class="section-title">DeepSeek open-sources its engine while the AI stack splits in two</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>DeepSeek open-sourced DeepInfer, its production inference engine, under Apache 2.0.</strong> The framework DeepSeek says serves its own production traffic for V4.1-Flash ships custom kernels (FlashMLA, DeepGEMM, DeepEP, TileKernels), MoE expert parallelism, speculative decoding with confidence-scheduled verification, batch-invariant deterministic sampling, and structured outputs (regex, JSON schema, EBNF), originally built on vLLM with ideas from SGLang and TensorRT-LLM. Two things stand out: it is a rare look at a frontier lab's actual serving stack (the day's biggest developer thread, more than 2,100 Hacker News points), and it ships first-class support for Huawei Ascend 950 NPUs alongside NVIDIA SM100, the first frontier-lab production endorsement of Huawei silicon, one day after DHS ordered DeepSeek technology removed from federal systems. Vendor numbers are unverified (155T tokens per day per cluster, 96 percent input cache hit rate, roughly 400ms TTFT). It is offline inference only for now (no KV-cache system, prefill/decode disaggregation, or load balancing yet). Genuinely substantive: open-sourcing production inference tooling compresses inference cost industry wide, and the Huawei endorsement widens this week's US/China AI-stack split. <a href="https://siliconangle.com/2026/10/20/deepseek-open-sources-deepinfer-the-inference-framework-behind-its-production-services/">SiliconANGLE</a></p>
+          <p><strong>Waymo announced a Madrid robotaxi launch for 2027, its first deployment in Spain and first in the EU.</strong> Jaguar I-PACE cars start appearing on Madrid streets in the coming days with trained specialists, operating under Spain's DGT Level-4 testing framework (Madrid city, Alcobendas, Getafe; day and night), with driverless paid service targeted for 2027 and unnamed local operating partners. This lands on top of Monday's fleet-scaling news (20,000 vehicles by the end of 2027): Waymo is executing aggressive multi-market expansion, with Toronto mapping already underway, while the debt-funded buildout draws scrutiny over Zeekr supply. <a href="https://www.reuters.com/business/waymo-launch-autonomous-ride-hailing-madrid-next-year-2026-10-20/">Reuters</a></p>
+          <p><strong>Google unveiled TorchTPU, a PyTorch build for TPUs aimed at NVIDIA's CUDA moat</strong> (announced at the PyTorch Conference and open-sourced on GitHub under Apache 2.0; originally single-sourced, now covered by multiple outlets). AWS opened TorchNeuron for Trainium in public beta on Monday, with the PyTorch Foundation noting it is open source. Both chip giants are now pushing friction-free PyTorch-on-own-silicon stories in parallel: the compute fight is moving from hardware to software tooling. <a href="https://www.marktechpost.com/2026/10/20/google-torchtpu-open-source-native-pytorch-tpu/">MarkTechPost</a> <a href="https://pytorch.org/blog/introducing-torchneuron-native-pytorch-backend-for-aws-trainium/">PyTorch blog</a></p>
+          <p><strong>Anthropic launched a free OSS Scanner that found 77 critical and 803 high-severity bugs in open-source projects in its first week</strong>, each report including a working proof-of-concept and suggested patch. AI acting autonomously at scale on real security work: empirical evidence for the "agents finding real bugs" thesis, days after Anthropic's agents cracked the NIST ECDSA curve mystery. Caveat: the first-week counts are model-rated findings sent to maintainers, not confirmed vulnerabilities, and the 77/803 figure is single-sourced, so watch for maintainer backlash on auto-generated vuln reports at volume. <a href="https://siliconangle.com/2026/10/08/anthropic-launches-critical-infrastructure-program-and-free-oss-scanner-for-open-source/">SiliconANGLE</a> <a href="https://brightaifuture.com/discoveries/anthropic-oss-scanner-free-open-source-security">Bright AI Future</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>ByteDance, Alibaba, and Tencent reportedly ordered more than $35B of export-compliant RTX PRO 5500 cards</strong>, with NVIDIA declining to guarantee fulfillment. The order (a Reuters exclusive, since widely syndicated) is said to cover more than 3 million cards at roughly $11,400 each. If real, it prices the compliance-chip window before the next rule cycle. <a href="https://www.reuters.com/business/retail-consumer/bytedance-alibaba-tencent-place-over-35-billion-worth-nvidia-chip-orders-2026-10-20/">Reuters</a></p>
+          <p><strong>At least eight US states sued OpenAI</strong>, alleging ChatGPT gave dangerous medical advice and coached self-harm (Iowa, Kansas, Nebraska, West Virginia, Arkansas, Arizona, Idaho, and Montana; suits filed October 14). The broadest state-level legal challenge yet; liability pressure on frontier labs keeps ratcheting. <a href="https://www.thewrap.com/industry-news/tech/openai-sued-states-chatgpt-safety-concerns/">TheWrap</a></p>
+          <p><strong>Meta launched Muse Wonder as an API at $4/$20 per million tokens</strong> on October 12, its first frontier-priced offering, but early independent evals reportedly trail Opus 5.5. Price-anchoring a frontier model below flagship rates while evals say "not quite there" is an interesting opening bid. <a href="https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/">TechCrunch</a></p>
+          <p><strong>Mistral shipped Voxtral 3 and Timestral.</strong> Voxtral 3 is a voice-agent stack described for API and sovereign deployment, so the "open" label should be treated carefully; Timestral is the open-weights one, CPU-friendly time-series models Mistral claims beat Google's TimesFM-3. Vendor claims only, but Mistral's open-weight cadence is now the most consistent in the industry. <a href="https://the-decoder.com/mistral-ai-launches-voxtral-3-a-full-voice-agent-stack-that-listens-thinks-and-talks-in-real-time/">The Decoder</a> <a href="https://ai-tldr.dev/releases/mistral-timestral/">AI/TLDR</a></p>
+          <p><strong>DeepMind finding: one bad user hint cuts agent success rates nearly in half.</strong> The bottleneck keeps shifting from model capability to human-in-the-loop quality. (No primary source could be verified at publish time; this item is left unlinked.)</p>
+          <p><strong>Google open-sourced Harness2</strong>, a self-improving agent harness framework (released October 9 under Apache 2.0, with a paper at arXiv:2610.14224). Echoes the self-improvement thread. <a href="https://www.marktechpost.com/2026/10/18/google-harness2-recursive-agent-harnessing-framework/">MarkTechPost</a></p>
+          <p><strong>OpenAI updated its models to modernize legacy COBOL, Fortran, and VB codebases.</strong> Enterprise modernization is a quiet battleground; minor capability news, but the MultiLangBench numbers (97.9 percent COBOL migration eval at high reasoning effort) are worth noting. <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-61-sol-is-dramatically-better-at-migrating-legacy-code/">BleepingComputer</a></p>
+          <p><strong>Datapoint: roughly $1B of training compute is now freely downloadable on the Hugging Face Hub</strong>, up from under $40M at the end of 2023 (Thom Wolf's estimate, via his October 18 post). Real money behind the "open models catch up" thesis. <a href="https://www.fathom.news/hugging-face-compute-nears-1b/">Fathom News</a></p>
+          <p><strong>Unverified:</strong> a low-quality aggregator claimed OpenAI, Anthropic, and Google DeepMind "jointly unveiled" cyber-focused AI models this week; it appears to conflate September's safety-body talks, Anthropic's OSS Scanner, and a royal-hosted Scotland safety summit. Treated as unverified; not repeated as fact. (No source link; unverified.)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>LECDrive</strong> (<a href="https://arxiv.org/abs/2610.25734">arXiv:2610.25734</a>; NeurIPS 2026): embeds progressive "latent expert cognitive chains", compact task-specific latent tokens distilling dense knowledge from DINOv3 (visual), SAM3 (semantic), and DepthAnything3 (geometric) into the driving model. The pitch: VLA sparsity loses critical scene info, and the fix is dense latent world-model structure, not more parameters. One of the more interesting VLA architectural ideas in the window.</p>
+          <p><strong>UBD-Bench</strong> (<a href="https://arxiv.org/abs/2610.25448">arXiv:2610.25448</a>): diagnoses unimodal branch degradation in multimodal perception. Camera branches consistently degrade after multimodal joint training (worst at the pre-fusion camera BEV), while LiDAR branches hold up: a pronounced modality asymmetry. Unimodal-to-multimodal distillation at the degraded representation recovers both branch-level and full-model performance across 4 tasks and 10 models. Useful diagnosis for camera plus LiDAR fusion stacks: multimodal gains can mask rotting unimodal features.</p>
+          <p><strong>GeoV2V</strong> (<a href="https://arxiv.org/abs/2610.25245">arXiv:2610.25245</a>; ECCV 2026): geometry-grounded video diffusion for driving scene generation with LiDAR and depth priors, plus Para4D, a new synthetic dataset of synchronized multi-lane driving videos. SOTA on Waymo, nuScenes, and Para4D for novel-trajectory view synthesis under large shifts. Generative-simulation quality keeps climbing; Para4D is a useful community asset.</p>
+          <p><strong>NVIDIA's open-source ASPIRE robot learning framework claims 99 percent success across 80 manipulation tasks</strong> (it also taught a robot to solve a Rubik's Cube). Vendor number with no paper attached in the coverage: treat as direction, not evidence. <a href="https://startupfortune.com/nvidias-open-source-aspire-system-taught-a-robot-to-solve-a-rubiks-cube/">Startup Fortune</a></p>
+          <p><strong>StreamRPS</strong> (<a href="https://arxiv.org/abs/2610.26816">arXiv:2610.26816</a>): real-time FMCW spinning-radar semantic and panoptic segmentation at 400+ FPS sector processing. Radar perception work is scarce; worth a skim if you care about adverse-weather perception.</p>
+          <p><strong>Road Lane Quality Assessment from dashcam video</strong> (<a href="https://arxiv.org/abs/2610.28508">arXiv:2610.28508</a>): 63,839 South-Texas dashcam frames with no-reference lane-quality metrics. Maintenance-oriented labels are a genuine dataset gap, but this is early work: incremental.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Papers worth reading</h3>
+          <p><strong>LECDrive, UBD-Bench, and GeoV2V</strong> (links above): dense latent cognition for VLA driving, unimodal branch degradation in multimodal perception, and geometry-grounded driving video generation. The three strongest AV papers in the window, all submitted just before the coverage cutoff and missed by yesterday's roundup.</p>
+          <p><strong>Cameron Wolfe's "Evaluating Agents on Highly Subjective Tasks"</strong> (Deep (Learning) Focus): a practical eval-methodology essay, a three-part roadmap (human evaluation, offline evaluation, production monitoring), statistical methods for noise reduction and uncertainty quantification, and data curation for diverse, realistic, informative eval tasks. A companion to his AI Engineer conference talk. No paper, but one of the most practically useful items in the window for anyone evaluating agents. (Published today; no canonical URL was indexed at publish time, so this item is left unlinked.)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools / models</h3>
+          <p><strong>Anthropic's OSS Scanner</strong> (free, proof-of-concept plus patch per finding; see top developments). <a href="https://siliconangle.com/2026/10/08/anthropic-launches-critical-infrastructure-program-and-free-oss-scanner-for-open-source/">SiliconANGLE</a></p>
+          <p><strong>Google's TorchTPU</strong> (PyTorch for TPUs, the CUDA-moat play; see top developments). <a href="https://www.marktechpost.com/2026/10/20/google-torchtpu-open-source-native-pytorch-tpu/">MarkTechPost</a></p>
+          <p><strong>DeepSeek's DeepInfer plus the deepseek-recipe tokenizer</strong> (Apache 2.0; V4.1-Flash only; offline inference for now, with no KV-cache system or prefill/decode disaggregation yet). <a href="https://siliconangle.com/2026/10/20/deepseek-open-sources-deepinfer-the-inference-framework-behind-its-production-services/">SiliconANGLE</a></p>
+          <p><strong>Meta Muse Wonder API</strong> at $4/$20 per million tokens (launched October 12). <a href="https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/">TechCrunch</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable</h3>
+          <p><strong>Humanitarian OpenStreetMap Team's fAIr platform for open GeoAI</strong>: standardized pipelines and the STAC-MLM spec for discoverable, deployable GeoAI models, plus an open call for community-contributed Earth observation models with funding. Tangential to AV, but satellite vision and open model standards rhyme with the AV data-engine problem. <a href="https://www.hotosm.org/en/tools-resources/tech-product-suite/fair/">HOT fAIr</a> <a href="https://www.satellite-image-deep-learning.com/p/building-open-geoai-for-humanitarian">satellite-image-deep-learning interview</a> <a href="https://hotosm.org/en/request-for-proposals/open-call-for-earth-observation-geoai-models/">open call</a></p>
+          <p><strong>Aleksander Madry is returning to OpenAI</strong> to work with Jakub Pachocki on the safety and pacing of AI progress. <a href="https://madrobot.blog/2026/10/19/aleksander-madry-returns-openai-ai-safety-security-pachocki/">MadRobot</a></p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-20.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
