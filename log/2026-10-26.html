@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheaper long-running agents come from the harness, not the model · Research Log · Brandon B. May</title>
+  <meta name="description" content="With no new frontier model in the window, the day&#x27;s real story is economic: three independent lines of work cut the cost of agents that run for hours, while the enterprise market shows the same logic in pricing, and a quiet AV day leaves one embodied result worth noting.">
+  <meta property="og:title" content="Cheaper long-running agents come from the harness, not the model · Research Log · Brandon B. May">
+  <meta property="og:description" content="With no new frontier model in the window, the day&#x27;s real story is economic: three independent lines of work cut the cost of agents that run for hours, while the enterprise market shows the same logic in pricing, and a quiet AV day leaves one embodied result worth noting.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-26.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-26.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cheaper long-running agents come from the harness, not the model · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="With no new frontier model in the window, the day&#x27;s real story is economic: three independent lines of work cut the cost of agents that run for hours, while the enterprise market shows the same logic in pricing, and a quiet AV day leaves one embodied result worth noting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Monday, October 26, 2026</p>
+      <h2 class="section-title">Cheaper long-running agents come from the harness, not the model</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>The agent-harness cost thesis sharpens across three papers in this week's NLP Newsletter roundup.</strong> OO-Harness evolves specialized harnesses as subclasses and routes to them, lifting AutomationBench from 61.6% to 77.4% with the same Gemini 3.5 Flash executor; <a href="https://www.marktechpost.com/2026/10/26/tsinghua-akv-kv-cache-engineering-llm-agents/">Cache Engineering (AKV)</a> lets the agent control its own KV cache, cutting cost 27.7% versus summarization; and <a href="https://arxiv.org/abs/2610.21412v1">JevAgentHarness</a> delegates routine tool choices to a fitted 4B decision model at 81% to 89% lower cost. The lever for cheaper long-running agents is increasingly the harness and serving layer, not the next model checkpoint. Genuinely useful, with the usual single-benchmark caveats, and note that no public paper link for OO-Harness itself surfaced yet: it is reported here via the newsletter roundup and the Knowledge Vault entry filed today.</p>
+          <p><strong>MemoryTax: stop overengineering agent memory (Shanghai Jiao Tong).</strong> Across seven memory approaches on one 419-turn LoCoMo conversation, Mem0 only won with the weakest model (GPT-4o-mini); with Claude Opus 5.5, agent-directed search of raw history hit 99% for under half the full-context cost, and memory quality was capped by the model that wrote it (<a href="https://zedongpeng.com/memorytax/">author page</a>). Start with full context, add a memory layer only where reuse justifies it, and keep original records. Caveat: one conversation, one run per config, so treat it as a framework, not a verdict.</p>
+          <p><strong>OpenAI is reportedly discounting enterprise deals 20% to 40% to win Anthropic customers.</strong> Reporting (The Information, via <a href="https://www.siliconreport.com/openai-reportedly-pulls-major-customers-from-anthropic-with-discounts">SiliconReport</a>) names Rippling (OpenAI coding share 16% to 52%, Anthropic 57% to 18%), Replit (30% or more off a contract worth over $100M a year), and DataCamp (claimed 80% to 90% cost reduction). Model choice for many everyday workloads is becoming a procurement negotiation, not a capability decision. Commercial signal, not a technical one, and the savings claims are vendor and customer statements without independent audit.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>No new frontier model releases in the window.</strong> The Oct 28-31 tracker pegs mentioned yesterday remain unconfirmed projections. Kimi K3.1 Pro weights are still unpublished ahead of the promised Nov 4 date; that remains the watch item, not a done deal.</p>
+          <p><strong>Four Gemini 4 Argon agents beating Minecraft (DeepMind) headlines the week's paper roundup.</strong> Four agents, no assigned roles or human-written game logic, defeated the Ender Dragon in 27 hours and 14 minutes after writing 2,783 programs and dying 605 times (<a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/google-deepmind-claims-four-gemini-4-agents-beat-minecraft-in-27-hours-by-writing-2-783-programs-of-their-own-the-ai-team-died-605-times-on-easy-difficulty-and-ran-up-an-estimated-usd520-in-tokens">Tom's Hardware</a>). A long-horizon coordination datapoint, not a game stunt; the caveats (single run, Easy difficulty, Mineflayer exposing game state) are stated by the authors. Already in the Knowledge Vault from earlier coverage.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>Quiet day on AV.</strong> No new AV papers in the window, and neither Bluesky account posted anything new in the window (latest jlake9 post is Oct 14; latest ericzzj posts are Oct 23, already covered). Wayve/Stellantis/NVIDIA France and Rivian/Third Dimension AI were covered Oct 24 and are not repeated as news.</p>
+          <p><strong>Closest embodied item: Agent S4 (Simular) lets a computer-use agent build its own interfaces from task experience.</strong> A meta-agent evolves interfaces plus usage notes without success labels; with Qwen3.8-27B it reaches 21.3% on OSWorld V2 (3.8x fixed interfaces, above GPT-5.5 and Claude Opus 4.8 at a fraction of their cost) and lifts ScienceBoard from 41.4% to 58.6% (<a href="https://arxiv.org/html/2610.28601v1">arXiv</a>). Interface design as an agent capability is a genuinely new improvement axis, though OSWorld scores remain low in absolute terms.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research/papers worth reading</h3>
+          <p><strong>OO-Harness (Google Cloud AI Research / UIUC).</strong> Evolved harness subclasses plus a test-time router; inheritance itself added about 5 points on Workspace-Bench versus flat evolved code. No public paper link surfaced for this item yet, so it is left unlinked here and reported via the newsletter roundup.</p>
+          <p><strong>Cache Engineering for Agents / AKV (Tsinghua / CUHK).</strong> Drop and reposition KV-cache operations with a stateless serving interface; up to 1.2x throughput, 1.5x faster P95 latency (<a href="https://www.marktechpost.com/2026/10/26/tsinghua-akv-kv-cache-engineering-llm-agents/">MarkTechPost</a>). Filed to the vault.</p>
+          <p><strong>Self-evolving continual learners (Google DeepMind / Mila).</strong> Across 12 method/scenario pairs, plasticity and stability correlate at r = -0.72: self-evolving agents improve on streams but forget, via global prompt edits and cross-domain memory collisions (<a href="https://academy.dair.ai/papers/are-self-evolving-agents-continual-learners-2610.25858">DAIR.AI</a>). Worth reading if you build self-improving agents; static benchmarks hide both failure modes.</p>
+          <p><strong>DiscoveryRSI (PhAI Labs / CUHK / Stanford / Harvard Medical School).</strong> Recursive self-improvement for scientific hypothesis generation; automated hypothesis quality rose from 4.86 to 5.39 after two rounds, with DFM-Bench released (<a href="https://arxiv.org/abs/2610.23839v1">arXiv</a>). Interesting for research automation, less directly relevant to AV.</p>
+          <p><strong>Transcoder features are neurons (Anthropic / Georgia Tech).</strong> Many late-layer transcoder features are close copies of single MLP neurons, casting doubt on non-neuron features as interpretability evidence (<a href="https://arxiv.org/html/2610.24521v1">arXiv</a>). Niche but a useful corrective.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents/tools/models</h3>
+          <p><strong>JevAgentHarness / AgentDecision-4B (UIUC / Princeton / Google).</strong> Fitted confidence thresholds let a decision model take routine choices with no outcome change on 500 tasks (14.2% lower cost); the open 4B model trained on post-mistake states beats Jev itself on out-of-distribution tasks (91.5% versus 82.0% solved) (<a href="https://arxiv.org/abs/2610.21412v1">arXiv</a>). Filed to the vault.</p>
+          <p><strong>Terminal-RSI (Tencent).</strong> Alternating fine-tuning and PPO from Qwen3.8-27B lifts Terminal-Bench average from 20.68% to 50.58%; a reward audit found dense progress rewards gave failed runs 50% of reward, cut to 28.7% by separating strict success from partial credit (<a href="https://arxiv.org/pdf/2610.22192.pdf">arXiv</a>). Useful methods note on reward design.</p>
+          <p><strong>Indra OCR 1.1 (Datalab).</strong> A 1M-parameter OCR model claiming 44 pages per second on a 32-core CPU, 15x faster than Tesseract, 80+ languages, layout plus line boxes (<a href="https://www.datalab.to/blog/indra-ocr-1-1">Datalab</a>). Small and CPU-friendly is the story; note this arrived in a sponsored slot, so treat the benchmarks as vendor claims until independently checked.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-25.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>

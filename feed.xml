@@ -6,6 +6,78 @@
   <description>Daily working notes on autonomous-vehicle AI and frontier AI research.</description>
   <language>en-us</language>
   <item>
+    <title>Cheaper long-running agents come from the harness, not the model</title>
+    <link>https://brandonbmay.com/log/2026-10-26.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-26.html</guid>
+    <pubDate>Mon, 26 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>The agent-harness cost thesis sharpens across three papers in this week's NLP Newsletter roundup.</strong> OO-Harness evolves specialized harnesses as subclasses and routes to them, lifting AutomationBench from 61.6% to 77.4% with the same Gemini 3.5 Flash executor; <a href="https://www.marktechpost.com/2026/10/26/tsinghua-akv-kv-cache-engineering-llm-agents/">Cache Engineering (AKV)</a> lets the agent control its own KV cache, cutting cost 27.7% versus summarization; and <a href="https://arxiv.org/abs/2610.21412v1">JevAgentHarness</a> delegates routine tool choices to a fitted 4B decision model at 81% to 89% lower cost. The lever for cheaper long-running agents is increasingly the harness and serving layer, not the next model checkpoint. Genuinely useful, with the usual single-benchmark caveats, and note that no public paper link for OO-Harness itself surfaced yet: it is reported here via the newsletter roundup and the Knowledge Vault entry filed today.</p>
+          <p><strong>MemoryTax: stop overengineering agent memory (Shanghai Jiao Tong).</strong> Across seven memory approaches on one 419-turn LoCoMo conversation, Mem0 only won with the weakest model (GPT-4o-mini); with Claude Opus 5.5, agent-directed search of raw history hit 99% for under half the full-context cost, and memory quality was capped by the model that wrote it (<a href="https://zedongpeng.com/memorytax/">author page</a>). Start with full context, add a memory layer only where reuse justifies it, and keep original records. Caveat: one conversation, one run per config, so treat it as a framework, not a verdict.</p>
+          <p><strong>OpenAI is reportedly discounting enterprise deals 20% to 40% to win Anthropic customers.</strong> Reporting (The Information, via <a href="https://www.siliconreport.com/openai-reportedly-pulls-major-customers-from-anthropic-with-discounts">SiliconReport</a>) names Rippling (OpenAI coding share 16% to 52%, Anthropic 57% to 18%), Replit (30% or more off a contract worth over $100M a year), and DataCamp (claimed 80% to 90% cost reduction). Model choice for many everyday workloads is becoming a procurement negotiation, not a capability decision. Commercial signal, not a technical one, and the savings claims are vendor and customer statements without independent audit.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>No new frontier model releases in the window.</strong> The Oct 28-31 tracker pegs mentioned yesterday remain unconfirmed projections. Kimi K3.1 Pro weights are still unpublished ahead of the promised Nov 4 date; that remains the watch item, not a done deal.</p>
+          <p><strong>Four Gemini 4 Argon agents beating Minecraft (DeepMind) headlines the week's paper roundup.</strong> Four agents, no assigned roles or human-written game logic, defeated the Ender Dragon in 27 hours and 14 minutes after writing 2,783 programs and dying 605 times (<a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/google-deepmind-claims-four-gemini-4-agents-beat-minecraft-in-27-hours-by-writing-2-783-programs-of-their-own-the-ai-team-died-605-times-on-easy-difficulty-and-ran-up-an-estimated-usd520-in-tokens">Tom's Hardware</a>). A long-horizon coordination datapoint, not a game stunt; the caveats (single run, Easy difficulty, Mineflayer exposing game state) are stated by the authors. Already in the Knowledge Vault from earlier coverage.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>Quiet day on AV.</strong> No new AV papers in the window, and neither Bluesky account posted anything new in the window (latest jlake9 post is Oct 14; latest ericzzj posts are Oct 23, already covered). Wayve/Stellantis/NVIDIA France and Rivian/Third Dimension AI were covered Oct 24 and are not repeated as news.</p>
+          <p><strong>Closest embodied item: Agent S4 (Simular) lets a computer-use agent build its own interfaces from task experience.</strong> A meta-agent evolves interfaces plus usage notes without success labels; with Qwen3.8-27B it reaches 21.3% on OSWorld V2 (3.8x fixed interfaces, above GPT-5.5 and Claude Opus 4.8 at a fraction of their cost) and lifts ScienceBoard from 41.4% to 58.6% (<a href="https://arxiv.org/html/2610.28601v1">arXiv</a>). Interface design as an agent capability is a genuinely new improvement axis, though OSWorld scores remain low in absolute terms.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research/papers worth reading</h3>
+          <p><strong>OO-Harness (Google Cloud AI Research / UIUC).</strong> Evolved harness subclasses plus a test-time router; inheritance itself added about 5 points on Workspace-Bench versus flat evolved code. No public paper link surfaced for this item yet, so it is left unlinked here and reported via the newsletter roundup.</p>
+          <p><strong>Cache Engineering for Agents / AKV (Tsinghua / CUHK).</strong> Drop and reposition KV-cache operations with a stateless serving interface; up to 1.2x throughput, 1.5x faster P95 latency (<a href="https://www.marktechpost.com/2026/10/26/tsinghua-akv-kv-cache-engineering-llm-agents/">MarkTechPost</a>). Filed to the vault.</p>
+          <p><strong>Self-evolving continual learners (Google DeepMind / Mila).</strong> Across 12 method/scenario pairs, plasticity and stability correlate at r = -0.72: self-evolving agents improve on streams but forget, via global prompt edits and cross-domain memory collisions (<a href="https://academy.dair.ai/papers/are-self-evolving-agents-continual-learners-2610.25858">DAIR.AI</a>). Worth reading if you build self-improving agents; static benchmarks hide both failure modes.</p>
+          <p><strong>DiscoveryRSI (PhAI Labs / CUHK / Stanford / Harvard Medical School).</strong> Recursive self-improvement for scientific hypothesis generation; automated hypothesis quality rose from 4.86 to 5.39 after two rounds, with DFM-Bench released (<a href="https://arxiv.org/abs/2610.23839v1">arXiv</a>). Interesting for research automation, less directly relevant to AV.</p>
+          <p><strong>Transcoder features are neurons (Anthropic / Georgia Tech).</strong> Many late-layer transcoder features are close copies of single MLP neurons, casting doubt on non-neuron features as interpretability evidence (<a href="https://arxiv.org/html/2610.24521v1">arXiv</a>). Niche but a useful corrective.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents/tools/models</h3>
+          <p><strong>JevAgentHarness / AgentDecision-4B (UIUC / Princeton / Google).</strong> Fitted confidence thresholds let a decision model take routine choices with no outcome change on 500 tasks (14.2% lower cost); the open 4B model trained on post-mistake states beats Jev itself on out-of-distribution tasks (91.5% versus 82.0% solved) (<a href="https://arxiv.org/abs/2610.21412v1">arXiv</a>). Filed to the vault.</p>
+          <p><strong>Terminal-RSI (Tencent).</strong> Alternating fine-tuning and PPO from Qwen3.8-27B lifts Terminal-Bench average from 20.68% to 50.58%; a reward audit found dense progress rewards gave failed runs 50% of reward, cut to 28.7% by separating strict success from partial credit (<a href="https://arxiv.org/pdf/2610.22192.pdf">arXiv</a>). Useful methods note on reward design.</p>
+          <p><strong>Indra OCR 1.1 (Datalab).</strong> A 1M-parameter OCR model claiming 44 pages per second on a 32-core CPU, 15x faster than Tesseract, 80+ languages, layout plus line boxes (<a href="https://www.datalab.to/blog/indra-ocr-1-1">Datalab</a>). Small and CPU-friendly is the story; note this arrived in a sponsored slot, so treat the benchmarks as vendor claims until independently checked.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
+    <title>OpenAI lands on Google Cloud while Kimi&#x27;s promised weights stay unpublished</title>
+    <link>https://brandonbmay.com/log/2026-10-25.html</link>
+    <guid>https://brandonbmay.com/log/2026-10-25.html</guid>
+    <pubDate>Sun, 25 Oct 2026 12:00:00 -0400</pubDate>
+    <description><![CDATA[<article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>OpenAI's models are now listed on Google Cloud, in Gemini's Model Garden via the Cloud Marketplace.</strong> Frontier models plus Codex programming workflows are available with standard Cloud billing, and purchases can draw down existing Google Cloud spending commitments (<a href="https://www.reuters.com/business/retail-consumer/openai-sell-its-top-models-google-cloud-latest-enterprise-push-2026-10-21/">Reuters</a>). This is less a capability change than a distribution one, and a sign of the hyperscaler truce era where rival clouds sell each other's models. It is genuinely useful if you deploy on Google Cloud, but it does not change what the models can do.</p>
+          <p><strong>Kimi K3.1 Pro's promised weights are still unpublished, and the license is still unknown.</strong> As of this morning there is no K3.1 Pro repository on Moonshot's Hugging Face org (the latest repo remains Kimi-K3, updated Sept 2), and the Nov 4 date is a company statement, not a shipped artifact (<a href="https://geotoolbox.ai/blog/what-is-kimi-ai">Geotoolbox</a>). The weights, not the date, are the operational reality for anyone planning to self-host or verify the benchmarks, so treat Nov 4 as a deadline to watch, not a done deal. This is a follow-up to yesterday's top story.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>No new frontier model releases, and the Oct 28-31 tracker pegs for Anthropic, OpenAI, and Mistral remain unconfirmed projections, not announcements.</strong> Anthropic's newsroom shows nothing pending beyond Oct 22 posts, so there is no announcement to cite yet. Worth watching next week, but nothing to act on yet.</p>
+          <p><strong>MiniMax and DeepSeek have registered AI exports under China's new compulsory registration regime</strong> for 23 categories of AI technology, a week after Beijing made registration mandatory (<a href="https://siliconnoon.com/china-ai-export-rules-deepseek-and-minimax-clear-registration/">SiliconNoon</a>). This is a regulatory signal for open-weight distribution, not a technical development.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>Zoox is now running robotaxi service to Las Vegas airport, the second company after Waymo to operate at a US airport.</strong> Early user reports put fares roughly at Uber and Lyft levels ($23 to the MGM Grand, $26 to the Bellagio), and the service covers both airport terminals (<a href="https://www.aviationpros.com/airport-business/news/55402895/zoox-launches-first-fully-driverless-robotaxi-service-at-las-vegas-airport">Aviation Pros</a>). This is another deployment milestone in what is becoming the most concentrated robotaxi market in the US, with Tesla, Uber, and Waymo all holding Nevada permits. It is still a deployment step, not a research result.</p>
+          <p><strong>Quiet on the paper front:</strong> the arXiv driving feed shows nothing new since the Oct 22 batch already covered yesterday, and neither Bluesky account posted anything new in the window. No padding: the Oct 22 batch remains the current reading list.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research/papers worth reading</h3>
+          <p><strong>Nothing new in this window.</strong> If you have not read them yet, yesterday's batch stands: <a href="https://arxiv.org/abs/2610.30319">TerraTransfer++</a> (demo-free end-to-end planner, 59.4 EPDMS on NAVSIM navhard), <a href="https://arxiv.org/abs/2610.29676">DriveMLP</a> (lightweight MLP planner, 86.51 on nuPlan Val14 Reactive), NVIDIA's <a href="https://arxiv.org/abs/2610.30340">Foundation4D</a> (unified perception and reconstruction), and the <a href="https://arxiv.org/abs/2610.30953">counterfactual study</a> showing driving VLAs' stated reasoning is weakly coupled to their trajectories.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents/tools/models</h3>
+          <p><strong>Block's Dessa is a full-duplex voice model that can listen while it speaks, trained entirely on speech, and reportedly runs locally on a MacBook M4 Max</strong> (<a href="https://www.unite.ai/block-unveils-dessa-a-full-duplex-speech-model-trained-on-conversation/">Unite.AI</a>). On-device, full-duplex voice changes the privacy and latency math for voice agents, but the caveat is that these are company claims with no independent evaluation yet. Worth watching, not yet worth building on.</p>
+          <p><strong>Cerebras published a writeup of serving a 3-trillion-parameter Kimi across 59 wafers at 1,000-2,000+ tokens per second</strong>, using pipeline parallelism, 4-bit weights, and an 8-bit KV cache (<a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras">Cerebras</a>). This is a concrete datapoint on what wafer-scale inference buys for trillion-parameter mixture-of-experts models, but the gap between the demo rig and publicly accessible Cerebras models (still capped around GPT OSS 120B and Qwen 27B class) keeps this in the impressive engineering, not yet a product bucket.</p>
+          <p><strong>Sebastian Raschka released "Build Your Own Reasoning Model" as a full video course: eight videos, 11+ hours, implementing evaluation, inference-time scaling, RL, and distillation in Python and PyTorch on a small Qwen3</strong> (<a href="https://sebastianraschka.com/reasoning-from-scratch/">Raschka</a>). Genuinely useful if you want the reasoning-model recipe from first principles rather than from API docs.</p>
+          <p><strong>A scrappy harness called GVS5H orchestrates five Qwen3.8-27B instances through a shared filesystem and hits 92.4% pass@1 on LiveCodeBench hard, roughly tied with Claude Fable 5's 90.4%</strong> (<a href="https://github.com/slee-persis/GVS5H">GitHub</a>). The catch: giving models an agentic loop on a benchmark designed for single-pass evaluation is not a fair comparison, and LiveCodeBench is a saturated 2025-era benchmark. The real story is cost: frontier-class coding scores on hardware you already own.</p>
+        </article>
+      </article>]]></description>
+  </item>
+  <item>
     <title>Open weights close to a month behind the frontier as frontier training goes offline</title>
     <link>https://brandonbmay.com/log/2026-10-24.html</link>
     <guid>https://brandonbmay.com/log/2026-10-24.html</guid>
