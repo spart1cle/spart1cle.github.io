@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The world model that checks its own work · Research Log · Brandon B. May</title>
+  <meta name="description" content="Google pairs a gated cybersecurity frontier model with a world model that plans and verifies its own simulations, while OpenAI&#x27;s historic proof claims wait for the artifacts that would settle them, and robotaxi coverage keeps expanding on the ground.">
+  <meta property="og:title" content="The world model that checks its own work · Research Log · Brandon B. May">
+  <meta property="og:description" content="Google pairs a gated cybersecurity frontier model with a world model that plans and verifies its own simulations, while OpenAI&#x27;s historic proof claims wait for the artifacts that would settle them, and robotaxi coverage keeps expanding on the ground.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-29.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-29.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The world model that checks its own work · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="Google pairs a gated cybersecurity frontier model with a world model that plans and verifies its own simulations, while OpenAI&#x27;s historic proof claims wait for the artifacts that would settle them, and robotaxi coverage keeps expanding on the ground.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Thursday, October 29, 2026</p>
+      <h2 class="section-title">The world model that checks its own work</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Google unveils Gemini 4 Carbon, a cybersecurity-first frontier model, two weeks after Argon.</strong> Carbon is pitched as Google's strongest model for finding vulnerabilities, validating exploits, and writing root-cause patches, plus long-horizon engineering work sustained over days. Google reports 88.2% on SEC-bench Pro, 54.8% on ExploitGym, 71.0% on CWE-bench, and first place on Artificial Analysis' Intelligence Index v5.0 at 59, ahead of Claude Opus 5.5 (58) and GPT-6 Astra (57). The catch is access: it goes first to a subset of vetted cyber defenders through Google's Fairwind Program, with no public date, at $2/$10 per million tokens intro pricing that later doubles. Genuinely significant as a frontier release, but the headline numbers are mostly self-reported and the model is unusable by almost everyone today, so treat the ranking as a claim to test, not a verdict. (<a href="https://www.reuters.com/technology/google-launches-gemini-4-carbon-ai-model-with-cybersecurity-focus-2026-10-28/">Reuters</a>)</p>
+          <p><strong>Genie 4 is DeepMind's most AV-relevant world model yet: native audio plus a planner inside the generation loop.</strong> The real-time interactive world model now generates music, ambient sound, and dialogue natively, holds scenes together for up to 2 minutes (double its predecessor), and lets users steer mid-simulation in plain language. The bigger change is architectural: Gemini 3.8 Flash sits in the loop breaking goals into steps, checking frames to confirm each step happened, and replanning when the world shifts, while Gemini Omni grounds scenes in real-world appearance. DeepMind is already pairing it with Gemini Robotics. For driving and robotics, the agent-checked world model is the interesting part, a potential training ground where a planner verifies its own simulated rollouts; DeepMind is upfront that object permanence still drifts in long sessions and in-world text is illegible. Research preview for trusted testers first. (<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/">Google DeepMind</a>)</p>
+          <p><strong>OpenAI's claimed proofs are the week's biggest "if true" story, and only one leg is checkable.</strong> OpenAI says its models produced a Lean-formalized disproof of the Exponential Time Hypothesis, a proof of the local smoothing conjecture in all dimensions (which would also settle Kakeya and Stein restriction), and rigorous existence proofs for interacting 4D quantum field theories including QCD, with pure Yang-Mills existence as a subproblem of a Clay Millennium Prize problem. The math and CS proofs are public and machine-checked; the physics proof, led by Nobel laureate David Gross with Michael Douglas, Arthur Jaffe, Igor Klebanov, and Nikita Nekrasov, has no public artifact yet, and the ETH examiners say their involvement "should not be taken as certification." OpenAI gave $5M to the Simons Foundation for review workshops and has not said which model did any of this. If the QCD proof holds it is historic; until the artifact appears, patience is the only honest posture. In the same vein, Axiom's agents machine-checked the 15,000-page classification of finite simple groups in 24 days and found 34 errors. (<a href="https://glonce.com/openai-says-its-models-refuted-the-eth-and/">coverage of the OpenAI claims</a>, <a href="https://www.tokenpost.com/news/technology/42182">Axiom coverage</a>)</p>
+          <p><strong>Waymo expands about 250 square miles across five cities while Tesla passes it in Austin on a narrow metric.</strong> Waymo added coverage in Los Angeles, Nashville, Orlando, San Diego, and the Bay Area, nearly doubling San Diego to 233 sq km, with 500,000+ weekly paid rides and 14M+ paid trips in 2025. Meanwhile Tesla logged about 438,000 driverless miles in Austin in the week ending Oct 18, edging Waymo's Q2 Austin average of about 406,000, and Cybercabs now outnumber Model Ys in Texas robotaxi registrations (573 of 1,080). The Austin headline needs its caveat: it compares Tesla's best week (community Robotaxi Tracker data, including remote-assisted miles) against Waymo's spring average, and nationally Waymo still runs about 7x Tesla's weekly miles (3.9M vs 558,000). Useful as a deployment-ramp datapoint, not as a verdict on who leads. (<a href="https://electrek.co/2026/10/27/waymo-expansion-250-square-miles-five-cities/">Electrek on the Waymo expansion</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>GPT-6.1 Terra detail, follow-up to Tuesday's coverage.</strong> The new numbers sharpen the picture: $1/$5 per million tokens ($0.05 cached), tasks finished 3x+ faster than Astra and Sol, Agents' Last Exam at medium effort matching GPT-6 Astra at roughly a tenth the token price, 15 points above GPT-5.6 Terra, Terminal-Bench 4.0 up from 21.5% to 50.3%, and internal factual error rate down to 4.3% at max effort. Hard coding still points to Sol/Astra. The mid-tier/flagship gap for agentic computer-use work is now mostly a price difference, which is the actionable part. (<a href="https://siliconangle.com/2026/10/26/openai-launches-gpt-6-1-terra-for-faster-better-performing-ai-agents-at-half-the-price/">SiliconANGLE on Terra</a>)</p>
+          <p><strong>Anthropic puts Claude to work in real drug labs, with Claude Science as the workbench.</strong> Across six biotech partnerships: Generate Biomedicines used Claude Code agents to redesign cancer-therapy instructions to a version 70% shorter that generated 10x more receptors on cell surfaces in lab tests; Divergence Labs generated about 35,000 antibody designs for food allergies; Bristol Myers Squibb is using Claude for clinical-trial planning including success prediction. Anthropic also acquired one-person biotech Mithril Medicine and is running its own programs for rare childhood diseases and cancer. All preclinical, no patients yet, but this is real pipeline work rather than demos. (<a href="https://www.beckershospitalreview.com/healthcare-information-technology/ai/anthropic-buys-drug-startup-reports-claude-results-with-6-partners/?utm_content=388435045&utm_medium=social&utm_source=linkedin&hss_channel=lcp-301340">Becker's Hospital Review</a>)</p>
+          <p><strong>Google Cloud puts Gemini Robotics ER 2 in public preview for enterprise robotics.</strong> The embodied-reasoning model for physical agents that check progress and self-correct is now available to enterprise deployments, alongside Genie 4's robotics experiments. Worth watching as the deployment path for DeepMind's embodied stack. (<a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud">Google Cloud Blog</a>)</p>
+          <p><strong>ChatGPT gains iCloud Mail and Calendar plugins, and OpenAI Dots can now message via iMessage/RCS.</strong> Small capability expansions, but the direction matters: assistants reaching into the user's own mail, calendar, and messaging channels. Anthropic, meanwhile, is letting all US Claude Max subscribers off the Claude Duet waitlist, with US Pro next. (<a href="https://dataconomy.com/2026/10/28/chatgpt-now-works-with-icloud-mail-and-calendar/">Dataconomy on the iCloud plugins</a>)</p>
+          <p><strong>IBM's STAIR retrieval system reportedly hallucinates 65x less than standard RAG, and NVIDIA released an open-source library aimed at stopping agents returning wrong data.</strong> Both are vendor-reported and detail-light, so file under "verify before adopting," not settled results. No citable source surfaced for these items in this pass, so they are left unlinked here.</p>
+          <p><strong>Mistral ships Timestral, four open-weight probabilistic forecasting models (5M to 209M parameters) with native known-future covariates.</strong> Mistral claims state of the art on GIFT-Eval, TIME, and fev-bench. Niche but genuinely useful for time-series work; company numbers as usual. (<a href="https://www.marktechpost.com/2026/10/18/mistral-timestral-time-series-foundation-model/">MarkTechPost</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>RynnWorld-Latent: a cross-embodiment world model conditioned on universal latent actions.</strong> Built on the RynnLAM latent-action representation from yesterday's RynnVLA-Latent, this video world model jointly pretrains on human videos, robot demos, and simulation rollouts (23 datasets, about 553.5M frames) without a common native action space, using global action tokens plus an identity-initialized local pathway. It improves video prediction on public benchmarks and two real-robot platforms, and both of its synthetic-data routes lift real-world policy success over real-demo-only training. This is the world-model companion to the latent-action VLA thesis: if one latent action space spans embodiments, both policies and their simulators can pretrain on the same heterogeneous video. (<a href="https://arxiv.org/abs/2610.36791">arXiv</a>)</p>
+          <p><strong>A caution flag for world models: none of today's latent world models faithfully model environment dynamics.</strong> Gonzalez Laiz and Schneider formalize "faithful" latent world models as an equivariance condition between the environment's transition map and learned latent dynamics, propose latent rollout consistency (LRC) as the metric, and find that across the studied state-of-the-art models, none solves the task by actually faithfully modeling dynamics. Read this alongside every world-model launch claim, including Genie 4 and RynnWorld: task performance is not the same as a correct dynamics model. (<a href="https://arxiv.org/abs/2610.37588">arXiv</a>)</p>
+          <p><strong>GameVerse: a minute-scale gameplay dataset for long-horizon interactive world modeling.</strong> 69.7K clips, 1,655 hours, 349.6M frames, including 1,358 hours of continuous two-minute sequences, with scene-consistent segmentation, camera-pose estimation, and event-aligned captions separating static context from dynamic events. The diagnosis is that world-model coherence collapses past about a minute because training clips are under ten seconds with coarse captions; training on GameVerse substantially extends the temporal horizon. Directly relevant to driving world models, where multi-minute consistency is the whole game. (<a href="https://arxiv.org/abs/2610.37257">arXiv</a>)</p>
+          <p><strong>SWIM: learn which simulator state features matter for JEPA world models instead of weighting them uniformly.</strong> An inverse-dynamics model learned from offline trajectories weights state features by their contribution to action prediction, defining a weighted state metric for state-supervised training, with no added planning-time compute. It consistently improves planning success across five simulated manipulation tasks. A small, principled fix for a real world-model training problem. (<a href="https://arxiv.org/abs/2610.36662">arXiv</a>)</p>
+          <p><strong>ARC: sparse human corrections that localize, not replace, robot policy learning.</strong> Adaptive Residual Correction learns an RL residual on top of a frozen imitation policy, using pre-intervention states to decide when the residual activates and correction geometry to decide where in residual action space to explore. Across three precision-manipulation tasks on a real robot, success rises from 33.3% to 75.0%, with task-dependent 2-3D subspaces retaining 96-97.7% of correction magnitude. A practical template for last-mile policy fixes without full retraining. (<a href="https://arxiv.org/abs/2610.37547">arXiv</a>)</p>
+          <p><strong>Rendering-free event-frame simulation makes RL for event-camera navigation 400x faster.</strong> An analytic simulator synthesizes event streams directly from scene geometry and ego-motion, producing a 64x64 event observation in 17 microseconds on one GPU, letting end-to-end RL converge in under 30 minutes. Policies transfer zero-shot to ray-traced Isaac Sim and to a 56-gram Crazyflie drone with a Prophesee camera, averaging 82% across three real obstacle courses with a 1.2 MB int8 network. Event cameras are a plausible low-latency sensing path for agile robots and vehicles; this removes the simulation bottleneck. (<a href="https://arxiv.org/abs/2610.37543">arXiv</a>)</p>
+          <p><strong>Stellantis joins the Wayve + NVIDIA + French government autonomy collaboration (announced Oct 23).</strong> Stellantis L4-ready platforms meet the Wayve AI Driver on NVIDIA Halos OS / Hyperion compute, framed as a French and European autonomy ecosystem. No launch date, fleet size, or cities yet, so this is a framework announcement, not a deployment. (<a href="https://www.media.stellantis.com/em-en/corporate/press/wayve-stellantis-and-nvidia-collaborate-to-advance-safe-and-responsible-autonomous-vehicle-deployment-across-france">Stellantis</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong>RynnWorld-Latent, the limits of latent world models, GameVerse, SWIM, ARC, and event-frame simulation (all above), plus MLE-World: predicting ML experiment outcomes with a learned world model</strong>, matching real terminal output on 77.9% of held-out programs and lifting agent performance up to 22.1% with less real execution: <a href="https://arxiv.org/abs/2610.37175">arXiv</a>.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools / models</h3>
+          <p><strong>MacPaw's Eney is a "proactive, never autonomous" assistant for Mac and iPhone</strong> that watches across apps and files, preps the next step, but asks before sending, scheduling, or moving anything. $14.99-$49.99/month after trial, Apple silicon and macOS 15+ only. The ask-before-acting design is the interesting contrast to fully autonomous agent pitches. (<a href="https://www.macrumors.com/2026/10/28/macpaw-launches-eney-ai-assistant-mac/">MacRumors</a>)</p>
+          <p><strong>Codex CLI 0.165.0 adds a built-in Google Cloud Vertex AI provider and GPT-6.1 Terra to the catalog</strong>, and Microsoft's MAI-Image-2.7-Preview debuts at #3 on Arena Edit. Routine tooling updates; the Vertex provider matters for teams standardizing on Google Cloud. No citable source surfaced for these items in this pass, so they are left unlinked here.</p>
+          <p><strong>Goodfire claims 90-99% of last-layer neurons are already interpretable (about 90% in language models).</strong> A bold vendor claim worth skepticism until the method and evaluation are public; if real, it changes the interpretability conversation, but "interpretable" needs a definition before the number means anything. No citable source surfaced for this item in this pass, so it is left unlinked here.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p><strong>Security patches worth acting on:</strong> a CVSS 9.8 remote code execution flaw in MLflow 3.12.0rc0 through 3.17.0, fixed in 3.17.0; a CVSS 9.3 path traversal in Google's MCP Toolbox 1.2.0-1.4.0, fixed in 1.5.0; and Cloudflare reports a KV cache bug exposed other customers' data in 155 GLM-5.3 Workers AI responses. Patch MLflow and MCP Toolbox if you run them. (<a href="https://securityonline.info/mlflow-vulnerability-exploited-poc/">MLflow coverage</a>; the MCP Toolbox and Cloudflare items are as reported in the roundup, with no citable source surfaced in this pass, so those parts are left unlinked here.)</p>
+          <p><strong>Compute scarcity as backdrop:</strong> AWS capacity is reportedly sold out through 2027 with chunks of 2028 committed, and TSMC is weighing a 10-20% CoWoS price hike plus 3-6% wafer increases from January 2027. Context for why inference efficiency and model cost curves keep dominating lab strategy. No citable source surfaced for this item in this pass, so it is left unlinked here.</p>
+          <p><strong>Apple ships iOS 27.2 with Siri memory of past conversations and five new languages</strong>, and over 300 Boston Dynamics employees petitioned against a $1.3M DHS contract routing Spot robots to ICE. The latter is a notable labor/embodied-AI flashpoint. No citable source surfaced for these items in this pass, so they are left unlinked here.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-28.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video becomes the robot&#x27;s training data · Research Log · Brandon B. May</title>
+  <meta name="description" content="While Liquid AI shrinks capable multimodal models to about a gigabyte for edge devices, three embodied AI papers argue the bigger shift is learning control from ordinary video and simulation rather than scarce robot demonstrations, even as Anthropic&#x27;s filing follow-up shows why compute costs now dominate lab strategy.">
+  <meta property="og:title" content="Video becomes the robot&#x27;s training data · Research Log · Brandon B. May">
+  <meta property="og:description" content="While Liquid AI shrinks capable multimodal models to about a gigabyte for edge devices, three embodied AI papers argue the bigger shift is learning control from ordinary video and simulation rather than scarce robot demonstrations, even as Anthropic&#x27;s filing follow-up shows why compute costs now dominate lab strategy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-28.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-28.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Video becomes the robot&#x27;s training data · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="While Liquid AI shrinks capable multimodal models to about a gigabyte for edge devices, three embodied AI papers argue the bigger shift is learning control from ordinary video and simulation rather than scarce robot demonstrations, even as Anthropic&#x27;s filing follow-up shows why compute costs now dominate lab strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Wednesday, October 28, 2026</p>
+      <h2 class="section-title">Video becomes the robot&#x27;s training data</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Liquid AI ships LFM3: six open-weight 2B-class models on one shared backbone.</strong> Text, vision, audio, omni, and two decision variants all branch from a 1.7B base pretrained on 22T tokens, with a 256K context window and a text model that fits in about 1 GB at 4-bit precision. Liquid claims the 1.7B text model beats its own larger LFM2.5-2.6B with 35% fewer parameters and decodes 1.8 to 2.8x faster than the next model on its tested on-device setups, and the vision model adds video input while the decision models return calibrated answers in a single forward pass. Genuinely useful for on-device and edge agents where a single GPU fine-tune and a tiny footprint matter; the vendor benchmarks need independent confirmation, and the Jetson action-chunk claim (under 50 ms) is the one to test for robotics. (<a href="https://www.liquid.ai/blog/lfm3">Liquid AI</a>, <a href="https://www.marktechpost.com/2026/10/27/liquid-ai-lfm3-open-weight-2b-multimodal-models/">MarkTechPost</a>)</p>
+          <p><strong>Anthropic's Managed Agents architecture, explained: separate the brain from the hands.</strong> In a Latent Space episode with Anthropic's engineering and product leads, the key design point is that the agent session and harness persist separately from the sandbox that executes code, so a failed sandbox does not kill the session, and sandboxes never receive service credentials (attached instead through a proxy with network controls). The same separation is credited with lower latency and better reliability versus putting the whole agent in a sandbox behind an API, and "dreaming" (memory) is implemented as one agent inspecting another's prior work. This is a genuinely useful mental model for anyone building agent runtimes, and it directly answers the recent sandbox-credential incidents: keep secrets out of the execution environment by construction, not by policy. (<a href="https://latent.space/p/how_anthropic_ships_the_1_llm_in_the_world_safely_separating_the_brain_from_the_hands/">Latent Space</a>)</p>
+          <p><strong>Baidu is reportedly developing a world model, with autonomous driving as a possible application.</strong> A TechNode report citing STAR Market Daily (Oct 28) says Baidu will share research progress soon; no technical details, and no disclosed relationship to Apollo Go, which now operates in 28 cities. Treat as a watch item only: Baidu's fleet data makes it a credible entrant, but until there is a paper or demo there is nothing to evaluate, and this item remains an unverified report. (<a href="https://technode.com/2026/10/28/baidu-reportedly-developing-world-model-as-autonomous-driving-ambitions-expand/">TechNode</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier AI labs</h3>
+          <p><strong>Follow-up on Anthropic's S-1: the compute commitments are the story.</strong> Coverage of the Oct 26 filing now puts the non-cancellable cloud commitments at roughly $266B in total ($114.5B to Google through July 2033, $110B to Amazon through April 2036, $44.9B to Microsoft through May 2033), against $16.3B in H1 2026 revenue, plus a separate SpaceX compute ceiling raised to $120.5B that is mostly terminable on 90 days' notice. The distinction matters: the hyperscaler deals are a fixed-cost floor, the SpaceX deal is reserved optionality on scarce GPUs. Useful context for why inference efficiency and model cost curves dominate lab strategy right now. (<a href="https://particle.news/story/anthropic-files-s1-for-nasdaq-listing-lays-out-soaring-revenue-giant-accounting-losses-and-safety">Particle</a>, <a href="https://www.ainvest.com/news/anthropic-120-5-billion-spacex-compute-deal-ceiling-bill-fixed-cost-floor-ant-ipo-turns-2610/">a16z/ainvest analysis</a>)</p>
+          <p><strong>Google Cloud detailed its A5X instances, powered by NVIDIA's Vera Rubin platform.</strong> They scale from a single 72-GPU rack to 80,000 GPUs in one data center, linked by sixth-generation NVLink, aimed at frontier training, RL, physical AI agents, and real-time inference. Note the timing carefully: Google's own announcement puts general availability next month, not this week, so treat any "already available" framing as premature. Infrastructure news, but the scale claim and the explicit physical-AI positioning make it relevant to training economics for driving and robotics workloads. (<a href="https://cloud.google.com/blog/topics/ai-infrastructure/google-cloud-infrastructure-at-nvidia-gtc-berlin-2026">Google Cloud Blog</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied-AI research</h3>
+          <p><strong>RynnVLA-Latent scales VLA pretraining with 3D-grounded latent actions learned from video, not robot controls.</strong> The RynnLAM encoder learns continuous latent actions from visual transitions across 30.1K hours of human, robot, and simulation video (745.5M latent-action descriptors), using residual future-feature prediction, camera-compensated 3D flow, and camera-motion decoupling so the representation captures control-relevant motion rather than appearance change. The resulting 4B policy hits 98.8% on LIBERO, 84.7% on LIBERO-Plus without benchmark-specific adaptation, 51.9% across five VLABench tracks, and 88.6% on RoboTwin 2.0 bimanual, plus the best compared success on six real-world manipulation tasks. This is the most promising attack yet on the action-data bottleneck: if latent actions from ordinary video transfer this well, the data ceiling for manipulation policies moves substantially. (<a href="https://arxiv.org/abs/2610.34356">arXiv</a>)</p>
+          <p><strong>Video world models need predictable latents.</strong> Scardecchia and Yang show that training the autoencoder's latent geometry for temporal predictability (temporal objectives plus a past-conditioned decoder) gives up to 5x cheaper inference, over 7x faster training, and 15 to 24% lower pixel and perceptual errors out of distribution and over long horizons, at the same training budget, with world-model rollouts agreeing more closely with real policy evaluation. A concrete design rule for anyone building video world models for driving or manipulation: optimize the latent space for dynamics, not just reconstruction. (<a href="https://arxiv.org/abs/2610.34663">arXiv</a>)</p>
+          <p><strong>Zero-HLM: humanoid loco-manipulation with no real robot data.</strong> A real-to-sim-to-real pipeline turns smartphone captures plus simulated source demonstrations into 4,800 physically validated demonstrations, with Gaussian-guided agentic scene reconstruction and motion-environment co-adaptation from rollout feedback. Simulation-trained GR00T N1.7 reaches 66.7% mean full-task success versus 46.7% for real-data training, and expanded simulation training lifts pooled success on generalized configurations from 23% to 69%. Strong evidence for sim-first humanoid data engines, with the usual caveat that zero-shot transfer claims need the real-robot details checked. (<a href="https://arxiv.org/abs/2610.35075">arXiv</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Research / papers worth reading</h3>
+          <p><strong>RynnVLA-Latent</strong> (above): <a href="https://arxiv.org/abs/2610.34356">arXiv</a>. <strong>Video World Models Need Predictable Latents</strong> (above): <a href="https://arxiv.org/abs/2610.34663">arXiv</a>. <strong>Zero-HLM</strong> (above): <a href="https://arxiv.org/abs/2610.35075">arXiv</a>.</p>
+          <p><strong>Pretraining Knows What, Simulation Teaches How</strong> (Scholar Inbox digest, Oct 26 paper): compositional generalization in a sim-trained robot agent; pairs naturally with Zero-HLM as the sim-data-engine theme of the week. No citable source surfaced for this item in this pass beyond the Scholar Inbox digest, so it is left unlinked here.</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools / models</h3>
+          <p><strong>LFM3</strong> (above) is the model release of the day for edge agents; <strong>1Password for Agents</strong> is rolling out for Muse and Grok Bot, letting an agent sign into a site with user approval without seeing the password. The latter is a small but real piece of the credential-isolation story from the Anthropic episode: secrets should be brokered, not handed to the agent. (<a href="https://1password.com/blog/1password-for-ai-agents">1Password</a>)</p>
+          <p><strong>Offline coding agents are practical for bounded tasks.</strong> A Latent Space guide runs OpenCode with Ollama and Qwen3.5 9B entirely on a laptop, keeping explain, refactor, and test-investigation workflows working with no network once models, dependencies, and tools are downloaded. Modest in scope and honest about it (no new packages, no web lookup), but a useful template for disconnected or air-gapped development. (<a href="https://latent.space/p/offline-coding/">Latent Space</a>)</p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable items</h3>
+          <p><strong>A quieter day overall.</strong> No new frontier model release beyond LFM3, no new AV deployment news, and no Bluesky posts from either tracked account in the window. The durable threads to keep watching are latent-action scaling for VLAs, predictable latents for world models, and the fixed-cost compute economics revealed by Anthropic's filing.</p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-27.html">Previous day</a></span>
+<span class="next"><a href="2026-10-29.html">Next day</a> &rarr;</span>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
