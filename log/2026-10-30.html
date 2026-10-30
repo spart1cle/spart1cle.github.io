@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waymo&#x27;s driver finds a second automaker · Research Log · Brandon B. May</title>
+  <meta name="description" content="With no new frontier model in the headlines, the day belonged to deployment, as Toyota put the Waymo Driver on its own hardware, Volvo doubled down on NVIDIA&#x27;s stack, and Waymo&#x27;s quarterly numbers showed the cost of scaling.">
+  <meta property="og:title" content="Waymo&#x27;s driver finds a second automaker · Research Log · Brandon B. May">
+  <meta property="og:description" content="With no new frontier model in the headlines, the day belonged to deployment, as Toyota put the Waymo Driver on its own hardware, Volvo doubled down on NVIDIA&#x27;s stack, and Waymo&#x27;s quarterly numbers showed the cost of scaling.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandonbmay.com/log/2026-10-30.html">
+  <link rel="canonical" href="https://brandonbmay.com/log/2026-10-30.html">
+  <link rel="alternate" type="application/rss+xml" title="Research Log &middot; Brandon B. May" href="../feed.xml">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Waymo&#x27;s driver finds a second automaker · Research Log · Brandon B. May">
+  <meta name="twitter:description" content="With no new frontier model in the headlines, the day belonged to deployment, as Toyota put the Waymo Driver on its own hardware, Volvo doubled down on NVIDIA&#x27;s stack, and Waymo&#x27;s quarterly numbers showed the cost of scaling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+  <link rel="stylesheet" href="../style.css?v=5">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .log-kicker { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .log-kicker a { color: var(--color-text-muted); }
+    .log-card-title { font-family: var(--font-sans); font-size: var(--font-size-lg); margin: 0 0 var(--space-md); color: var(--color-text); }
+    .log-card p { margin: 0 0 var(--space-md); }
+    .log-card p:last-child { margin-bottom: 0; }
+    .log-card ul { margin: 0 0 var(--space-md); padding-left: 1.25rem; }
+    .log-card li { margin-bottom: var(--space-sm); }
+    .log-prevnext { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+    .log-prevnext .next { margin-left: auto; text-align: right; }
+    .log-archive-card { margin-bottom: var(--space-md); cursor: pointer; }
+    .log-archive-card .log-archive-body { display: block; text-decoration: none; }
+    .log-archive-card:hover .log-archive-title { text-decoration: underline; }
+    .log-archive-card:focus-visible { outline: 2px solid var(--color-accent, #4f7cff); outline-offset: 2px; }
+    .log-archive-title { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 700; color: var(--color-text); }
+    .log-archive-summary { color: var(--color-text-secondary); margin: 2px 0 0; font-size: var(--font-size-sm); }
+    .rss-subscribe { font-family: var(--font-sans); font-size: var(--font-size-sm); margin: 0 0 var(--space-xl); }
+    .rss-subscribe a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#publications">Publications</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../reading.html">Reading</a>
+        <a href="../thoughts.html">Thoughts</a>
+        <a href="../log.html" class="active">Research Log</a>
+      </div>
+      <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <section class="section log-section">
+      <p class="log-kicker"><a href="../log.html">Research Log</a> &middot; Friday, October 30, 2026</p>
+      <h2 class="section-title">Waymo&#x27;s driver finds a second automaker</h2>
+      <p class="thoughts-subtitle">Daily working notes on autonomous-vehicle AI and frontier AI research.</p>
+      <article class="log-cards">
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Top developments</h3>
+          <p><strong>Toyota and Waymo will test autonomous bZ4X EVs in Japan in 2027, with the UK next.</strong> Toyota will build the vehicles at its Takaoka plant with Waymo hardware installed, starting with right-hand-drive markets before any wider rollout; Waymo is already testing Jaguar I-PACE vehicles in Japan and still plans a 2027 pilot with those. This is the first large-scale Toyota-platform deployment of the Waymo Driver, and it extends the cross-platform story beyond the NVIDIA-stack OEM deals: the same driver stack, a new OEM's vehicle. <a href="https://waymo.com/blog/2026/10/toyota-bz4x-partnership">Waymo</a></p>
+          <p><strong>Volvo deepens its NVIDIA bet toward eyes-off, then mind-off driving.</strong> Volvo will use NVIDIA's Alpamayo driving stack, Halos OS, and Hyperion sensor-and-compute architecture, with one next-generation model first in line and rollout expected within this decade. The framing matters: L3 "eyes-off" first, fully "mind-off" driving later, on a stack built for robotaxis as well as driver assistance. Mostly a consolidation datapoint rather than a new capability, but it keeps the NVIDIA-stack OEM bloc growing. <a href="https://evpowered.co.uk/news/volvo-expands-nvidia-partnership-for-eyes-off-mind-off-automated-driving/">EV Powered</a></p>
+          <p><strong>Elorian's Glimpse and the DecoyCount benchmark expose a visual grounding gap frontier models still have.</strong> DecoyCount tests whether models genuinely count objects or lean on visual shortcuts (reflections, packaging cues, expected counts); every frontier model scored below 50%, with GPT-6 Astra best at 43.17%, while Elorian's new visual-reasoning model Glimpse claims 50.48% on an internal single run. Glimpse's idea is "visual thinking": generating and editing images as part of the reasoning trace, not just as output. The benchmark paper is the checkable part; Glimpse's score is vendor-reported and single-run versus three-run averages for the others, so treat the lead as provisional. Still genuinely relevant to driving VLMs, where counting and grounding visible evidence is a safety-relevant skill, not a party trick. <a href="https://arxiv.org/html/2610.34855v1">DecoyCount paper</a>, <a href="http://latent.space/p/elorian/">Latent Space on Glimpse</a></p>
+          <p><strong>Waymo's Q3 numbers show scale and burn growing together.</strong> Alphabet's Other Bets (dominated by Waymo) posted $372M revenue, up 8% year over year, against a $2.05B operating loss, up from $1.43B a year earlier; Waymo cites 300M-plus fully autonomous miles, 15 US cities, and expansion plans into Canada, Germany, Singapore, and Spain, with German operations slated for 2027. Deployment momentum is real, but the loss widening is the honest counterweight to every expansion headline. <a href="https://www.marketbeat.com/instant-alerts/transcript-alphabet-q3-earnings-call-highlights-2026-10-29/">Alphabet Q3 earnings call highlights</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Frontier labs</h3>
+          <p><strong>Artificial Analysis' Intelligence Index v5 tries to fix benchmark cheating, and the leaderboard is now a moving target.</strong> 60% of the index now uses private test sets, with two new benchmarks: FrontierCode 2.0 (132 real repo tasks, graded on merge-worthiness) and Terminal-Bench-Science (70 agentic science workflows, all tests must pass). Claude Opus 5.5 leads at 58 with GPT-6 Astra at 57, the open-source gap widening from 3 to 12 points, and GPT-6.1 Sol within 4 points of the leader at roughly one-eighth the cost per task. Note the tension with yesterday's Carbon-at-59 claim: snapshots differ, so treat the exact ranking as fluid and the methodology change (private tests, effort settings swinging scores up to 23 points) as the durable news. <a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5">Artificial Analysis</a></p>
+          <p><strong>Anthropic ships Claude for Legal: six ready-to-run workflows, not just a smarter model.</strong> Cite Check, tabular contract review, regulatory scan, playbook deviation, jurisdiction matrix, and matter board arrive as pre-built artifacts with 60-plus connectors (Bloomberg Law, Docusign, Filevine), with firms contributing their own. The pattern to watch is vertical agents: the moat moves from the model to the workflow library. <a href="https://www.eweek.com/news/anthropic-claude-legal-ai-tools/">eWeek</a></p>
+          <p><strong>Qwen open-sources BabelArena, an agent benchmark across 23 languages, and it finds a cost gap hiding in plain sight.</strong> The headline finding: in one paired shopping task, an agent needed 201 tool calls in Telugu versus 25 in English for the same output. Multilingual agent cost and reliability is a real deployment variable that English-only evals hide. <a href="https://arxiv.org/abs/2609.23490v1">BabelArena paper</a></p>
+          <p><strong>NVIDIA releases Nemotron 3.5 Transcribe as open weights: one 30B model for speech across 40 languages.</strong> It transcribes 40 languages, translates 31 to and from English, and diarizes up to 8 speakers on recordings up to an hour, topping the Hugging Face Open ASR Leaderboard for English. A solid open building block for voice agents and meeting and robotics audio pipelines. <a href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary">NVIDIA</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">AV / embodied research</h3>
+          <p><strong>KITScenes: a unified benchmark for aerial-enhanced autonomous driving.</strong> Aerial imagery gives road structure beyond onboard sensors' immediate perception range; the dataset pairs aerial views with driving data to test whether that bird's-eye context actually helps. Worth a look for anyone working on mapping, long-range planning, or offboard priors. <a href="https://arxiv.org/abs/2610.40455">Paper</a></p>
+          <p><strong>How much should a VLA trust its reasoning? Step-level guidance as a measured action-value function.</strong> Reasoning VLA policies write a trace and then decode the action from it, but not every reasoning step deserves equal weight; this paper measures step-level guidance as an action-value function to calibrate how much the trace should drive the action. Directly relevant to the verifier trend and to deploying reasoning VLAs where a bad trace step becomes a bad trajectory. <a href="https://arxiv.org/abs/2610.40002">Paper</a></p>
+          <p><strong>LiDAR-SHIELD: a fully dockerized adversarial robustness framework for LiDAR 3D perception.</strong> Stress-testing perception models against adversarial inputs before real-world deployment, packaged so teams can actually run it. Unsexy, necessary infrastructure; the dockerized packaging is what makes it adoptable. <a href="https://arxiv.org/abs/2610.39848">Paper</a></p>
+          <p><strong>NVIDIA shows agents building Omniverse simulation apps from natural language.</strong> Demos include turning panoramic photos and point clouds into editable OpenUSD building models, what-if simulations around a gas turbine, and a warehouse sim running 30 fps in full HD with 80 conveyors, 40 arms, and 800 boxes (performance fell when the scene doubled). Demo-stage, but the direction is clear: agents as simulation authors, which is the data-engine bottleneck for driving and robotics. <a href="https://blockchain.news/news/nvidia-frontier-ai-agents-omniverse-simulation-applications">Blockchain.News</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Agents / tools</h3>
+          <p><strong>Nemotron 3.5 Transcribe</strong> (above) is the day's most directly usable open release for voice pipelines. <a href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary">NVIDIA</a></p>
+          <p><strong>Claude for Legal's artifact gallery</strong> (above) is the template to copy for vertical agent products. <a href="https://www.eweek.com/news/anthropic-claude-legal-ai-tools/">eWeek</a></p>
+          <p><strong>OpenAI and ServiceNow expand their partnership</strong>, connecting enterprise workflows directly into ChatGPT and Codex. A distribution move more than a capability one; it matters if your agents live in enterprise workflows. <a href="https://www.businesswire.com/news/home/20261028776113/en/ServiceNow-and-OpenAI-accelerate-enterprise-AI-from-models-and-operations-to-cybersecurity-and-agentic-development">ServiceNow</a></p>
+        </article>
+        <article class="thought-card log-card">
+          <h3 class="log-card-title">Other notable</h3>
+          <p><strong>A reported prompt-injection incident involving a fingerprinting script and scraper LLMs is circulating, with claims about a model complying with a hazardous synthesis request.</strong> No citable primary source could be verified for this item, so it is left unlinked and should be treated as an unverified report; the general point stands on its own: the web itself is now an attack surface for agent ingestion, not just the prompt box.</p>
+          <p><strong>Microsoft's quarter is the compute-economics backdrop:</strong> $92.3B revenue, a tenth straight record, including $10B booked from OpenAI commercial arrangements in one quarter, with Microsoft's OpenAI stake at 24%. Context for why inference efficiency and price curves keep dominating lab strategy. <a href="https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/">TechCrunch</a></p>
+        </article>
+      </article>
+      <nav class="log-prevnext" aria-label="More entries">
+<span class="prev">&larr; <a href="2026-10-29.html">Previous day</a></span>
+<!-- NEXT-LINK -->
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
